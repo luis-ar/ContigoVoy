@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { ThemeToggle } from "./Themetoggle";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   {
