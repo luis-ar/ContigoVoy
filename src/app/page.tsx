@@ -1,3 +1,4 @@
+"use client"
 import CardServices from "@/components/CardServices";
 import Slider from "@/components/Slider";
 
@@ -9,6 +10,8 @@ export default function Home() {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem id, accusantium eligendi tempora rerum nulla officia deleniti reprehenderit quaerat blanditiis dolorem odit hic cupiditate delectus quae obcaecati libero sint culpa.",
       imageUrl:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW4ohyCfSw224R31RSyR_ijVNCCX0ytw8xog&s",
+      color:
+        "bg-customCard-50"
     },
     {
       title: "Servicio 2",
@@ -16,6 +19,8 @@ export default function Home() {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem id, accusantium eligendi tempora rerum nulla officia deleniti reprehenderit quaerat blanditiis dolorem odit hic cupiditate delectus quae obcaecati libero sint culpa.",
       imageUrl:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW4ohyCfSw224R31RSyR_ijVNCCX0ytw8xog&s",
+        color:
+        "bg-customCard-100"
     },
     {
       title: "Servicio 3",
@@ -23,6 +28,8 @@ export default function Home() {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem id, accusantium eligendi tempora rerum nulla officia deleniti reprehenderit quaerat blanditiis dolorem odit hic cupiditate delectus quae obcaecati libero sint culpa.",
       imageUrl:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW4ohyCfSw224R31RSyR_ijVNCCX0ytw8xog&s",
+        color:
+        "bg-customCard-200"
     },
   ];
   return (
@@ -30,7 +37,7 @@ export default function Home() {
       <div className="flex gap-4 p-6 bg-purple-200 dark:bg-purple-500">
         <div className="w-2/3 flex-col space-y-5">
           <h1 className="text-l font-extrabold mt-8 text-white">TERAPIAS ONLINE</h1>
-          <h1 className="text-6xl font-bold text-purple-700">Estamos contigo ... <span className="text-sky-500"> y para ti</span></h1>
+          <h1 className="text-6xl font-bold text-purple-700">Estamos contigo <span className="text-sky-500"> y para ti</span></h1>
           <p className="text-xl text-white">
             Con nuestras terapias virtuales, transformamos tu vida y te acompañamos en cada paso de tu camino hacia la sanción</p>
           <div className="flex flex-wrap items-center justify-center">
@@ -48,6 +55,7 @@ export default function Home() {
             title={service.title}
             description={service.description}
             imageUrl={service.imageUrl}
+            color={service.color}
           />
         ))}
       </div>

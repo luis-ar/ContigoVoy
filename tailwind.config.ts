@@ -10,19 +10,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        // customBlue: {
-        //   50: "#f0faff",
-        //   100: "#e0f4ff",
-        //   200: "#bae4ff",
-        //   300: "#85d1ff",
-        //   400: "#47b7ff",
-        //   500: "#009eff",
-        //   600: "#008ae6",
-        //   700: "#006fbf",
-        //   800: "#005799",
-        //   900: "#003f73",
-        // },
-        // customGreen: "#32CD32",
+        customBlue: {
+          50: "#f0faff",
+          100: "#e0f4ff",
+          200: "#bae4ff",
+          300: "#85d1ff",
+          400: "#47b7ff",
+          500: "#009eff",
+          600: "#008ae6",
+          700: "#006fbf",
+          800: "#005799",
+          900: "#003f73",
+        },
+        customGreen: "#32CD32",
+        customCard: {
+          50: "#6249df",
+          100: "#3d9afc",
+          200: "#8283f9"
+        },
         minsk: {
           "50": "#eeeeff",
           "100": "#e2e1fe",

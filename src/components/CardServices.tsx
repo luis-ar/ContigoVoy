@@ -16,9 +16,10 @@ const CardServices: React.FC<CardServicesProps> = ({
   title,
   description,
   imageUrl,
+  color
 }) => {
   return (
-    <Card className="w-[350px]">
+    <Card className={`w-[350px] ${color} `}>
       <CardHeader>
         <CardDescription>
           <img src={imageUrl} alt="Imagen de servicio" />
