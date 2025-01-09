@@ -1,9 +1,6 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import LayoutHeader from "./header";
-import LayoutFooter from "./footer";
-import { ThemeProvider } from "./components/theme-provider";
+import { ThemeProvider } from "../components/theme-provider";
+import Navbar from "../components/Navbar";
 
 export default function RootLayout({
   children,
@@ -11,11 +8,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <LayoutHeader />
-        {children}
-        <LayoutFooter />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <div className="min-h-screen mt-[10vh] absolute p-6">{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   );
