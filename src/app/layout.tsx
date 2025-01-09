@@ -17,7 +17,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <div className="min-h-screen mt-[10vh] absolute p-6">{children}</div>
+          <div className="min-h-screen mt-[10vh] absolute ">{children}</div>
         </ThemeProvider>
       </body>
     </html>
