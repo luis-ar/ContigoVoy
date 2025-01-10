@@ -17,6 +17,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          
           <Navbar />
           <div className="min-h-screen mt-[10vh] absolute ">{children}</div>
         </ThemeProvider>
