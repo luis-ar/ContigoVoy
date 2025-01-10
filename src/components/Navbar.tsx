@@ -20,8 +20,8 @@ const navItems = [
     link: "/docs",
   },
   {
-    name: "Pricing",
-    link: "/pricing",
+    name: "Login",
+    link: "/login",
   },
 ];
 
