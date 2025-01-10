@@ -56,7 +56,11 @@ const pageLogin = () => {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="Insert your password" {...field} />
+                  <Input
+                    placeholder="Insert your password"
+                    {...field}
+                    type="password"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
