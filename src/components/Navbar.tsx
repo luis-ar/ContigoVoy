@@ -16,7 +16,7 @@ const navItems = [
   { name: "Login", link: "/login" },
 ];
 
-const Navbar = () => {
+const ENavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -111,4 +111,4 @@ const DesktopNav = ({ navItems, pathname }: { navItems: any[], pathname: string 
   );
 };
 
-export default Navbar;
+export default ENavbar;
