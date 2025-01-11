@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Contigo Voy
 
-## Getting Started
+## Descripción del Proyecto
 
-First, run the development server:
+**Contigo Voy** es una plataforma en línea diseñada para brindar servicios de psicología personalizados y accesibles.  
+Nuestros psicólogos cuentan con diversas especialidades, ofreciendo sesiones adaptadas a las necesidades individuales de cada paciente.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Especialidades
+- **Adicciones**
+- **Ansiedad**
+- **Atención**
+- **Crianza**
+- **Depresión**
+- **Estrés**
+- **Impulsividad**
+- **TOC (Trastorno Obsesivo Compulsivo)**
+- **Ira**
+- **Sexualidad**
+- **Traumas**
+- **Riesgo Sexual**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Beneficios de la Plataforma
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Sesiones privadas, confidenciales y seguras.**
+- **Ahorro de tiempo y desplazamientos.**
+- **Flexibilidad total para decidir dónde y cuándo realizar las sesiones.**
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Tecnologías Utilizadas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Frontend:** React con [Next.js](https://nextjs.org)
+- **Backend:** API construida con Spring Boot
+- **Diseño Responsivo:** TailwindCSS y componentes Next UI
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ¿Por qué confiar en Contigo Voy?
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Nuestros psicólogos son profesionales colegiados con un trato cercano.  
+Ya hemos ayudado a miles de pacientes a mejorar su calidad de vida.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Instalación
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/NEONHOUSELED-SAC/ContigoVoy2.git
+   ```
+2. Navega al directorio del proyecto e instala las dependencias:
+   ```bash
+   cd ContigoVoy2
+   npm install
+   ```
+3. Ejecuta la aplicación en modo de desarrollo:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## Contribuciones
+
+Si deseas contribuir al proyecto, por favor sigue estos pasos:
+1. Haz un fork del repositorio.
+2. Crea una rama con tu nueva característica o mejora:
+   ```bash
+   git checkout -b feature/nueva-caracteristica
+   ```
+3. Haz un commit de tus cambios y envía un pull request.
+
+---
+
+## Licencia
+
+Este proyecto está bajo la [Licencia MIT](https://github.com/nextui-org/vite-template/blob/main/LICENSE).
