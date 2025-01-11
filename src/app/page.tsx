@@ -2,6 +2,8 @@
 import CardServices from "@/components/CardServices";
 import Slider from "@/components/Slider";
 import { Button } from "@/components/ui/button";
+import AnimatedText from "@/components/AnimatedText";
+
 
 export default function Home() {
   const services = [
@@ -37,9 +39,7 @@ export default function Home() {
           <h1 className="text-l font-extrabold mt-8 text-white">
             TERAPIAS ONLINE
           </h1>
-          <h1 className="text-6xl font-bold text-purple-700">
-            Estamos contigo <span className="text-sky-500"> y para ti</span>
-          </h1>
+          <AnimatedText />
           <p className="text-xl text-white">
             Con nuestras terapias virtuales, transformamos tu vida y te
             acompañamos en cada paso de tu camino hacia la sanción
