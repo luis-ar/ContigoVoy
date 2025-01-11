@@ -19,7 +19,7 @@ const CardServices: React.FC<CardServicesProps> = ({
   color,
 }) => {
   return (
-    <Card className={`w-[350px] ${color} text-white text-center`}>
+    <Card className={`w-64 md:w-[350px] ${color} text-white text-center`}>
       <CardHeader className="pb-4">
         <CardDescription>
           <img src={imageUrl} alt="Imagen de servicio" className="rounded-lg" />
@@ -29,7 +29,7 @@ const CardServices: React.FC<CardServicesProps> = ({
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <p>{description}</p>
+        <p className="text-xs md:text-base">{description}</p>
       </CardContent>
       <CardFooter>
         <Button
