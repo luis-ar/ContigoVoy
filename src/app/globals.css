@@ -8,6 +8,10 @@ body {
 .splide__track {
   margin-bottom: 30px !important;
 }
+.splide--slide {
+  max-width: 100%;
+  max-height: 100%;
+}
 
 @layer base {
   /* :root {

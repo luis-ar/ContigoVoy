@@ -19,7 +19,7 @@ export default function RootLayout({
         >
           
           <Navbar />
-          <div className="min-h-screen mt-[10vh] absolute ">{children}</div>
+          <div className="min-h-screen mt-[10vh]">{children}</div>
         </ThemeProvider>
       </body>
     </html>
