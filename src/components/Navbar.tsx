@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
-import { ThemeToggle } from "./theme-toggle";
+import { ThemeToggle } from "./Themetoggle";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Menu } from 'lucide-react';
 
