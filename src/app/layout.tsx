@@ -2,6 +2,7 @@
 import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
 import Navbar from "../components/Navbar";
+import Footer from "./footer";
 
 export default function RootLayout({
   children,
@@ -20,6 +21,7 @@ export default function RootLayout({
           
           <Navbar />
           <div className="min-h-[90vh] mt-[10vh]">{children}</div>
+          <Footer /> 
         </ThemeProvider>
       </body>
     </html>
