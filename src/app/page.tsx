@@ -1,6 +1,9 @@
 "use client";
+
 import CardServices from "@/components/CardServices";
 import Slider from "@/components/Slider";
+import ChooseUs from "@/components/main/chooseUs";
+import TherapyServices from "@/components/main/therapyServices";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
@@ -54,6 +57,8 @@ export default function Home() {
           <Slider />
         </div>
       </div>
+      <TherapyServices />
+      <ChooseUs />
       <div className="pt-4">
         <p className="text-center text-2xl md:text-3xl xl:text-4xl font-bold text-minsk-800 dark:text-primary ">
           Nuestros Servicios
