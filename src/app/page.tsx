@@ -1,5 +1,6 @@
 "use client";
 import CardServices from "@/components/CardServices";
+import CardServicesAnimation from "@/components/CardServicesAnimation";
 import Slider from "@/components/Slider";
 import { Button } from "@/components/ui/button";
 import AnimatedText from "@/components/AnimatedText";
@@ -54,13 +55,13 @@ export default function Home() {
           <Slider />
         </div>
       </div>
-      <div className="pt-4">
-        <p className="text-center text-2xl md:text-3xl xl:text-4xl font-bold text-minsk-800 dark:text-primary ">
+      <div className="pt-6 pb-16">
+        <p className="text-center text-2xl md:text-4xl xl:text-5xl font-bold text-minsk-800 dark:text-primary ">
           Nuestros Servicios
         </p>
         <div className="flex flex-wrap gap-4 items-center justify-center mt-8 ">
           {services.map((service, index) => (
-            <CardServices
+            <CardServicesAnimation
               key={index}
               title={service.title}
               description={service.description}
