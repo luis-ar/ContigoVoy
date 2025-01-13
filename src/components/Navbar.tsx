@@ -5,15 +5,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
-import { ThemeToggle } from "./Themetoggle";
+// import { ThemeToggle } from "./Themetoggle"; // Removed unused import
 import { cn } from "@/lib/utils";
 import { ChevronDown, Menu } from 'lucide-react';
 
 const navItems = [
-  { name: "Home", link: "/" },
+  { name: "Sobre Nosotros", link: "/" },
+  { name: "Servicios", link: "/services" },
+  { name: "Contáctanos", link: "/contact" },
+  { name:  "Preguntas Frecuentes", link: "/faq"},
   { name: "Blog", link: "/blog" },
-  { name: "Contacto", link: "/contact" },
-  { name: "Login", link: "/login" },
 ];
 
 const ENavbar = () => {
@@ -24,15 +25,13 @@ const ENavbar = () => {
     <Navbar 
       isBordered 
       isBlurred={false}
-      className="bg-background/70 backdrop-blur-md fixed w-full z-50"
+      className="bg-background/70 backdrop-blur-md fixed w-full z-50 flex-col justify-center"
       maxWidth="2xl"
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent>
         <NavbarBrand>
-          <Link href="/" className="font-bold text-2xl sm:text-3xl">
-            Contigo<span className="text-primary">Voy</span>
-          </Link>
+          <img src="logo.gif" alt="logo" className="w-40 h-auto" />
         </NavbarBrand>
       </NavbarContent>
 
@@ -42,10 +41,10 @@ const ENavbar = () => {
 
       <NavbarContent justify="end">
         <NavbarItem className="hidden sm:flex">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */} {/* Removed ThemeToggle */}
         </NavbarItem>
         <NavbarItem className="sm:hidden">
-          <Dropdown>
+          <Dropdown>a
             <DropdownTrigger>
               <Button
                 isIconOnly
@@ -58,16 +57,26 @@ const ENavbar = () => {
             <DropdownMenu aria-label="Navigation menu">
               {navItems.map((item, index) => (
                 <DropdownItem key={index} textValue={item.name}>
-                  <Link href={item.link} className="w-full">
+                  <Link href={item.link} className="w-full text-[#634AE2]">
                     {item.name}
                   </Link>
                 </DropdownItem>
               ))}
-              <DropdownItem textValue="Theme toggle">
+              {/* <DropdownItem textValue="Theme toggle">
                 <ThemeToggle />
-              </DropdownItem>
+              </DropdownItem> */} {/* Removed ThemeToggle */}
             </DropdownMenu>
           </Dropdown>
+        </NavbarItem>
+        <NavbarItem className="sm:flex">
+          <Link href="/login">
+            <Button
+              variant="bordered"
+              className="border-[#634AE2] text-[#634AE2] rounded-full px-6"
+            >
+              Iniciar Sesion
+            </Button>
+          </Link>
         </NavbarItem>
       </NavbarContent>
     </Navbar>
@@ -89,7 +98,7 @@ const DesktopNav = ({ navItems, pathname }: { navItems: any[], pathname: string 
             onMouseEnter={() => setHovered(idx)}
             className={cn(
               "relative px-4 py-2 rounded-full transition-colors",
-              pathname === navItem.link ? "text-primary" : "text-foreground/80"
+              pathname === navItem.link ? "text-[#634AE2]" : "text-[#634AE2]"
             )}
           >
             {hovered === idx && (
