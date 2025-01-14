@@ -107,6 +107,7 @@ const DesktopNav = ({ navItems, pathname }: { navItems: any[], pathname: string 
           </Link>
         </NavbarItem>
       ))}
+
     </motion.div>
   );
 };
