@@ -119,4 +119,42 @@ const ENavbar = () => {
   );
 };
 
+const DesktopNav = ({ navItems, pathname }: { navItems: any[], pathname: string }) => {
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  return (
+    <motion.div
+      onMouseLeave={() => setHovered(null)}
+      className="flex items-center gap-2"
+    >
+      {navItems.map((navItem, idx) => (
+        <NavbarItem key={idx}>
+          <Link
+            href={navItem.link}
+            onMouseEnter={() => setHovered(idx)}
+            className={cn(
+              "relative px-4 py-2 rounded-full transition-colors",
+              pathname === navItem.link ? "text-primary" : "text-foreground/80"
+            )}
+          >
+            {hovered === idx && (
+              <motion.div
+                layoutId="hovered"
+                className="absolute inset-0 bg-primary/10 rounded-full"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              />
+            )}
+            <span className="relative z-10 font-medium">
+              {navItem.name}
+            </span>
+          </Link>
+        </NavbarItem>
+      ))}
+
+    </motion.div>
+  );
+};
+
 export default ENavbar;

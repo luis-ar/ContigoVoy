@@ -1,38 +1,17 @@
 "use client";
-import CardServices from "@/components/CardServices";
+
 import Slider from "@/components/Slider";
+import ChooseUs from "@/components/main/chooseUs";
+import TherapyServices from "@/components/main/therapyServices";
+import OnlinePsychology from "@/components/main/onlinePsychology";
+import Testimonials from "@/components/main/testimonials";
 import { Button } from "@/components/ui/button";
 import AnimatedText from "@/components/AnimatedText";
 import About from "@/components/About";
 
 
 export default function Home() {
-  const services = [
-    {
-      title: "Servicio 1",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem id, accusantium eligendi tempora rerum nulla officia deleniti reprehenderit quaerat blanditiis dolorem odit hic cupiditate delectus quae obcaecati libero sint culpa.",
-      imageUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW4ohyCfSw224R31RSyR_ijVNCCX0ytw8xog&s",
-      color: "bg-customCard-50",
-    },
-    {
-      title: "Servicio 2",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem id, accusantium eligendi tempora rerum nulla officia deleniti reprehenderit quaerat blanditiis dolorem odit hic cupiditate delectus quae obcaecati libero sint culpa.",
-      imageUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW4ohyCfSw224R31RSyR_ijVNCCX0ytw8xog&s",
-      color: "bg-customCard-100",
-    },
-    {
-      title: "Servicio 3",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem id, accusantium eligendi tempora rerum nulla officia deleniti reprehenderit quaerat blanditiis dolorem odit hic cupiditate delectus quae obcaecati libero sint culpa.",
-      imageUrl:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW4ohyCfSw224R31RSyR_ijVNCCX0ytw8xog&s",
-      color: "bg-customCard-200",
-    },
-  ];
+  
   return (
     <div className="">
       <About/>
@@ -73,6 +52,11 @@ export default function Home() {
           ))}
         </div>
       </div>  */}
+      <TherapyServices />
+      <ChooseUs />
+      <OnlinePsychology />
+      <Testimonials />
+      
     </div>
   );
 }

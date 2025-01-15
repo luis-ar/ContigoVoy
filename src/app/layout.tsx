@@ -2,7 +2,7 @@
 import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
 import Navbar from "../components/Navbar";
-import { ToastContainer } from "react-toastify";
+import Footer from "./footer";
 
 export default function RootLayout({
   children,
@@ -19,7 +19,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <div className="min-h-[90vh] mt-[6vh]">{children}</div>
+          <div className="min-h-[90vh]">{children}</div>
+          <Footer /> 
         </ThemeProvider>
         <ToastContainer />
       </body>
