@@ -12,8 +12,8 @@ import AnimatedText from "@/components/AnimatedText";
 export default function Home() {
   
   return (
-    <div className="">
-      <div className="flex gap-4 p-6 bg-primary flex-col md:flex-row">
+    <div className="min-h-screen">
+      <div className="min-h-screen flex gap-4 p-6 bg-primary flex-col md:flex-row justify-center items-center">
         <div className="flex-1 lg:w-2/3 flex-col space-y-5 flex">
           <h1 className="text-l font-extrabold mt-8 text-white">
             TERAPIAS ONLINE

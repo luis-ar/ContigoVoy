@@ -79,7 +79,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-gradient-to-br from-purple-600 to-purple-700 text-white">
+    <footer className="bg-gradient-to-r from-[#9986d9] to-[#8b3dd4] text-white">
       <div className="max-w-7xl mx-auto px-4 py-16">
         {/* Social Media Icons */}
         <motion.div 
