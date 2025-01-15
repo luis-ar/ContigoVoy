@@ -34,11 +34,11 @@ export default function Home() {
           <Slider />
         </div>
       </div>
+      <About/>
       <TherapyServices />
       <ChooseUs />
       <OnlinePsychology />
       <Testimonials />
-      </div>
     </div>
   );
 }
