@@ -1,7 +1,5 @@
 "use client";
 
-import CardServices from "@/components/CardServices";
-import CardServicesAnimation from "@/components/CardServicesAnimation";
 import Slider from "@/components/Slider";
 import ChooseUs from "@/components/main/chooseUs";
 import TherapyServices from "@/components/main/therapyServices";
