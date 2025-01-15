@@ -2,74 +2,119 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
-import { ThemeToggle } from "./Themetoggle";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarItem,
+  Button,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@nextui-org/react";
 import { cn } from "@/lib/utils";
-import { ChevronDown, Menu } from 'lucide-react';
+import { Menu } from "lucide-react";
 
 const navItems = [
-  { name: "Home", link: "/" },
+  { name: "Sobre Nosotros", link: "/" },
+  { name: "Servicios", link: "/services" },
+  { name: "Contáctanos", link: "/contact" },
+  { name: "Preguntas Frecuentes", link: "/faq" },
   { name: "Blog", link: "/blog" },
-  { name: "Contacto", link: "/contact" },
-  { name: "Login", link: "/login" },
 ];
 
 const ENavbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <Navbar 
-      isBordered 
+    <Navbar
+      isBordered
       isBlurred={false}
-      className="bg-background/70 backdrop-blur-md fixed w-full z-50"
+      className="bg-white h-16 sm:h-20 fixed w-full z-50 flex justify-between items-center px-4 backdrop-blur-md"
       maxWidth="2xl"
-      onMenuOpenChange={setIsMenuOpen}
     >
-      <NavbarContent>
+      <div className="flex items-center">
         <NavbarBrand>
-          <Link href="/" className="font-bold text-2xl sm:text-3xl">
-            Contigo<span className="text-primary">Voy</span>
-          </Link>
+          <Image
+            src="/LOGO.png"
+            alt="logo"
+            width={168} 
+            height={42}
+            className="w-42 h-auto sm:w-56 sm:h-auto"
+          />
         </NavbarBrand>
-      </NavbarContent>
+      </div>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <DesktopNav navItems={navItems} pathname={pathname} />
-      </NavbarContent>
+      <div className="flex items-center gap-2 sm:gap-4">
+        {/* Desktop Navigation */}
+        <div className="hidden sm:flex items-center gap-4">
+          <motion.div
+            onMouseLeave={() => setHovered(null)}
+            className="flex items-center gap-2"
+          >
+            {navItems.map((navItem, idx) => (
+              <NavbarItem key={idx}>
+                <Link
+                  href={navItem.link}
+                  onMouseEnter={() => setHovered(idx)}
+                  className={cn(
+                    "relative px-3 sm:px-4 py-1 sm:py-2 rounded-full transition-colors hover:bg-[#634AE2] hover:text-white text-[#634AE2] text-sm sm:text-base",
+                  )}
+                >
+                  {hovered === idx && (
+                    <motion.div
+                      layoutId="hovered"
+                      className="absolute inset-0 bg-primary/10 rounded-full"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    />
+                  )}
+                  <span className="relative z-10 font-medium">
+                    {navItem.name}
+                  </span>
+                </Link>
+              </NavbarItem>
+            ))}
+          </motion.div>
+        </div>
 
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden sm:flex">
-          <ThemeToggle />
-        </NavbarItem>
-        <NavbarItem className="sm:hidden">
-          <Dropdown>
-            <DropdownTrigger>
-              <Button
-                isIconOnly
-                variant="light"
-                aria-label="Open menu"
-              >
-                <Menu />
-              </Button>
-            </DropdownTrigger>
-            <DropdownMenu aria-label="Navigation menu">
-              {navItems.map((item, index) => (
-                <DropdownItem key={index} textValue={item.name}>
-                  <Link href={item.link} className="w-full">
-                    {item.name}
-                  </Link>
-                </DropdownItem>
-              ))}
-              <DropdownItem textValue="Theme toggle">
-                <ThemeToggle />
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        </NavbarItem>
-      </NavbarContent>
+        {/* Mobile Navigation */}
+        <div className="flex items-center gap-2 sm:gap-4">
+          <NavbarItem className="sm:hidden">
+            <Dropdown>
+              <DropdownTrigger>
+                <Button
+                  isIconOnly
+                  variant="light"
+                  aria-label="Open menu"
+                  className="p-2 sm:p-3"
+                >
+                  <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Navigation menu">
+                {navItems.map((item, index) => (
+                  <DropdownItem key={index} textValue={item.name}>
+                    <Link href={item.link} className="w-full text-[#634AE2] text-sm sm:text-base">
+                      {item.name}
+                    </Link>
+                  </DropdownItem>
+                ))}
+              </DropdownMenu>
+            </Dropdown>
+          </NavbarItem>
+          <NavbarItem className="sm:flex">
+            <Link href="/login">
+              <button className="bg-white text-[#634AE2] text-sm sm:text-base border-2 border-[#634AE2] hover:bg-[#634AE2] hover:text-white transition-colors duration-300 rounded-full py-1 sm:py-2 px-3 sm:px-4 font-medium">
+                Iniciar Sesión
+              </button>
+            </Link>
+          </NavbarItem>
+        </div>
+      </div>
     </Navbar>
   );
 };

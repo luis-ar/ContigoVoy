@@ -22,6 +22,7 @@ export default function RootLayout({
           <div className="min-h-[90vh]">{children}</div>
           <Footer /> 
         </ThemeProvider>
+        <ToastContainer />
       </body>
     </html>
   );

@@ -7,6 +7,7 @@ import OnlinePsychology from "@/components/main/onlinePsychology";
 import Testimonials from "@/components/main/testimonials";
 import { Button } from "@/components/ui/button";
 import AnimatedText from "@/components/AnimatedText";
+import About from "@/components/About";
 
 
 export default function Home() {
@@ -37,7 +38,7 @@ export default function Home() {
       <ChooseUs />
       <OnlinePsychology />
       <Testimonials />
-      
+      </div>
     </div>
   );
 }
