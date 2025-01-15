@@ -1,120 +1,102 @@
 "use client";
-
-import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
+import React, { useState } from "react";
 import { ThemeToggle } from "./Themetoggle";
 import { cn } from "@/lib/utils";
-import { ChevronDown, Menu } from 'lucide-react';
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 const navItems = [
-  { name: "Home", link: "/" },
-  { name: "Blog", link: "/blog" },
-  { name: "Contacto", link: "/contact" },
-  { name: "Login", link: "/login" },
+  {
+    name: "Sobre Nosotros",
+    link: "/",
+  },
+  {
+    name: "Servicios",
+    link: "/showcase",
+  },
+  {
+    name: "Contáctanos",
+    link: "/contactanos",
+  },
+  {
+    name: "Preguntas Frecuentes",
+    link: "/questions",
+  },
+  {
+    name: "Iniciar Sesión",
+    link: "/login",
+  },
 ];
 
-const ENavbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname();
-
+const Navbar = () => {
   return (
-    <Navbar 
-      isBordered 
-      isBlurred={false}
-      className="bg-background/50 backdrop-blur-md fixed w-full z-50"
-      maxWidth="2xl"
-      onMenuOpenChange={setIsMenuOpen}
-    >
-      <NavbarContent>
-        <NavbarBrand>
-          <Link href="/" className="font-bold text-2xl sm:text-3xl">
-            <Image
+    <nav className="border-b bg-background h-[10vh] flex items-center fixed w-full z-10 top-0">
+      <div className="w-full p-6 flex items-center justify-between">
+        <Link href="/">
+          <h1 className="font-bold text-3xl">
+          <Image
             src={'/LOGO.png'}
             alt="logo"
             width={190}
             height={100}/>
-          </Link>
-        </NavbarBrand>
-      </NavbarContent>
-
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <DesktopNav navItems={navItems} pathname={pathname} />
-      </NavbarContent>
-
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden sm:flex">
+          </h1>
+        </Link>
+        <div className="flex items-center gap-x-5">
+          <DesktopNav navItems={navItems} />
           <ThemeToggle />
-        </NavbarItem>
-        <NavbarItem className="sm:hidden">
-          <Dropdown>
-            <DropdownTrigger>
-              <Button
-                isIconOnly
-                variant="light"
-                aria-label="Open menu"
-              >
-                <Menu />
-              </Button>
-            </DropdownTrigger>
-            <DropdownMenu aria-label="Navigation menu">
-              {navItems.map((item, index) => (
-                <DropdownItem key={index} textValue={item.name}>
-                  <Link href={item.link} className="w-full">
-                    {item.name}
-                  </Link>
-                </DropdownItem>
-              ))}
-              <DropdownItem textValue="Theme toggle">
-                <ThemeToggle />
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        </NavbarItem>
-      </NavbarContent>
-    </Navbar>
+        </div>
+      </div>
+    </nav>
   );
 };
-
-const DesktopNav = ({ navItems, pathname }: { navItems: any[], pathname: string }) => {
+const DesktopNav = ({ navItems }: any) => {
   const [hovered, setHovered] = useState<number | null>(null);
-
+  const pathname = usePathname();
   return (
     <motion.div
-      onMouseLeave={() => setHovered(null)}
-      className="flex items-center gap-2"
+      onMouseLeave={() => {
+        setHovered(null);
+      }}
+      className={cn(
+        "relative z-[60] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full px-4 py-2 lg:flex",
+        "inset-x-0 h-16"
+      )}
     >
-      {navItems.map((navItem, idx) => (
-        <NavbarItem key={idx}>
-          <Link
-            href={navItem.link}
-            onMouseEnter={() => setHovered(idx)}
-            className={cn(
-              "relative px-4 py-2 rounded-full transition-colors",
-              pathname === navItem.link ? "text-primary" : "text-foreground/80"
-            )}
-          >
-            {hovered === idx && (
-              <motion.div
-                layoutId="hovered"
-                className="absolute inset-0 bg-primary/10 rounded-full"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              />
-            )}
-            <span className="relative z-10 font-medium">
-              {navItem.name}
-            </span>
-          </Link>
-        </NavbarItem>
-      ))}
-
+      <div className="flex items-center gap-6">
+        <div className="hidden flex-1 flex-row items-center justify-center space-x-0 text-sm text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex gap-1">
+          {navItems.map((navItem: any, idx: number) => (
+            <Link
+              onMouseEnter={() => setHovered(idx)}
+              className={`relative px-4 py-2 text-muted-foreground ${
+                pathname === navItem.link && "bg-minsk-600 rounded-full"
+              }`}
+              key={idx}
+              href={navItem.link}
+            >
+              {hovered === idx && (
+                <motion.div
+                  layoutId="hovered"
+                  className="absolute inset-0 h-full w-full rounded-full bg-minsk-600"
+                />
+              )}
+              <span
+                className={cn(
+                  "relative z-20 font-bold text-white text-base",
+                  hovered === idx || pathname === navItem.link
+                    ? "text-white"
+                    : "text-minsk-700 dark:text-primary"
+                )}
+              >
+                {navItem.name}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
     </motion.div>
   );
 };
 
-export default ENavbar;
+export default Navbar;
