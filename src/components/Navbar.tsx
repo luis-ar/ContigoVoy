@@ -8,6 +8,7 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button, Dropdown, Dropd
 import { ThemeToggle } from "./Themetoggle";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Menu } from 'lucide-react';
+import Image from "next/image";
 
 const navItems = [
   { name: "Home", link: "/" },
@@ -24,14 +25,18 @@ const ENavbar = () => {
     <Navbar 
       isBordered 
       isBlurred={false}
-      className="bg-background/70 backdrop-blur-md fixed w-full z-50"
+      className="bg-background/50 backdrop-blur-md fixed w-full z-50"
       maxWidth="2xl"
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent>
         <NavbarBrand>
           <Link href="/" className="font-bold text-2xl sm:text-3xl">
-            Contigo<span className="text-primary">Voy</span>
+            <Image
+            src={'/LOGO.png'}
+            alt="logo"
+            width={190}
+            height={100}/>
           </Link>
         </NavbarBrand>
       </NavbarContent>
