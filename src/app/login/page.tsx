@@ -1,94 +1,190 @@
-"use client";
+'use client'
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import Link from "next/link";
-import { Mail, Lock, LogIn } from 'lucide-react';
-import { signInFormSchema } from "@/lib/auth-schema";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Input,
-  Button,
-  Checkbox,
-  Divider,
-} from "@nextui-org/react";
-import { motion } from "framer-motion";
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { motion, AnimatePresence } from 'framer-motion'
+import { User, Lock, ArrowRight, CheckCircle2, EyeIcon, EyeOffIcon } from 'lucide-react'
+import { Input, Button, Card } from '@nextui-org/react'
+import { useAuth } from '@/hooks/useAuth'
 
-const LoginPage = () => {
-  const form = useForm<z.infer<typeof signInFormSchema>>({
-    resolver: zodResolver(signInFormSchema),
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
+export default function LoginPage() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [isVisible, setIsVisible] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
+  const { login, error } = useAuth()
+  const router = useRouter()
 
-  const onSubmit = (values: z.infer<typeof signInFormSchema>) => {
-    const { email, password } = values;
-    console.log(email, password);
-  };
+  const toggleVisibility = () => setIsVisible(!isVisible)
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+    setIsSuccess(false)
+    
+    try {
+      await login(email, password)
+      setIsSuccess(true)
+      setTimeout(() => {
+        router.push('/dashboard')
+      }, 1500)
+    } catch {
+      setIsSuccess(false)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-500 to-indigo-600 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-purple-300">
+
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
+        className="w-full max-w-[420px] px-4 relative"
       >
-        <Card className="w-full max-w-md p-5">
-          <CardHeader className="flex flex-col items-center pb-0 pt-6 px-4 gap-2">
-            <LogIn size={40} className="text-primary" />
-            <h2 className="text-2xl font-bold text-foreground">¡Bienvenido de nuevo!</h2>
-            <p className="text-sm text-default-500">Por favor, inicia sesión en tu cuenta</p>
-          </CardHeader>
-          <CardBody className="overflow-hidden">
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
-              <Input
-                type="email"
-                label="Correo electrónico"
-                placeholder="Ingresa tu correo"
-                labelPlacement="outside"
-                startContent={<Mail className="text-default-400" size={16} />}
-                {...form.register("email")}
-                errorMessage={form.formState.errors.email?.message}
-              />
-              <Input
-                type="password"
-                label="Contraseña"
-                placeholder="Ingresa tu contraseña"
-                labelPlacement="outside"
-                startContent={<Lock className="text-default-400" size={16} />}
-                {...form.register("password")}
-                errorMessage={form.formState.errors.password?.message}
-              />
-              <div className="flex items-center justify-between">
-                <Checkbox defaultSelected size="sm">Recuérdame</Checkbox>
-                <Link href="/forgot-password" className="text-sm text-primary hover:underline">
-                  ¿Olvidaste tu contraseña?
-                </Link>
+        {/* Purple background card */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, x: -20, y: 20 }}
+          animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+          className="absolute -left-8 -bottom-8 right-8 top-8 bg-purple-600/30 rounded-2xl backdrop-blur-sm"
+        />
+
+        <Card className="w-full p-8 shadow-xl bg-white/90 backdrop-blur-sm rounded-2xl relative z-10">
+          <motion.div
+            initial={false}
+            animate={isSuccess ? { scale: 0.95, opacity: 0 } : { scale: 1, opacity: 1 }}
+          >
+            <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-[#6b4ce6] to-[#9747FF] bg-clip-text text-transparent">
+              Acceder
+            </h1>
+            <form onSubmit={handleLogin} className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700 ml-1">
+                  Usuario
+                </label>
+                <Input
+                  type="email"
+                  placeholder="Ingrese su email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  startContent={<User className="text-[#6b4ce6]" size={20} />}
+                  classNames={{
+                    base: "max-w-full",
+                    mainWrapper: "h-12",
+                    input: "text-base",
+                    inputWrapper: [
+                      "h-12",
+                      "bg-white",
+                      "hover:bg-white/60",
+                      "group-data-[focused=true]:bg-white",
+                      "!cursor-text",
+                      "shadow-sm",
+                    ],
+                  }}
+                  isDisabled={isLoading || isSuccess}
+                />
               </div>
-              <Button type="submit" color="primary" className="w-full">
-                Iniciar sesión
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700 ml-1">
+                  Contraseña
+                </label>
+                <Input
+                  type={isVisible ? "text" : "password"}
+                  placeholder="Ingrese su contraseña"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  startContent={<Lock className="text-[#6b4ce6]" size={20} />}
+                  endContent={
+                    <button type="button" onClick={toggleVisibility} className="focus:outline-none">
+                      {isVisible ? (
+                        <EyeOffIcon className="text-gray-400 hover:text-[#6b4ce6] transition-colors" size={20} />
+                      ) : (
+                        <EyeIcon className="text-gray-400 hover:text-[#6b4ce6] transition-colors" size={20} />
+                      )}
+                    </button>
+                  }
+                  classNames={{
+                    base: "max-w-full",
+                    mainWrapper: "h-12",
+                    input: "text-base",
+                    inputWrapper: [
+                      "h-12",
+                      "bg-white",
+                      "hover:bg-white/60",
+                      "group-data-[focused=true]:bg-white",
+                      "!cursor-text",
+                      "shadow-sm",
+                    ],
+                  }}
+                  isDisabled={isLoading || isSuccess}
+                />
+              </div>
+              <Button
+                type="submit"
+                className={`w-full h-12 text-white text-lg font-medium transition-all duration-300 ${
+                  isLoading || isSuccess 
+                    ? 'bg-[#8b74ea]' 
+                    : 'bg-[#6b4ce6] hover:bg-[#5a3dd4] hover:scale-[1.02] active:scale-[0.98]'
+                }`}
+                disabled={isLoading || isSuccess}
+              >
+                <AnimatePresence mode="wait">
+                  {isLoading ? (
+                    <motion.div
+                      key="loading"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
+                      className="flex items-center gap-2"
+                    >
+                      <div className="w-5 h-5 border-2 border-purple-500 border-t-transparent rounded-full animate-spin" />
+                      <span className="text-purple-500">Ingresando...</span>
+                    </motion.div>
+                  ) : isSuccess ? (
+                    <motion.div
+                      key="success"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="flex items-center gap-2"
+                    >
+                      <CheckCircle2 className="text-blue-500" size={20} />
+                      <span className="text-blue-500">¡Bienvenido!</span>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="default"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="flex items-center gap-2"
+                    >
+                      <span>Ingresar</span>
+                      <ArrowRight className="ml-2" size={20} />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </Button>
             </form>
-          </CardBody>
-          <Divider />
-          <CardFooter className="flex flex-col items-center py-4 px-6">
-            <p className="text-sm text-default-500">
-              ¿No tienes una cuenta?{" "}
-              <Link href="/register" className="text-primary hover:underline">
-                Regístrate
-              </Link>
-            </p>
-          </CardFooter>
+            <AnimatePresence>
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="mt-4 p-3 bg-red-50 border border-red-100 rounded-lg"
+                >
+                  <p className="text-red-500 text-center text-sm">
+                    {error}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         </Card>
       </motion.div>
     </div>
-  );
-};
+  )
+}
 
-export default LoginPage;
