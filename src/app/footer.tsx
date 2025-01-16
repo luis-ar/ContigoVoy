@@ -160,7 +160,7 @@ export default function Footer() {
             className="absolute right-0 bottom-0 md:block hidden"
           >
             <Image
-              src="/logo.gif"
+              src="/logo.png"
               alt="Contigo Voy Logo"
               width={150}
               height={60}

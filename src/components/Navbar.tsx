@@ -1,32 +1,11 @@
-"use client";
+import { useAuth } from '@/context/authContext';
+import { Navbar } from '@nextui-org/react';
+import React from 'react';
+import PrivateNavbar from './navbar/privateNavbar';
+import PublicNavbar from './navbar/publicNavbar';
 
-import React, { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarItem,
-  Button,
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-} from "@nextui-org/react";
-import { cn } from "@/lib/utils";
-import { Menu } from "lucide-react";
-
-const navItems = [
-  { name: "Sobre Nosotros", link: "/" },
-  { name: "Servicios", link: "/services" },
-  { name: "Contáctanos", link: "/contact" },
-  { name: "Preguntas Frecuentes", link: "/faq" },
-  { name: "Blog", link: "/blog" },
-];
-
-const ENavbar = () => {
-  const [hovered, setHovered] = useState<number | null>(null);
+const ENavbar: React.FC = () => {
+  const { token } = useAuth();  // Accedemos al estado de autenticación
 
   return (
     <Navbar
@@ -35,125 +14,8 @@ const ENavbar = () => {
       className="bg-white h-16 sm:h-20 fixed w-full z-50 flex justify-between items-center px-4 backdrop-blur-md"
       maxWidth="2xl"
     >
-      <div className="flex items-center">
-        <NavbarBrand>
-          <Image
-            src="/LOGO.png"
-            alt="logo"
-            width={168} 
-            height={42}
-            className="w-42 h-auto sm:w-56 sm:h-auto"
-          />
-        </NavbarBrand>
-      </div>
-
-      <div className="flex items-center gap-2 sm:gap-4">
-        {/* Desktop Navigation */}
-        <div className="hidden sm:flex items-center gap-4">
-          <motion.div
-            onMouseLeave={() => setHovered(null)}
-            className="flex items-center gap-2"
-          >
-            {navItems.map((navItem, idx) => (
-              <NavbarItem key={idx}>
-                <Link
-                  href={navItem.link}
-                  onMouseEnter={() => setHovered(idx)}
-                  className={cn(
-                    "relative px-3 sm:px-4 py-1 sm:py-2 rounded-full transition-colors hover:bg-[#634AE2] hover:text-white text-[#634AE2] text-sm sm:text-base",
-                  )}
-                >
-                  {hovered === idx && (
-                    <motion.div
-                      layoutId="hovered"
-                      className="absolute inset-0 bg-primary/10 rounded-full"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                    />
-                  )}
-                  <span className="relative z-10 font-medium">
-                    {navItem.name}
-                  </span>
-                </Link>
-              </NavbarItem>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Mobile Navigation */}
-        <div className="flex items-center gap-2 sm:gap-4">
-          <NavbarItem className="sm:hidden">
-            <Dropdown>
-              <DropdownTrigger>
-                <Button
-                  isIconOnly
-                  variant="light"
-                  aria-label="Open menu"
-                  className="p-2 sm:p-3"
-                >
-                  <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu aria-label="Navigation menu">
-                {navItems.map((item, index) => (
-                  <DropdownItem key={index} textValue={item.name}>
-                    <Link href={item.link} className="w-full text-[#634AE2] text-sm sm:text-base">
-                      {item.name}
-                    </Link>
-                  </DropdownItem>
-                ))}
-              </DropdownMenu>
-            </Dropdown>
-          </NavbarItem>
-          <NavbarItem className="sm:flex">
-            <Link href="/login">
-              <button className="bg-white text-[#634AE2] text-sm sm:text-base border-2 border-[#634AE2] hover:bg-[#634AE2] hover:text-white transition-colors duration-300 rounded-full py-1 sm:py-2 px-3 sm:px-4 font-medium">
-                Iniciar Sesión
-              </button>
-            </Link>
-          </NavbarItem>
-        </div>
-      </div>
+      {token ? <PrivateNavbar /> : <PublicNavbar />}
     </Navbar>
-  );
-};
-
-const DesktopNav = ({ navItems, pathname }: { navItems: any[], pathname: string }) => {
-  const [hovered, setHovered] = useState<number | null>(null);
-
-  return (
-    <motion.div
-      onMouseLeave={() => setHovered(null)}
-      className="flex items-center gap-2"
-    >
-      {navItems.map((navItem, idx) => (
-        <NavbarItem key={idx}>
-          <Link
-            href={navItem.link}
-            onMouseEnter={() => setHovered(idx)}
-            className={cn(
-              "relative px-4 py-2 rounded-full transition-colors",
-              pathname === navItem.link ? "text-primary" : "text-foreground/80"
-            )}
-          >
-            {hovered === idx && (
-              <motion.div
-                layoutId="hovered"
-                className="absolute inset-0 bg-primary/10 rounded-full"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              />
-            )}
-            <span className="relative z-10 font-medium">
-              {navItem.name}
-            </span>
-          </Link>
-        </NavbarItem>
-      ))}
-
-    </motion.div>
   );
 };
 
