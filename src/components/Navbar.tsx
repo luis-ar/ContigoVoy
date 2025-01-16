@@ -5,6 +5,7 @@ import { ThemeToggle } from "./Themetoggle";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const navItems = [
   {
@@ -31,7 +32,11 @@ const Navbar = () => {
       <div className="w-full p-6 flex items-center justify-between">
         <Link href="/">
           <h1 className="font-bold text-3xl">
-            Contigo<span className="text-primary">Voy</span>{" "}
+          <Image
+            src={'/LOGO.png'}
+            alt="logo"
+            width={190}
+            height={100}/>
           </h1>
         </Link>
         <div className="flex items-center gap-x-5">
