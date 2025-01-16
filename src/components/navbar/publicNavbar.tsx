@@ -17,7 +17,7 @@ import { Menu } from 'lucide-react';
 import Image from "next/image";
 
 const navItems = [
-  { name: "Sobre Nosotros", link: "/about" },
+  { name: "Sobre Nosotros", link: "/" },
   { name: "Servicios", link: "/services" },
   { name: "Contáctanos", link: "/contact" },
   { name: "Preguntas Frecuentes", link: "/faq" },
