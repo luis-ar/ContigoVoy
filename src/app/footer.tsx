@@ -39,10 +39,7 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-r from-[#9986d9] to-[#8b3dd4] text-white">
       <div className="max-w-7xl mx-auto px-4 pb-16">
-        {/* Social Media Icons */}
         <RedesSociales />
-
-        {/* Atención al usuario */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
