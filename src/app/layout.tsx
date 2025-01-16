@@ -10,7 +10,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
@@ -22,7 +21,7 @@ export default function RootLayout({
         >
           <AuthProvider>
             <Navbar />
-            <div className="min-h-[90vh]">{children}</div>
+            <div className="min-h-[90vh] mt-[10vh]">{children}</div>
             <Footer />
           </AuthProvider>
         </ThemeProvider>
