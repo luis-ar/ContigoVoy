@@ -9,22 +9,28 @@ import Image from "next/image";
 
 const navItems = [
   {
-    name: "Home",
+    name: "Sobre Nosotros",
     link: "/",
   },
   {
-    name: "Showcase",
+    name: "Servicios",
     link: "/showcase",
   },
   {
-    name: "Contactanos",
+    name: "Contáctanos",
     link: "/contactanos",
   },
   {
-    name: "Login",
-    link: "/login",
+    name: "Preguntas Frecuentes",
+    link: "/Q&A",
   },
+  {
+    name: "Blog",
+    link: "/Blog",
+  },
+  
 ];
+
 
 const Navbar = () => {
   return (
@@ -89,6 +95,13 @@ return (
               </span>
             </Link>
           ))}
+          
+          <Link href="/login">
+            <button className=" text-[#634AE2] text-sm sm:text-base border-2 border-[#634AE2] hover:bg-[#634AE2] hover:text-white transition-colors duration-300 rounded-full py-1 sm:py-2 px-3 sm:px-4 font-medium">
+              Iniciar Sesión
+            </button>
+          </Link>
+       
         </div>
       </div>
     </motion.div>
