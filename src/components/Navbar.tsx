@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const navItems = [
   {
-    name: "Sobre Nosotros",
+    name: "Home",
     link: "/",
   },
   {
@@ -29,38 +29,38 @@ const navItems = [
 const Navbar = () => {
   return (
     <nav className="border-b bg-background h-[10vh] flex items-center fixed w-full z-10 top-0">
-      <div className="w-full p-6 flex items-center justify-between">
-        <Link href="/">
-          <h1 className="font-bold text-3xl">
-          <Image
+    <div className="w-full p-6 flex items-center justify-between">
+      <Link href="/">
+        <h1 className="font-normal text-3xl">
+        <Image
             src={'/LOGO.png'}
             alt="logo"
             width={190}
             height={100}/>
-          </h1>
-        </Link>
-        <div className="flex items-center gap-x-5">
-          <DesktopNav navItems={navItems} />
-          <ThemeToggle />
-        </div>
+        </h1>
+      </Link>
+      <div className="flex items-center gap-x-5">
+        <DesktopNav navItems={navItems} />
+        <ThemeToggle />
       </div>
-    </nav>
-  );
+    </div>
+  </nav>
+);
 };
 const DesktopNav = ({ navItems }: any) => {
-  const [hovered, setHovered] = useState<number | null>(null);
-  const pathname = usePathname();
-  return (
-    <motion.div
-      onMouseLeave={() => {
-        setHovered(null);
-      }}
-      className={cn(
-        "relative z-[60] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full px-4 py-2 lg:flex",
-        "inset-x-0 h-16"
-      )}
-    >
-      <div className="flex items-center gap-6">
+const [hovered, setHovered] = useState<number | null>(null);
+const pathname = usePathname();
+return (
+  <motion.div
+    onMouseLeave={() => {
+      setHovered(null);
+    }}
+    className={cn(
+      "relative z-[60] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full px-4 py-2 lg:flex",
+      "inset-x-0 h-16"
+    )}
+  >
+    <div className="flex items-center gap-6">
         <div className="hidden flex-1 flex-row items-center justify-center space-x-0 text-sm text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex gap-1">
           {navItems.map((navItem: any, idx: number) => (
             <Link
