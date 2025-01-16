@@ -1,40 +1,25 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { User, Lock, ArrowRight, CheckCircle2, EyeIcon, EyeOffIcon } from 'lucide-react'
 import { Input, Button, Card } from '@nextui-org/react'
-import { useAuth } from '@/hooks/useAuth'
+import { useAuth } from '@/context/authContext'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isVisible, setIsVisible] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
-  const { login, error } = useAuth()
-  const router = useRouter()
+  const [isLoading, ] = useState(false)
+  const [isSuccess, ] = useState(false)
+  const { login } = useAuth();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    login(email, password);
+  };
 
   const toggleVisibility = () => setIsVisible(!isVisible)
-
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setIsSuccess(false)
-    
-    try {
-      await login(email, password)
-      setIsSuccess(true)
-      setTimeout(() => {
-        router.push('/dashboard')
-      }, 1500)
-    } catch {
-      setIsSuccess(false)
-    } finally {
-      setIsLoading(false)
-    }
-  }
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-purple-300">
@@ -60,68 +45,57 @@ export default function LoginPage() {
             <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-[#6b4ce6] to-[#9747FF] bg-clip-text text-transparent">
               Acceder
             </h1>
-            <form onSubmit={handleLogin} className="space-y-6">
-              <div className="space-y-2">
+            <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700 ml-1">
                   Usuario
                 </label>
                 <Input
-                  type="email"
-                  placeholder="Ingrese su email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  startContent={<User className="text-[#6b4ce6]" size={20} />}
-                  classNames={{
-                    base: "max-w-full",
-                    mainWrapper: "h-12",
-                    input: "text-base",
-                    inputWrapper: [
-                      "h-12",
-                      "bg-white",
-                      "hover:bg-white/60",
-                      "group-data-[focused=true]:bg-white",
-                      "!cursor-text",
-                      "shadow-sm",
-                    ],
-                  }}
-                  isDisabled={isLoading || isSuccess}
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-700 ml-1">
-                  Contraseña
-                </label>
-                <Input
-                  type={isVisible ? "text" : "password"}
-                  placeholder="Ingrese su contraseña"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  startContent={<Lock className="text-[#6b4ce6]" size={20} />}
-                  endContent={
+                type="email"
+                placeholder="Ingrese su email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                startContent={<User className="text-gray-700" size={20} />}
+                classNames={{
+                  base: "max-w-full",
+                  mainWrapper: "h-12",
+                  input: "text-base",
+                  inputWrapper: [
+                    "h-12",
+                    "bg-gray-200",
+                    "hover:bg-white/60",
+                    "group-data-[focused=true]:bg-white",
+                    "!cursor-text",
+                    "shadow-sm",
+                    "text-gray-700",
+                  ],
+                }}
+                isDisabled={isLoading || isSuccess}
+              />
+              
+                </div>
+                  <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700 ml-1">
+                    Contraseña
+                  </label>
+                  <Input
+                    type={isVisible ? "text" : "password"}
+                    placeholder="Ingrese su contraseña"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    startContent={<Lock className="text-gray-700" size={20} />}
+                    endContent={
                     <button type="button" onClick={toggleVisibility} className="focus:outline-none">
                       {isVisible ? (
-                        <EyeOffIcon className="text-gray-400 hover:text-[#6b4ce6] transition-colors" size={20} />
+                      <EyeOffIcon className="text-gray-700 hover:text-[#6b4ce6] transition-colors" size={20} />
                       ) : (
-                        <EyeIcon className="text-gray-400 hover:text-[#6b4ce6] transition-colors" size={20} />
+                      <EyeIcon className="text-gray-700 hover:text-[#6b4ce6] transition-colors" size={20} />
                       )}
                     </button>
-                  }
-                  classNames={{
-                    base: "max-w-full",
-                    mainWrapper: "h-12",
-                    input: "text-base",
-                    inputWrapper: [
-                      "h-12",
-                      "bg-white",
-                      "hover:bg-white/60",
-                      "group-data-[focused=true]:bg-white",
-                      "!cursor-text",
-                      "shadow-sm",
-                    ],
-                  }}
-                  isDisabled={isLoading || isSuccess}
-                />
-              </div>
+                    }
+                    isDisabled={isLoading || isSuccess}
+                  />
+                  </div>
               <Button
                 type="submit"
                 className={`w-full h-12 text-white text-lg font-medium transition-all duration-300 ${
@@ -168,16 +142,14 @@ export default function LoginPage() {
               </Button>
             </form>
             <AnimatePresence>
-              {error && (
+              {isSuccess && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="mt-4 p-3 bg-red-50 border border-red-100 rounded-lg"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  className="mt-4 bg-green-100/50 p-4 rounded-xl"
                 >
-                  <p className="text-red-500 text-center text-sm">
-                    {error}
-                  </p>
+                  <p className="text-green-500">¡Inicio de sesión exitoso!</p>
                 </motion.div>
               )}
             </AnimatePresence>
