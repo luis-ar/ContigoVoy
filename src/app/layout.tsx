@@ -5,6 +5,9 @@ import Navbar from "../components/Navbar";
 import Footer from "./footer";
 import { AuthProvider } from "@/context/authContext";
 
+import { Lexend } from "next/font/google";
+
+export const lexend = Lexend({ subsets: ['latin'] });
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -13,7 +16,7 @@ export default function RootLayout({
   
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className={`${lexend.className} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
