@@ -39,16 +39,16 @@
 .wrapper {
   display: inline-flex;
   list-style: none;
-  height: 120px;
+  height: 80px;
   width: 100%;
-  padding-top: 40px;
+  padding-top: 25px;
   font-family: "Poppins", sans-serif;
-  justify-content: center;
+  justify-content: start;
 }
 
 .wrapper .icon {
   position: relative;
-  background: #483285;
+  background: #ffffff;
   border-radius: 50%;
   margin: 10px;
   width: 50px;
@@ -109,17 +109,17 @@
   color: #fff;
 }
 
-.wrapper .twitter:hover,
-.wrapper .twitter:hover .tooltip,
-.wrapper .twitter:hover .tooltip::before {
-  background: #1da1f2;
+.wrapper .threads:hover,
+.wrapper .threads:hover .tooltip,
+.wrapper .threads:hover .tooltip::before {
+  background: #45aef0;
   color: #fff;
 }
 
 .wrapper .instagram:hover,
 .wrapper .instagram:hover .tooltip,
 .wrapper .instagram:hover .tooltip::before {
-  background: #e4405f;
+  background: #e1306c;
   color: #fff;
 }
 
@@ -133,13 +133,13 @@
 .wrapper .tiktok:hover,
 .wrapper .tiktok:hover .tooltip,
 .wrapper .tiktok:hover .tooltip::before {
-  background: #f00771;
+  background: #000;
   color: #fff;
 }
 
-.wrapper .email:hover,
-.wrapper .email:hover .tooltip,
-.wrapper .email:hover .tooltip::before {
+.wrapper .youtube:hover,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before {
   background: #ff0000;
   color: #fff;
 }
