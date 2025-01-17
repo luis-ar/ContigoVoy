@@ -7,7 +7,7 @@ export default function App() {
       <div className="text-center font-bold text-5xl pt-[119px]  pb-[41px] text-[#634AE2]">
         Preguntas Frecuentes
       </div>
-      <div className="grid gap-4 mx-auto pb-28 max-w-3xl">
+      <div className="grid gap-4 mx-auto pb-28 max-w-3xl ">
         <AccordionQuest
           Question="¿Cuánto cuesta la consulta?"
           Answer={
