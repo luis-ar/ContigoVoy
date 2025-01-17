@@ -72,7 +72,7 @@ return (
             <Link
               onMouseEnter={() => setHovered(idx)}
               className={`relative px-4 py-2 text-muted-foreground ${
-                pathname === navItem.link && "bg-minsk-600 rounded-full"
+                pathname === navItem.link && "bg-[#634AE2] rounded-full"
               }`}
               key={idx}
               href={navItem.link}
@@ -80,15 +80,15 @@ return (
               {hovered === idx && (
                 <motion.div
                   layoutId="hovered"
-                  className="absolute inset-0 h-full w-full rounded-full bg-minsk-600"
+                  className="absolute inset-0 h-full w-full rounded-full bg-[#634AE2]"
                 />
               )}
               <span
                 className={cn(
-                  "relative z-20 font-bold text-white text-base",
+                  "relative z-20  text-white text-base",
                   hovered === idx || pathname === navItem.link
                     ? "text-white"
-                    : "text-minsk-700 dark:text-primary"
+                    : "text-[#634AE2] dark:text-primary"
                 )}
               >
                 {navItem.name}
@@ -97,7 +97,7 @@ return (
           ))}
           
           <Link href="/login">
-            <button className=" text-[#634AE2] text-sm sm:text-base border-2 border-[#634AE2] hover:bg-[#634AE2] hover:text-white transition-colors duration-300 rounded-full py-1 sm:py-2 px-3 sm:px-4 font-medium">
+            <button className=" text-[#634AE2] text-sm sm:text-base border-2 border-[#634AE2] hover:bg-[#634AE2] hover:text-white transition-colors duration-300 rounded-full py-1 sm:py-2 px-3 sm:px-4 ">
               Iniciar Sesión
             </button>
           </Link>
