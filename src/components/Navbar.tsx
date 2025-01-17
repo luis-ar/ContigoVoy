@@ -22,7 +22,7 @@ const navItems = [
   },
   {
     name: "Preguntas Frecuentes",
-    link: "/Q&A",
+    link: "/PreguntasFrecuentes",
   },
   {
     name: "Blog",
