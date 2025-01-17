@@ -1,42 +1,35 @@
 'use client'
 
 import { motion } from "framer-motion"
-import { Card } from "@nextui-org/react"
-import { Clock, Users, Shield, Video, Coins, LockKeyhole } from 'lucide-react'
+import Image from "next/image";
 
 export default function ChooseUs() {
   const features = [
     {
-      icon: Users,
+      icon: <Image src={'/especialistas.png'} alt="especialista" width={70} height={60} />,
       title: "Especialistas colegiados",
-      color: "group-hover:text-purple-300",
     },
     {
-      icon: Video,
+      icon: <Image src='/atencion virtual.png' alt="Atención virtual" width={70} height={60} />,
       title: "Atención virtual",
-      color: "group-hover:text-purple-300",
     },
     {
-      icon: Shield,
+      icon: <Image src='/etica.png' alt="Ética y confiabilidad" width={70} height={60} />,
       title: "Ética y confiabilidad",
-      color: "group-hover:text-purple-300",
     },
     {
-      icon: Clock,
+      icon: <Image src='/horarios.png' alt="Horarios flexibles" width={70} height={60} />,
       title: "Horarios flexibles",
-      color: "group-hover:text-purple-300",
     },
     {
-      icon: Coins,
+      icon: <Image src='/costos.png' alt="Costos accesibles" width={70} height={60} />,
       title: "Costos accesibles",
-      color: "group-hover:text-purple-300",
     },
     {
-      icon: LockKeyhole,
+      icon: <Image src='/confidencialidad.png' alt="Confidencialidad" width={70} height={60} />,
       title: "Confidencialidad",
-      color: "group-hover:text-purple-300",
     },
-  ]
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -46,7 +39,7 @@ export default function ChooseUs() {
         staggerChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -57,18 +50,18 @@ export default function ChooseUs() {
         duration: 0.5,
       },
     },
-  }
+  };
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-16">
+    <div className="w-full min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-gray-100">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl font-bold text-purple-600 mb-6">¿Por qué elegirnos?</h2>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        <h2 className="text-4xl font-bold text-[#634AE2] mb-6">¿Por qué elegirnos?</h2>
+        <p className="text-lg text-[#634AE2] max-w-3xl mx-auto leading-relaxed ">
           En Contigo Voy, te ofrecemos todo esto y mucho más, brindándote el apoyo necesario para afrontar tus desafíos diarios con mayor fortaleza y equilibrio emocional.
         </p>
       </motion.div>
@@ -77,35 +70,51 @@ export default function ChooseUs() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 justify-items-center"
       >
-        {features.map((feature, index) => (
+        {/* Primer fila con los primeros 4 elementos */}
+        {features.slice(0, 4).map((feature, index) => (
           <motion.div
             key={feature.title}
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             className="group"
           >
-            <Card className="p-6 bg-white/80 backdrop-blur-sm hover:bg-purple-600 hover:text-white transition-all duration-300 cursor-pointer border-none shadow-lg">
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="p-4 bg-purple-100 rounded-full group-hover:bg-purple-500 transition-colors duration-300">
-                  <feature.icon className={`w-8 h-8 text-purple-600 ${feature.color} transition-colors duration-300`} />
-                </div>
-                <h3 className="text-xl font-semibold group-hover:text-white transition-colors duration-300">
-                  {feature.title}
-                </h3>
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: index * 0.2 }}
-                  className="w-16 h-1 bg-purple-600 group-hover:bg-white rounded-full transition-colors duration-300"
-                />
+            <div className="flex flex-col items-center justify-center w-40 h-40 rounded-full bg-[#634AE2] backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-lg space-y-4">
+              <div className="p-4 bg-[#634AE2] rounded-full group-hover:bg-[#9494F3] transition-colors duration-300">
+                {feature.icon}
               </div>
-            </Card>
+            </div>
+            <h3 className="text-center text-lg font-semibold text-[#634AE2] mt-3">
+      {feature.title.split(" ").map((word, i) => (
+        <span key={i} className="block">
+          {word}
+        </span>
+      ))}
+    </h3>
           </motion.div>
         ))}
+
+        <div className="lg:col-span-4 flex justify-center gap-20">
+          {features.slice(4).map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              className="group"
+            >
+              <div className="flex flex-col items-center justify-center w-40 h-40 rounded-full bg-[#634AE2] backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-lg space-y-4">
+                <div className="p-4 bg-[#634AE2] rounded-full group-hover:bg-[#9494F3] transition-colors duration-300">
+                  {feature.icon}
+                </div>
+              </div>
+              <h3 className="text-center text-lg font-semibold text-[#634AE2] mt-3 ">
+                {feature.title}
+              </h3>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
     </div>
-  )
+  );
 }
-
