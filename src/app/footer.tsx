@@ -55,7 +55,6 @@ export default function Footer() {
               alt="Contigo Voy Logo"
               width={150}
               height={60}
-              className="opacity-80 hover:opacity-100 transition-opacity duration-300"
             />
           </motion.div>
 
