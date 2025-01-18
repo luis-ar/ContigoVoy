@@ -11,7 +11,6 @@ import {
   EyeOffIcon,
 } from "lucide-react";
 import { Input, Button, Card } from "@nextui-org/react";
-import { useAuth } from "@/context/authContext";
 import { signInFormSchema } from "@/lib/auth-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
