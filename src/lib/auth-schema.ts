@@ -76,7 +76,6 @@ export const formSchema = z.object({
 
 export const signInFormSchema = formSchema.pick({
   email: true,
-  password: true,
 });
 
 export const contactoFormSchema = formSchema.pick({
