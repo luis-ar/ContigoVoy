@@ -3,13 +3,13 @@ import React from "react";
 
 const redes = [
   {
-    nombre: "facebook",
-    icono: Icons.facebook,
-    link: "https://www.facebook.com/luis.demaryo.rios",
+    nombre: "tiktok",
+    icono: Icons.tiktok,
+    link: "https://www.tiktok.com/@luisdemaryori",
   },
   {
-    nombre: "twitter",
-    icono: Icons.twitter,
+    nombre: "threads",
+    icono: Icons.threads,
     link: "https://twitter.com/luisdemaryori",
   },
   {
@@ -18,20 +18,16 @@ const redes = [
     link: "https://www.instagram.com/luisdemaryori/",
   },
   {
-    nombre: "tiktok",
-    icono: Icons.tiktok,
-    link: "https://www.tiktok.com/@luisdemaryori",
+    nombre: "facebook",
+    icono: Icons.facebook,
+    link: "https://www.facebook.com/luis.demaryo.rios",
   },
   {
-    nombre: "whatsapp",
-    icono: Icons.whatsapp,
+    nombre: "youtube",
+    icono: Icons.youtube,
     link: "https://wa.me/919951020025",
   },
-  {
-    nombre: "email",
-    icono: Icons.email,
-    link: "mailto:luisdemaryori@gmail.com",
-  },
+  
 ];
 
 const RedesSociales = () => {
@@ -40,7 +36,7 @@ const RedesSociales = () => {
       <ul className="wrapper">
         {redes.map((rede, index) => (
           <li
-            className={`icon ${rede.nombre}`}
+          className={`icon ${rede.nombre} w-5 fill-current text-[#634AE2]`}
             key={index}
             onClick={() => window.open(rede.link, "_blank")}
           >

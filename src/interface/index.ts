@@ -4,3 +4,7 @@ export interface CardServicesProps {
   imageUrl: string;
   color: string;
 }
+export interface QuestionInterface {
+  Question: string;
+  Answer?: React.ReactNode;
+}
