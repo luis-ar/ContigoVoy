@@ -85,13 +85,9 @@ export default function ChooseUs() {
                 {feature.icon}
               </div>
             </div>
-            <h3 className="text-center text-lg font-semibold text-[#634AE2] mt-3">
-      {feature.title.split(" ").map((word, i) => (
-        <span key={i} className="block max-w-[18rem] ">
-          {word}
-        </span>
-      ))}
-    </h3>
+            <h3 className="text-center text-lg font-semibold text-[#634AE2] max-w-[9rem] mt-3">
+                {feature.title}
+              </h3>
           </motion.div>
         ))}
 
@@ -108,7 +104,7 @@ export default function ChooseUs() {
                   {feature.icon}
                 </div>
               </div>
-              <h3 className="text-center text-lg font-semibold text-[#634AE2] mt-3 ">
+              <h3 className="text-center text-lg font-semibold text-[#634AE2] max-w-[8rem] mt-3 ">
                 {feature.title}
               </h3>
             </motion.div>
