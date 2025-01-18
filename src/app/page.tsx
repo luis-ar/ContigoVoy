@@ -4,7 +4,6 @@ import Slider from "@/components/Slider";
 import ChooseUs from "@/components/main/chooseUs";
 import TherapyServices from "@/components/main/therapyServices";
 import OnlinePsychology from "@/components/main/onlinePsychology";
-import Testimonials from "@/components/main/testimonials";
 import { Button } from "@/components/ui/button";
 import AnimatedText from "@/components/AnimatedText";
 import About from "@/components/About";
@@ -38,7 +37,6 @@ export default function Home() {
       <TherapyServices />
       <ChooseUs />
       <OnlinePsychology />
-      <Testimonials />
     </div>
   );
 }

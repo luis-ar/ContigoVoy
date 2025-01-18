@@ -87,7 +87,7 @@ export default function ChooseUs() {
             </div>
             <h3 className="text-center text-lg font-semibold text-[#634AE2] mt-3">
       {feature.title.split(" ").map((word, i) => (
-        <span key={i} className="block">
+        <span key={i} className="block max-w-[18rem] ">
           {word}
         </span>
       ))}
