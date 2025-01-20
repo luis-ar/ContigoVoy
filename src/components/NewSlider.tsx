@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -61,7 +62,7 @@ const Probar = () => {
             opacity: [0, 1],
             translateZ: 0,
             easing: "easeOutExpo",
-            duration: 800,
+            duration: 8000,
             delay: (el, i) => 70 * i,
           })
           .finished.then(() => {
@@ -69,7 +70,6 @@ const Probar = () => {
           });
       }
     };
-
     const timer = setTimeout(animateText, 200);
     return () => clearTimeout(timer);  
 
@@ -92,7 +92,7 @@ const Probar = () => {
           pauseOnHover: false,
           loop: true,
         }}
-        onMove={handleSlideChange}
+        onMove={handleSlideChange}  
       >
         {sections.map((section, index) => (
           <SplideSlide key={index} id={`slide-${index}`}>
@@ -107,9 +107,9 @@ const Probar = () => {
               <div className="flex gap-4 p-6 flex-col md:flex-row justify-center items-center mt-[-160px]">
                 <div className="flex-1 lg:w-2/3 flex-col space-y-20 flex">
                   <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold animated-part1">
-                  <span dangerouslySetInnerHTML={{ __html: section.phrase }} />
-                  </h1>
                   <span dangerouslySetInnerHTML={{ __html: sections[currentPhrase].phrase }} />
+                  </h1>
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl" dangerouslySetInnerHTML={{ __html: sections[currentPhrase].smallPhrase }} />
                 </div>
               </div>
               {section.button && (

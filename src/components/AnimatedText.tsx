@@ -23,12 +23,12 @@ const AnimatedText: React.FC = () => {
 
       if (part1Wrapper && part2Wrapper) {
         part1Wrapper.innerHTML = phrases[currentPhrase].part1
-          .toLowerCase()
           .split("")
           .map((letter) => `<span class='letter'>${letter}</span>`)
           .join("");
 
         part2Wrapper.innerHTML = phrases[currentPhrase].part2
+          .toLowerCase()
           .split("")
           .map((letter) => `<span class='letter'>${letter}</span>`)
           .join("");

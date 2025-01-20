@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import anime from "animejs";
 import AnimatedText from "./AnimatedText";
 import SmallAnimatedText from "./SmallAnimatedText";
 
