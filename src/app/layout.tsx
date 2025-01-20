@@ -28,9 +28,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-            {getBaseRoute() !== "/user" && <Navbar />}
-            <div className="min-h-[90vh] mt-[10vh]">{children}</div>
-            {getBaseRoute() !== "/user" && <Footer />}
+            {getBaseRoute() !== "/user" && getBaseRoute() !== "/admin" && (
+            <Navbar />
+          )}
+          <div className="min-h-[90vh] mt-[10vh]">{children}</div>
+          {getBaseRoute() !== "/user" && getBaseRoute() !== "/admin" && (
+            <Footer />
+          )}
         </ThemeProvider>
         <ToastContainer />
       </body>

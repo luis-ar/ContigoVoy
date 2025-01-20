@@ -46,26 +46,27 @@ export default function LoginPage() {
         email_input,
       }
     );
+
     if (emailError) {
       console.error("Error fetching users:", emailError.message);
       toast.error("Error al verificar el correo electrónico");
-      setIsVisible(false);
       form.reset();
       return;
     }
+    const { data: dateRole, error: dataRole } = await supabase.rpc(
+      "get_user_role",
+      {
+        email_input,
+      }
+    );
 
-    if (data === false) {
-      toast.warning("El correo electrónico no está registrado");
-      setIsVisible(false);
-      form.reset();
-      return;
-    }
-
+    console.log(dateRole);
+    const redireccion = dateRole === "admin" ? "/admin/home" : "/user/home";
     // Enviar el enlace de inicio de sesión
     const { error } = await supabase.auth.signInWithOtp({
       email: email_input,
       options: {
-        emailRedirectTo: `${window.location.origin}/user/home`,
+        emailRedirectTo: `${window.location.origin}${redireccion}`,
       },
     });
 

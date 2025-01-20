@@ -72,6 +72,18 @@ export const formSchema = z.object({
     .max(50, {
       message: "Message cannot exceed 50 characters",
     }),
+
+    role: z
+    .string()
+    .nonempty({
+      message: "Role is required",
+    })
+    .min(2, {
+      message: "Role must be at least 2 characters long",
+    })
+    .max(50, {
+      message: "Role cannot exceed 50 characters",
+    }),
 });
 
 export const signInFormSchema = formSchema.pick({
@@ -84,4 +96,12 @@ export const contactoFormSchema = formSchema.pick({
   phone: true,
   email: true,
   message: true,
+});
+
+export const signUpFormSchema = formSchema.pick({
+  name: true,
+  lastname: true,
+  email: true,
+  password: true,
+  role: true,
 });
