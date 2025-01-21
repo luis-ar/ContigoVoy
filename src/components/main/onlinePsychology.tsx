@@ -54,7 +54,7 @@ export default function OnlinePsychology() {
 
   return (
     <div className="w-full max-w-full flex flex-col items-center justify-center px-4 py-16 bg-[#9494f3] relative overflow-hidden">
-      <div className="lg:w-2/3">
+      <div className="relative w-full max-w-6xl max-lg:flex max-lg:flex-col max-lg:items-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -73,14 +73,14 @@ export default function OnlinePsychology() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-28 gap-y-20 w-fit"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-20 gap-y-20 w-fit max-w-2xl mx-auto md:mx-0"
         >
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
-              className="group"
+              className="group flex flex-col items-center md:items-start text-center md:text-left w-fit"
             >
               <div className="flex flex-col items-center justify-center w-40 h-40 rounded-full bg-[#634AE2] backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-lg space-y-4">
                 <div className="p-4 bg-[#634AE2] rounded-full group-hover:bg-[#9494F3] transition-colors duration-300">
@@ -92,7 +92,7 @@ export default function OnlinePsychology() {
                   {feature.title}
                 </span>
               </h3>
-              <p className="text-base text-white max-w-[18rem] mt-3">
+              <p className="text-base text-white max-w-[16rem] mt-3 mx-auto md:mx-0">
                 {feature.description}
               </p>
             </motion.div>
@@ -110,26 +110,6 @@ export default function OnlinePsychology() {
           />
         </div>
       </div>
-      {/* <div className="hidden lg:block lg:w-[35%] absolute top-1/2 right-[-10%] transform -translate-y-1/2">
-        <Image
-          src="/carrusel_psicologiaonline_1.jpg"
-          alt="Psicóloga sonriendo"
-          width={700}
-          height={700}
-          className="rounded-full"
-        />
-      </div> */}
-      {/* <div className="hidden lg:block lg:w-[35%] absolute top-1/2 right-[-10%] transform -translate-y-1/2">
-        <div className="w-[700px] h-[700px] overflow-hidden rounded-full flex items-center justify-center">
-          <Image
-            src="/carrusel_psicologiaonline_1.jpg"
-            alt="Psicóloga sonriendo"
-            width={700}
-            height={700}
-            className="object-cover"
-          />
-        </div>
-      </div> */}
     </div>
   );
 }
