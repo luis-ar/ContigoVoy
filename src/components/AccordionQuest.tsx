@@ -50,3 +50,5 @@ const AccordionQuest = ({ faqs }) => {
     </Accordion>
   );
 };
+
+export default AccordionQuest;

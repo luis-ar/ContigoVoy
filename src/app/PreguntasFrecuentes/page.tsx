@@ -1,4 +1,4 @@
-
+"use client";
 import AccordionQuest from "@/components/AccordionQuest";
 
 export default function App() {
