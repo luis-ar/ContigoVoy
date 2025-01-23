@@ -1,40 +1,46 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Modal, ModalContent, ModalHeader, ModalBody, Button } from "@nextui-org/react"
-import { motion } from "framer-motion"
-import { ArrowRight, Brain, Users, Heart, User, ChevronRight } from 'lucide-react'
+import { useState } from "react";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  Button,
+} from "@nextui-org/react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 export default function TherapyServices() {
-  const [isOpen, setIsOpen] = useState(false)
 
+  const [isOpen, setIsOpen] = useState(false);
   const services = [
     {
-      icon: Brain,
+      icon: "/images/childTherapy.webp",
       title: "Terapia para niños",
-      color: "hover:bg-purple-700",
     },
     {
-      icon: User,
+      icon: "/images/TeenTherapy.webp",
       title: "Terapia adolescente",
-      color: "hover:bg-purple-700",
     },
     {
-      icon: Users,
+      icon: "/images/adultTherapy.webp",
       title: "Terapia de parejas",
-      color: "hover:bg-purple-700",
     },
     {
-      icon: Heart,
+      icon: "/images/coupleTherapy.webp",
       title: "Terapia para adultos",
-      color: "hover:bg-purple-700",
     },
-  ]
+    {
+      icon: "/images/familyTherapy.webp",
+      title: "Terapia familiar",
+    },
+  ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-16">
-      <motion.h2 
-        className="text-4xl font-bold text-center text-purple-600 mb-12"
+    <div className=" max-w-[1550px] px-0 mb-4 mx-auto py-16">
+    <motion.h2
+      className="text-4xl font-bold mt-[65px] text-center text-[#634AE2] mb-16 "
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -42,23 +48,36 @@ export default function TherapyServices() {
         Servicios
       </motion.h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="flex gap-[0.4px] md:flex-row flex-col">
         {services.map((service, index) => (
           <motion.div
             key={service.title}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className={`bg-purple-600 rounded-lg p-6 text-white transition-all duration-300 ${service.color}`}
+            className="flex-1 bg-[#634AE2] p-3 text-white duration-400 flex flex-col 
+            hover:flex-[1.2] hover:shadow-[0_7px_29px_0px_rgba(99,74,226,0.2)]
+            md:w-auto w-full md:hover:flex-[1.2] "
           >
-            <div className="flex flex-col items-center text-center space-y-4">
-              <service.icon className="w-16 h-16" />
-              <h3 className="text-xl font-semibold">{service.title}</h3>
+            <div className="flex flex-col items-end mb-[25px]">
+              <img
+                src={service.icon}
+                alt={service.title}
+                className="w-[63px] h-[63px]"
+              />
+            </div>
+            <h3 className="mt-3 mb-[46px] text-xl font-bold">
+              {service.title}
+            </h3>
+            <div className="flex flex-col items-end mt-auto mb-5">
               <button
                 onClick={() => setIsOpen(true)}
                 className="group flex items-center space-x-2 text-sm hover:text-purple-200 transition-colors"
               >
-                <span>Ver más</span>
+                 <span className="relative group ">
+                  Ver más
+                  <span className="absolute bottom-0 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full duration-500"></span>
+                </span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -66,8 +85,8 @@ export default function TherapyServices() {
         ))}
       </div>
 
-      <Modal 
-        isOpen={isOpen} 
+      <Modal
+        isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         size="2xl"
         scrollBehavior="inside"
@@ -80,14 +99,19 @@ export default function TherapyServices() {
             </ModalHeader>
             <ModalBody>
               <div className="space-y-6">
-                <p className="text-lg font-medium">Dirigido a niños de 3 a 12 años.</p>
+              <p className="text-lg font-medium">
+                  Dirigido a niños de 3 a 12 años.
+                </p>
                 
                 <div>
-                  <h4 className="text-xl font-semibold mb-2">Terapia para niños</h4>
+                <h4 className="text-xl font-semibold mb-2">
+                    Terapia para niños
+                  </h4>
                   <p className="text-purple-100">
-                    Potencia el bienestar emocional de tu hijo. Empleamos una intervención dinámica, 
-                    basada en el juego, para potenciar el bienestar integral del niño. 
-                    La terapia contempla el entorno familiar y el ámbito escolar.
+                  Potencia el bienestar emocional de tu hijo. Empleamos una
+                    intervención dinámica, basada en el juego, para potenciar el
+                    bienestar integral del niño. La terapia contempla el entorno
+                    familiar y el ámbito escolar.
                   </p>
                 </div>
 
@@ -98,7 +122,7 @@ export default function TherapyServices() {
                     "Traumas por separación de padres",
                     "Inteligencia emocional",
                     "Duelos y miedos",
-                    "Autoestima"
+                    "Autoestima",
                   ].map((item, index) => (
                     <motion.div
                       key={item}
@@ -107,7 +131,6 @@ export default function TherapyServices() {
                       transition={{ delay: index * 0.1 }}
                       className="flex items-center space-x-2"
                     >
-                      <ChevronRight className="w-5 h-5 text-purple-300" />
                       <span>{item}</span>
                     </motion.div>
                   ))}
@@ -125,6 +148,6 @@ export default function TherapyServices() {
         </ModalContent>
       </Modal>
     </div>
-  )
+  );
 }
 
