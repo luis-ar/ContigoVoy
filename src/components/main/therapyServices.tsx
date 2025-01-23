@@ -38,7 +38,7 @@ export default function TherapyServices() {
   ];
 
   return (
-    <div className=" max-w-[1550px] px-0 mb-4 mx-auto py-16">
+    <div className=" max-w-[1550px] px-0 mb-4 mx-auto py-16 ">
     <motion.h2
       className="text-4xl font-bold mt-[65px] text-center text-[#634AE2] mb-16 "
         initial={{ opacity: 0, y: 20 }}
