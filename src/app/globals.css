@@ -28,6 +28,52 @@
   transform: scale(1.2); 
 }
 
+/* Fondo Preguntras Frecuentes */
+.background_faq {
+  height: 100vh;
+  background-image: 
+  linear-gradient(
+      to right,
+      #3616D87A 0%, 
+      #3616D870 30%, 
+      #7863E37A 70%, 
+      #7863E370 100% 
+    ),
+    url(/ChicaPreguntando.jpg);
+    background-repeat: no-repeat;
+  background-size: contain;  
+  background-position: 130% 100%;
+  background-color: #f4f4f4;
+  height: 100vh; 
+}
+
+
+@media (max-width: 1024px) {
+  .background_faq {
+    min-height: 400px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .background_faq {
+    background-size: cover;
+    background-position: center center;
+    min-height: 300px; 
+    padding: 10px;
+  }
+}
+
+/* Responsive para teléfonos móviles */
+@media (max-width: 480px) {
+  .background_faq {
+    background-size: cover;
+    background-position: center center;
+    min-height: 250px; 
+    padding: 5px; 
+  }
+}
+
 .header {
   height: 90vh;
   background-image: linear-gradient(

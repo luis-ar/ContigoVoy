@@ -1,67 +1,38 @@
-"use client";
+
 import AccordionQuest from "@/components/AccordionQuest";
 
 export default function App() {
+  const faqs = [
+    {
+      Question: "¿Cuánto va a costar mi terapia?",
+      Answer:
+        "El costo de las terapias varía según el tipo de terapia que el paciente busque. Los precios varían entre 60 y 120 soles por sesión.",
+    },
+    {
+      Question: "¿Cuál es el tiempo de duración de la consulta?",
+      Answer:
+        "Cada persona es única, por lo que no podemos estimar el tiempo ni el costo sin la consulta. Allí, el especialista brindará un diagnóstico preciso y personalizará tu terapia para garantizar los mejores resultados.",
+    },
+    {
+      Question: "¿Cuáles son los métodos de pago?",
+      Answer:
+        "Para facilitar el proceso, ofrecemos diversas formas de pago como transferencia bancaria, Yape o Plin.",
+    },
+    {
+      Question: "¿Qué tipos de terapia manejan los psicólogos?",
+      Answer:
+        "Nuestros especialistas están altamente capacitados en terapia cognitivo-conductual, uno de los enfoques más efectivos y respaldados científicamente en la actualidad para el tratamiento de diversas condiciones psicológicas.",
+    },
+  ];
+
   return (
-    <>
-      <div className="text-center font-bold text-5xl pt-[119px]  pb-[41px] text-[#634AE2]">
-        Preguntas Frecuentes
+    <div className="background_faq">
+      <div className="text-left font-bold text-4xl pt-[60px] pb-[41px] text-[#ffff] pl-20">
+        Preguntas frecuentes
       </div>
-      <div className="grid gap-4 mx-auto pb-28 max-w-3xl ">
-        <AccordionQuest
-          Question="¿Cuánto cuesta la consulta?"
-          Answer={
-            <>
-              La <strong>primera consulta diagnóstica </strong>tiene un costo de{" "}
-              <strong>X soles</strong>. Las consultas regulares tienen un valor
-              de <strong>X soles</strong>, pero al iniciar tu tratamiento, el
-              psicólogo te ofrecerá un paquete personalizado con sesiones a
-              partir de <strong>X soles</strong>.
-            </>
-          }
-        />
-        <AccordionQuest
-          Question="¿Cuánto va a costar y durar mi terapia"
-          Answer={
-            <>
-              Cada persona es única, por lo que no podemos estimar el tiempo ni
-              el costo sin la <strong>primera consulta</strong>. Allí, el
-              especialista brindará un diagnóstico preciso y personalizará tu
-              terapia para garantizar los mejores resultados.
-            </>
-          }
-        />
-        <AccordionQuest
-          Question="¿Qué tipo de terapia manejan los psicólogos?"
-          Answer={
-            <>
-              Nuestros especialistas están altamente capacitados en 
-              <strong> terapia cognitivo conductual</strong>, uno de los enfoques
-              más efectivos y respaldados científicamente en la actualidad para
-              el tratamiento de diversas condiciones psicológicas.
-            </>
-          }
-        />
-        <AccordionQuest
-          Question="¿Cuánto duran las sesiones?"
-          Answer={
-            <>
-              Tanto la <strong>primera consulta</strong> como las <strong>consultas regulares</strong> con
-              nuestros psicólogos en Lima, Perú, tienen una duración de <strong>60
-              minutos.</strong>
-            </>
-          }
-        />
-        <AccordionQuest
-          Question="¿Cuáles son los métodos de pago para reservar mi consulta?"
-          Answer={
-            <>
-              Para facilitar el proceso te brindamos diversas formas de pago
-              como; transferencia bancaria, Yape o Plin.
-            </>
-          }
-        />
+      <div className="grid gap-4 pb-28 max-w-2xl pl-20">
+        <AccordionQuest faqs={faqs} />
       </div>
-    </>
+    </div>
   );
 }
