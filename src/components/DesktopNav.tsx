@@ -33,10 +33,24 @@ export const NavbarGeneral = ({ navItems }: any) => {
   }, []);
 
   return (
-    <nav>
-      <DesktopNav navItems={navItems} />
+    <div>
+    <nav className="border-b bg-background h-[10vh] flex items-center fixed w-full z-10 top-0">
+      <div className="w-full p-6 flex items-center justify-between">
+        <Link href="/">
+          <h1 className="font-bold text-3xl">
+            Contigo<span className="text-primary">Voy</span>{" "}
+          </h1>
+        </Link>
+        <div className="flex items-center gap-x-5">
+          <DesktopNav navItems={navItems} />
+          <DataUser ref={userRef} estado={estado} setEstado={setEstado} />
+          <ThemeToggle />
+        </div>
+      </div>
     </nav>
-  );
+    <Panel ref={panelRef} estado={estado} setEstado={setEstado} />
+  </div>
+);
 };
 
 export const DesktopNav = ({ navItems }: any) => {
