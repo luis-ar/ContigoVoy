@@ -8,12 +8,16 @@ const navItems = [
     link: "/admin/home",
   },
   {
-    name: "Create",
+    name: "Create Users",
     link: "/admin/create",
   },
   {
     name: "Create Services",
     link: "/admin/createServices",
+  },
+  {
+    name: "Create Specialties",
+    link: "/admin/createSpecialties",
   },
 ];
 

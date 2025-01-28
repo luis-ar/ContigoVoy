@@ -122,6 +122,21 @@ export const formSchema = z.object({
       (file: File | null) => file && file.size <= 5 * 1024 * 1024, // Máximo 5 MB
       { message: "Photo must be smaller than 5MB" }
     ),
+    specialty: z
+    .string()
+    .nonempty({
+      message: "Specialty is required",
+    })
+    .min(2, {
+      message: "Specialty must be at least 2 characters long",
+    })
+    .max(50, {
+      message: "Specialty cannot exceed 50 characters",
+    }),
+
+  userSpecialty: z.string().nonempty({
+    message: "Specialty is required",
+  }),
 });
 
 export const signInFormSchema = formSchema.pick({
@@ -143,10 +158,17 @@ export const signUpFormSchema = formSchema.pick({
   password: true,
   role: true,
   photo:true,
+  userSpecialty: true,
+  phone: true,
+  description: true,
 });
 
 export const serviceFormSchema = formSchema.pick({
   title: true,
   description: true,
   photo: true,
+});
+
+export const specialtyFormSchema = formSchema.pick({
+  specialty: true,
 });

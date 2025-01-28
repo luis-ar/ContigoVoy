@@ -19,6 +19,7 @@ import { supabase } from "@/lib/supabaseClient";
 import { serviceFormSchema } from "@/lib/auth-schema";
 import { toast } from "react-toastify";
 import { useRef, useState } from "react";
+import { validateStorage } from "@/utils/validationStorage";
 
 const PageService = () => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -36,13 +37,7 @@ const PageService = () => {
   const handleSignIn = async (values: z.infer<typeof serviceFormSchema>) => {
     setState(true);
     const { title, description, photo } = values;
-    const { data, error } = await supabase.storage.listBuckets();
-    const bucketExists = data?.some((bucket) => bucket.name === "avatars");
-    if (!bucketExists) {
-      await supabase.storage.createBucket("avatars", {
-        public: true,
-      });
-    }
+    await validateStorage();
     const namePhoto = `avatar_${Date.now()}.png`;
     const urlPhoto = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/avatars/${namePhoto}`;
     const { data: dataServices, error: errorServices } = await supabase
