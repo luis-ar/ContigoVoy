@@ -26,7 +26,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "react-toastify";
+import { useRef, useState } from "react";
+import { validateStorage } from "@/utils/validationStorage";
 const FormSignUp = () => {
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [state, setState] = useState(false);
   const form = useForm({
     resolver: zodResolver(signUpFormSchema),
     defaultValues: {
@@ -35,11 +39,12 @@ const FormSignUp = () => {
       email: "",
       password: "",
       role: "",
+      photo:"",
     },
   });
 
   const handleSignUp = async (values: z.infer<typeof signUpFormSchema>) => {
-    const { name, email, password, role ,lastname} = values;
+    const { name, email, password, role ,lastname, photo} = values;
     const { data: dataemail, error: emailError } = await supabase.rpc(
       "check_email_exists",
       {
@@ -50,7 +55,10 @@ const FormSignUp = () => {
       toast.info("El email ya existe");
       return;
     }
+    await validateStorage();
     const ruta = role === "admin" ? "/admin/home" : "/user/home";
+    const namePhoto = `avatar_${Date.now()}.png`;
+    const urlPhoto = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/avatars/${namePhoto}`;
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -59,6 +67,7 @@ const FormSignUp = () => {
           name,
           role,
           lastname,
+          photo:urlPhoto,
         },
         emailRedirectTo: `${window.location.origin}${ruta}`, // Redirigir a /home después de la confirmación
       },
@@ -68,7 +77,7 @@ const FormSignUp = () => {
       console.log(`Error: ${error.message}`);
       toast.error(`Error: ${error.message}`);
     } else {
-      console.log("Usuario registrado con éxito. Verifica tu correo.");
+      await supabase.storage.from("avatars").upload(namePhoto, photo);
       toast.success("Usuario registrado con éxito. Que verifique su correo.");
       form.reset();
     }
@@ -158,7 +167,30 @@ const FormSignUp = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">Create User</Button>
+       <FormField
+          control={form.control}
+          name="photo"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Photo</FormLabel>
+              <FormControl>
+                <Input
+                  type="file"
+                  accept="image/jpeg, image/png"
+                  ref={fileInputRef}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    field.onChange(file);
+                  }}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit" disabled={state}>
+          Create User
+        </Button>
       </form>
     </Form>
   );

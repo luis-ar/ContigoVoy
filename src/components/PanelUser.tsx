@@ -3,47 +3,21 @@ import { supabase } from "@/lib/supabaseClient";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { PanelProps } from "@/interface";
+import { PanelProps, UserInterface } from "@/interface";
+import { fetchUser } from "@/utils/recuperarDataUser";
 export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
   ({ estado, setEstado }, ref) => {
-    const [user, setUser] = useState<{
-      name: string | null;
-      email: string | null;
-      lastname: string | null;
-    }>({ name: null, email: null, lastname: null });
     const router = useRouter();
     const [visible, setVisible] = useState<boolean>(estado);
-    const [inciales, setIncials] = useState<string>("");
-
+    const [user, setUser] = useState<UserInterface>({
+      name: null,
+      email: null,
+      lastname: null,
+      photo: null,
+      iniciales: null,
+    });
     useEffect(() => {
-      if (estado) {
-        setVisible(true);
-      } else {
-        const timer = setTimeout(() => setVisible(false), 300);
-        return () => clearTimeout(timer);
-      }
-    }, [estado]);
-    useEffect(() => {
-      const fetchUser = async () => {
-        const { data, error } = await supabase.auth.getUser();
-
-        if (error) {
-          console.error("Error fetching user:", error.message);
-          return; // Salir si hay un error
-        }
-
-        const { user } = data || {};
-        const name = user?.user_metadata?.name || "Usuario";
-        const email = user?.user_metadata?.email || "usuario@gmail.com";
-        const lastname = user?.user_metadata?.lastname || "";
-
-        setUser({ name, email, lastname });
-        setIncials(
-          name.charAt(0).toUpperCase() + lastname.charAt(0).toUpperCase()
-        );
-      };
-
-      fetchUser();
+      fetchUser(setUser);
     }, []);
 
     const handleSignOut = async () => {
@@ -84,10 +58,10 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
               <div className="flex justify-center items-center px-3">
                 <Avatar className="cursor-pointer w-20 h-20">
                   <AvatarImage
-                    src="https://github.com/shadcn.png"
+                    src={user.photo || "https://github.com/shadcn.png"}
                     alt="@shadcn"
                   />
-                  <AvatarFallback>{inciales}</AvatarFallback>
+                  <AvatarFallback>{user.iniciales}</AvatarFallback>
                 </Avatar>
               </div>
               <div className="flex flex-1 justify-center flex-col">
