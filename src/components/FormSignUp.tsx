@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -40,7 +39,7 @@ const FormSignUp = () => {
   });
 
   const handleSignUp = async (values: z.infer<typeof signUpFormSchema>) => {
-    const { name, email, password, role } = values;
+    const { name, email, password, role ,lastname} = values;
     const { data: dataemail, error: emailError } = await supabase.rpc(
       "check_email_exists",
       {
@@ -59,6 +58,7 @@ const FormSignUp = () => {
         data: {
           name,
           role,
+          lastname,
         },
         emailRedirectTo: `${window.location.origin}${ruta}`, // Redirigir a /home después de la confirmación
       },

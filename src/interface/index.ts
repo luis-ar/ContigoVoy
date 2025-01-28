@@ -8,3 +8,7 @@ export interface QuestionInterface {
   Question: string;
   Answer?: React.ReactNode;
 }
+export interface PanelProps {
+  estado: boolean;
+  setEstado: React.Dispatch<React.SetStateAction<boolean>>;
+}
