@@ -6,15 +6,15 @@ import Image from "next/image";
 export default function ChooseUs() {
   const features = [
     {
-      icon: <Image src={'/especialistas.png'} alt="especialista" width={70} height={60} />,
+      icon: <Image src={'/ChooseUsImages/especialistas.webp'} alt="especialista" width={70} height={60} />,
       title: "Especialistas colegiados",
     },
     {
-      icon: <Image src='/atencion virtual.png' alt="Atención virtual" width={70} height={60} />,
+      icon: <Image src='/ChooseUsImages/atencionvirtual.webp' alt="Atención virtual" width={70} height={60} />,
       title: "Atención virtual",
     },
     {
-      icon: <Image src='/etica.png' alt="Ética y confiabilidad" width={70} height={60} />,
+      icon: <Image src='/ChooseUsImages/etica.webp' alt="Ética y confiabilidad" width={70} height={60} />,
       title: "Ética y confiabilidad",
     },
     {
@@ -22,11 +22,11 @@ export default function ChooseUs() {
       title: "Horarios flexibles",
     },
     {
-      icon: <Image src='/costos.png' alt="Costos accesibles" width={70} height={60} />,
+      icon: <Image src='/ChooseUsImages/costos.webp' alt="Costos accesibles" width={70} height={60} />,
       title: "Costos accesibles",
     },
     {
-      icon: <Image src='/confidencialidad.png' alt="Confidencialidad" width={70} height={60} />,
+      icon: <Image src='/ChooseUsImages/confidencialidad.webp' alt="Confidencialidad" width={70} height={60} />,
       title: "Confidencialidad",
     },
   ];
