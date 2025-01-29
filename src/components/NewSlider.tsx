@@ -80,7 +80,7 @@ const Probar = () => {
   };
 
   return (
-    <div className="h-[80vh] w-[100%]">
+    <div className="h-[67vh] w-[100%]">
       <Splide
         options={{
           type: "fade",
