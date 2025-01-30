@@ -19,6 +19,15 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
     useEffect(() => {
       fetchUser(setUser);
     }, []);
+    
+    useEffect(() => {
+      if (estado) {
+        setVisible(true);
+      } else {
+        const timer = setTimeout(() => setVisible(false), 300);
+        return () => clearTimeout(timer);
+      }
+    }, [estado]);
 
     const handleSignOut = async () => {
       const { error } = await supabase.auth.signOut();

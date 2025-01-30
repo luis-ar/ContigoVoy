@@ -157,10 +157,7 @@ export const signUpFormSchema = formSchema.pick({
   email: true,
   password: true,
   role: true,
-  photo:true,
-  userSpecialty: true,
-  phone: true,
-  description: true,
+  photo: true,
 });
 
 export const serviceFormSchema = formSchema.pick({
