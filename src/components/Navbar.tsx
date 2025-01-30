@@ -26,6 +26,11 @@ const navItems = [
     name: "Blog",
     link: "/Blog",
   },
+  {
+    name: "Iniciar Sesión",
+    link: "/login",
+    isButton: true,
+  }
 ];
 
 
@@ -35,7 +40,7 @@ const Navbar = () => {
      <div className="w-full p-6 flex items-center justify-between">
         <Link href="/">
           <h1 className="font-normal text-3xl">
-            <Image src={"/LOGO.png"} alt="logo" width={190} height={100} />
+            <Image src={"/LOGO.png"} alt="logo" width={160} height={100} layout="intrinsic" />
           </h1>
         </Link>
         <div className="flex items-center gap-x-5">
