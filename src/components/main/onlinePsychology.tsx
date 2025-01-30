@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Image from "next/image";
-
+import "../../app/globals.css"
 export default function OnlinePsychology() {
   const features = [
     {
@@ -62,7 +62,7 @@ export default function OnlinePsychology() {
   };
 
   return (
-    <div className="w-full max-w-full flex flex-col items-center justify-center px-4 py-16 bg-[#9494f3] relative overflow-hidden">
+    <div className="w-full max-w-full flex flex-col items-center justify-center px-4 py-16 bg-background_celeste relative overflow-hidden">
       <div className="relative w-full max-w-6xl max-lg:flex max-lg:flex-col max-lg:items-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

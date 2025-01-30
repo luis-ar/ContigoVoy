@@ -11,11 +11,11 @@ export default function Footer() {
       title: "Enlaces",
       links: [
         { text: "Inicio", href: "#" },
-        { text: "Sobre Nosotros", href: "#" },
-        { text: "Servicios", href: "#" },
-        { text: "Contactanos", href: "#" },
-        { text: "Preguntas Frecuentes", href: "#" },
-        { text: "Blog", href: "#" },
+        { text: "Sobre Nosotros", href: "/" },
+        { text: "Servicios", href: "/services" },
+        { text: "Contactanos", href: "/contactanos" },
+        { text: "Preguntas Frecuentes", href: "/PreguntasFrecuentes" },
+        { text: "Blog", href: "/blog" },
       ],
     },
   ];

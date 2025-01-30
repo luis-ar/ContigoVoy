@@ -16,7 +16,7 @@ export default function App() {
         setAction(`submit ${JSON.stringify(data)}`);
       }}
     >
-      <div className="space-y-4 w-full">
+      <div className="space-y-4 w-full ">
         <Input
           isRequired
           errorMessage="Por favor ingrese un nombre válido"
