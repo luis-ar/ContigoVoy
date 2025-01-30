@@ -27,10 +27,10 @@ export default function App() {
 
   return (
     <div className="background_faq">
-      <div className="text-left font-bold text-4xl pt-[60px] pb-[41px] text-[#ffff] pl-20">
+     <div className="text-left font-bold text-4xl pt-[60px] pb-[41px] text-white pl-5 sm:pl-10 md:pl-20">
         Preguntas frecuentes
       </div>
-      <div className="grid gap-4 pb-28 max-w-2xl pl-20">
+      <div className="grid gap-4 pb-28 max-w-full sm:max-w-md md:max-w-2xl pl-5 sm:pl-10 md:pl-20">
         <AccordionQuest faqs={faqs} />
       </div>
     </div>

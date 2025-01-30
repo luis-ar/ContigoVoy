@@ -48,7 +48,7 @@
 }
 
 /*responsive*/
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .background_faq {
     background-size: cover;
     background-position: center center;

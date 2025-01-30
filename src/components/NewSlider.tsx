@@ -13,28 +13,28 @@ const Probar = () => {
       smallPhrase: "Con nuestras terapias virtuales, transformamos <br> tu vida y te acompañamos en cada paso de tu <br> camino hacia la sanación.",
       button: true,
       background:
-        "https://s3-alpha-sig.figma.com/img/5093/14f7/ff037fdfb79a06da3e16d798d3ef02db?Expires=1737936000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=C78Qpl0t9Nr9exDSTl81UohzJp-tprWDmH7LEiOQq425A3wvI7JmVF2z6j3vly12lxMOL-F0PCiAkVDwb1LUZFltQPZkQ1QqoQ916sGn7Nhp0aumvxowHuqqcNdIu07E5WcKFJUcNPpwHiTlaiq~CP8pEQCGqvckQqUoz3a4Uu0cmvv~t5rXs2qEz7vYmaldjuLb2JB8l9kIYULGdd888nFT0TaaSYOMrHvC8CPiid63WM4ymSY1xl23TxtNxvdNpTSRcai1XZnqo50EAAhuipdImNpgKboEhN6puevgope~UomyThv1xGS98JEyuhWrW6I2-hDUN9uUVLHD0CCV6w__",
+        "/carruselImages/estamoparati.webp",
     },
     {
       phrase: "Apoyo a un <br> click de distancia",
       smallPhrase: "Nuestras terapias virtuales te permiten cuidar <br> de tu bienestar desde la comodidad de tu <br>hogar cuando más lo necesites.",
       button: true,
       background:
-        "https://media.istockphoto.com/id/1984757470/es/foto/adolescente-en-sesi%C3%B3n-de-terapia-con-profesional-de-la-salud-mental.jpg?s=612x612&w=0&k=20&c=7niY7hPolhzZ9dxalr1rOobUwHtHoaMKfp392FGgCWk=",
+      "/carruselImages/clickpos.webp"
     },
     {
       phrase: "Tu bienestar emocional <br> inicia aqui",
       smallPhrase: "Transforma tu vida con nuestras <br> terapias diseñadas para ayudarte <br> a sanar y crecer.",
       button: true,
       background:
-        "https://media.istockphoto.com/id/1041156320/es/foto/terapeuta-en-el-trabajo.jpg?s=612x612&w=0&k=20&c=yezXppi48yAwGVmrRyFq3zAWjAxOb7kf2xHOTpuagaI=",
+      "/carruselImages/bienestar.webp",
     },
     {
       phrase: "No dejemos que el <br> silencio sea el enemigo",
       smallPhrase: "8 de cada 10 peruanos no reciben <br> la atención mental que necesitan. <br>",
       button: true,
       background:
-        "https://media.istockphoto.com/id/1473155461/es/foto/enfermera-manos-y-paciente-mayor-en-empat%C3%ADa-seguridad-y-apoyo-de-ayuda-confianza-y-consultor%C3%ADa.jpg?s=612x612&w=0&k=20&c=euqDs9j39vBMvZHq16Rj2XvXAlySacTMQuxn1eq9tSM=",
+      "/carruselImages/silencio.webp",
     },
   ];
 
@@ -90,7 +90,7 @@ const Probar = () => {
           autoplay: true,
           interval: 10000,
           pauseOnHover: false,
-          loop: true,
+          rewind: true,
         }}
         onMove={handleSlideChange}  
       >
