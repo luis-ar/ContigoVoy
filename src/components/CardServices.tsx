@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -22,7 +22,7 @@ const CardServices: React.FC<CardServicesProps> = ({
     <Card className={`w-64 md:w-[350px] ${color} text-white text-center`}>
       <CardHeader className="pb-4">
         <CardDescription>
-          <img src={imageUrl} alt="Imagen de servicio" className="rounded-lg" />
+          <Image src={imageUrl} alt="Imagen de servicio" className="rounded-lg" />
         </CardDescription>
         <CardTitle className="text-base md:text-xl pt-2  font-extrabold">
           {title}
