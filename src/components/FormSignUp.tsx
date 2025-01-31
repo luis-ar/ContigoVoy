@@ -50,6 +50,7 @@ const FormSignUp = () => {
 
     fetchData();
   }, []);
+
   const form = useForm({
     resolver: zodResolver(signUpFormSchema),
     defaultValues: {
@@ -58,7 +59,7 @@ const FormSignUp = () => {
       email: "",
       password: "",
       role: "",
-      photo:"",
+      photo: null,
       userSpecialty: "",
       phone: "",
       description: "",
@@ -90,7 +91,7 @@ const FormSignUp = () => {
       return;
     }
     await validateStorage();
-    const ruta = role === "admin" ? "/admin/home" : "/user/home";
+    const ruta = role === "admin" ? "/admin/create" : "/user/home";
     const namePhoto = `avatar_${Date.now()}.png`;
     const urlPhoto = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/avatars/${namePhoto}`;
     const { data, error } = await supabase.auth.signUp({
@@ -101,7 +102,7 @@ const FormSignUp = () => {
           name,
           role,
           lastname,
-          photo:urlPhoto,
+          photo: urlPhoto,
         },
         emailRedirectTo: `${window.location.origin}${ruta}`, // Redirigir a /home después de la confirmación
       },
@@ -155,7 +156,7 @@ const FormSignUp = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSignUp)}
-         className="w-full space-y-8 py-4"
+        className="w-64 space-y-8 sm:w-full pt-4"
       >
         <FormField
           control={form.control}
@@ -241,7 +242,7 @@ const FormSignUp = () => {
             <FormItem>
               <FormLabel>Rol</FormLabel>
               <FormControl>
-              <Select
+                <Select
                   onValueChange={(value) => {
                     field.onChange(value);
                     setSelectedRole(value);
@@ -274,7 +275,7 @@ const FormSignUp = () => {
             </FormItem>
           )}
         />
-       {selectedRole === "psicologo" && (
+        {selectedRole === "psicologo" && (
           <>
             <FormField
               control={form.control}

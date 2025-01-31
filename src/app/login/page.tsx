@@ -50,6 +50,14 @@ export default function LoginPage() {
     if (emailError) {
       console.error("Error fetching users:", emailError.message);
       toast.error("Error al verificar el correo electrónico");
+      setIsVisible(false);
+      form.reset();
+      return;
+    }
+
+    if (data === false) {
+      toast.warning("El correo electrónico no está registrado");
+      setIsVisible(false);
       form.reset();
       return;
     }
@@ -61,7 +69,7 @@ export default function LoginPage() {
     );
 
     console.log(dateRole);
-    const redireccion = dateRole === "admin" ? "/admin/home" : "/user/home";
+    const redireccion = dateRole === "admin" ? "/admin/create" : "/user/home";
     // Enviar el enlace de inicio de sesión
     const { error } = await supabase.auth.signInWithOtp({
       email: email_input,

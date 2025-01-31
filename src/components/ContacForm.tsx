@@ -12,7 +12,7 @@ export default function App() {
       onReset={() => setAction("reset")}
       onSubmit={(e) => {
         e.preventDefault();
-        let data = Object.fromEntries(new FormData(e.currentTarget));
+        const data = Object.fromEntries(new FormData(e.currentTarget));
         setAction(`submit ${JSON.stringify(data)}`);
       }}
     >

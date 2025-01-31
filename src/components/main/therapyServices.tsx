@@ -10,6 +10,7 @@ import {
 } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function TherapyServices() {
 
@@ -60,10 +61,11 @@ export default function TherapyServices() {
             md:w-auto w-full md:hover:flex-[1.2] "
           >
             <div className="flex flex-col items-end mb-[25px]">
-              <img
+              <Image
                 src={service.icon}
                 alt={service.title}
-                className="w-[63px] h-[63px]"
+                width={63}
+                height={63}
               />
             </div>
             <h3 className="mt-3 mb-[46px] text-xl font-bold">

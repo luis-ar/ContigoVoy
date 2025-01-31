@@ -4,7 +4,6 @@
 import ChooseUs from "@/components/main/chooseUs";
 import TherapyServices from "@/components/main/therapyServices";
 import OnlinePsychology from "@/components/main/onlinePsychology";
-import About from "@/components/About";
 import Probar from "@/components/NewSlider";
 
 export default function Home() {

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { CardServicesProps } from "@/interface";
 const CardServicesAnimation: React.FC<CardServicesProps> = ({
@@ -13,7 +13,7 @@ const CardServicesAnimation: React.FC<CardServicesProps> = ({
     <div>
       <div className={`card w-64 md:w-[300px] text-white text-center`}>
         <div className="face front">
-          <img src={imageUrl} />
+          <Image src={imageUrl} alt=""/>
           <h3 className="n-expert font-extrabold">{title}</h3>
         </div>
         <div className="face back">

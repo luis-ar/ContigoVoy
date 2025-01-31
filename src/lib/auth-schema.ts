@@ -4,138 +4,138 @@ export const formSchema = z.object({
   name: z
     .string()
     .nonempty({
-      message: "Name is required",
+      message: "El nombre es obligatorio",
     })
     .min(2, {
-      message: "Name must be at least 2 characters long",
+      message: "El nombre debe tener al menos 2 caracteres",
     })
     .max(50, {
-      message: "Name cannot exceed 50 characters",
+      message: "El nombre no puede exceder los 50 caracteres",
     }),
   email: z
     .string()
     .nonempty({
-      message: "Email is required",
+      message: "El correo electrónico es obligatorio",
     })
     .email({
-      message: "Invalid email format",
+      message: "Formato de correo electrónico inválido",
     })
     .min(2, {
-      message: "Email must be at least 2 characters long",
+      message: "El correo electrónico debe tener al menos 2 caracteres",
     })
     .max(50, {
-      message: "Email cannot exceed 50 characters",
+      message: "El correo electrónico no puede exceder los 50 caracteres",
     }),
   password: z
     .string()
     .nonempty({
-      message: "Password is required",
+      message: "La contraseña es obligatoria",
     })
     .min(8, {
-      message: "Password must be at least 8 characters long",
+      message: "La contraseña debe tener al menos 8 caracteres",
     })
     .max(50, {
-      message: "Password cannot exceed 50 characters",
+      message: "La contraseña no puede exceder los 50 caracteres",
     }),
 
   lastname: z
     .string()
     .nonempty({
-      message: "Lastname is required",
+      message: "El apellido es obligatorio",
     })
     .min(2, {
-      message: "Lastname must be at least 2 characters long",
+      message: "El apellido debe tener al menos 2 caracteres",
     })
     .max(50, {
-      message: "Lastname cannot exceed 50 characters",
+      message: "El apellido no puede exceder los 50 caracteres",
     }),
   phone: z
     .string()
     .nonempty({
-      message: "Phone is required",
+      message: "El teléfono es obligatorio",
     })
     .min(2, {
-      message: "Phone must be at least 2 characters long",
+      message: "El teléfono debe tener al menos 2 caracteres",
     })
     .max(50, {
-      message: "Phone cannot exceed 50 characters",
+      message: "El teléfono no puede exceder los 50 caracteres",
     }),
 
   message: z
     .string()
     .nonempty({
-      message: "Message is required",
+      message: "El mensaje es obligatorio",
     })
     .min(2, {
-      message: "Message must be at least 2 characters long",
+      message: "El mensaje debe tener al menos 2 caracteres",
     })
     .max(50, {
-      message: "Message cannot exceed 50 characters",
+      message: "El mensaje no puede exceder los 50 caracteres",
     }),
 
-    role: z
+  role: z
     .string()
     .nonempty({
-      message: "Role is required",
+      message: "El rol es obligatorio",
     })
     .min(2, {
-      message: "Role must be at least 2 characters long",
+      message: "El rol debe tener al menos 2 caracteres",
     })
     .max(50, {
-      message: "Role cannot exceed 50 characters",
+      message: "El rol no puede exceder los 50 caracteres",
     }),
 
-    title: z
+  title: z
     .string()
     .nonempty({
-      message: "Title is required",
+      message: "El título es obligatorio",
     })
     .min(2, {
-      message: "Title must be at least 2 characters long",
+      message: "El título debe tener al menos 2 caracteres",
     })
     .max(50, {
-      message: "Title cannot exceed 50 characters",
+      message: "El título no puede exceder los 50 caracteres",
     }),
 
   description: z
     .string()
     .nonempty({
-      message: "Description is required",
+      message: "La descripción es obligatoria",
     })
     .min(2, {
-      message: "Description must be at least 2 characters long",
+      message: "La descripción debe tener al menos 2 caracteres",
     })
     .max(50, {
-      message: "Description cannot exceed 50 characters",
+      message: "La descripción no puede exceder los 50 caracteres",
     }),
   photo: z
     .any()
     .refine((file: File | null) => file && file.size > 0, {
-      message: "Photo is required",
+      message: "La foto es obligatoria",
     })
     .refine(
       (file: File | null) =>
         file && ["image/jpeg", "image/png"].includes(file.type),
-      { message: "Only JPEG or PNG files are allowed" }
+      { message: "Solo se permiten archivos JPEG o PNG" }
     )
     .refine(
       (file: File | null) => file && file.size <= 5 * 1024 * 1024, // Máximo 5 MB
-      { message: "Photo must be smaller than 5MB" }
+      { message: "La foto debe ser menor a 5MB" }
     ),
-    specialty: z
+  specialty: z
     .string()
     .nonempty({
-      message: "Specialty is required",
+      message: "La especialidad es obligatoria",
     })
     .min(2, {
-      message: "Specialty must be at least 2 characters long",
+      message: "La especialidad debe tener al menos 2 caracteres",
     })
     .max(50, {
-      message: "Specialty cannot exceed 50 characters",
+      message: "La especialidad no puede exceder los 50 caracteres",
     }),
 
   userSpecialty: z.string().nonempty({
-    message: "Specialty is required",
+    message: "La especialidad es obligatoria",
   }),
 });
 
@@ -157,7 +157,7 @@ export const signUpFormSchema = formSchema.pick({
   email: true,
   password: true,
   role: true,
-  photo:true,
+  photo: true,
   userSpecialty: true,
   phone: true,
   description: true,
@@ -172,3 +172,14 @@ export const serviceFormSchema = formSchema.pick({
 export const specialtyFormSchema = formSchema.pick({
   specialty: true,
 });
+
+export const taskSchema = z.object({
+  id: z.string(),
+  email: z.string(),
+  name: z.string().optional(),
+  label: z.string(),
+  role: z.string().optional(),
+  photo: z.string(),
+});
+
+export type Task = z.infer<typeof taskSchema>;

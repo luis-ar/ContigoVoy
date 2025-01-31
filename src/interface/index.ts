@@ -19,3 +19,15 @@ export interface UserInterface {
   photo: string | null;
   iniciales: string | null;
 }
+export interface UpdateUserProps {
+  task: any;
+}
+export interface FAQ {
+  Question: string;
+  Answer: string;
+}
+
+// Definición de las propiedades del componente AccordionQuest
+export interface AccordionQuestProps {
+  faqs: FAQ[];
+}

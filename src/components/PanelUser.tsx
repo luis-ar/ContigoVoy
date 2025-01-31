@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { PanelProps, UserInterface } from "@/interface";
 import { fetchUser } from "@/utils/recuperarDataUser";
+
 export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
   ({ estado, setEstado }, ref) => {
     const router = useRouter();
@@ -16,9 +17,19 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
       photo: null,
       iniciales: null,
     });
+
     useEffect(() => {
       fetchUser(setUser);
     }, []);
+
+    useEffect(() => {
+      if (estado) {
+        setVisible(true);
+      } else {
+        const timer = setTimeout(() => setVisible(false), 300);
+        return () => clearTimeout(timer);
+      }
+    }, [estado]);
 
     const handleSignOut = async () => {
       const { error } = await supabase.auth.signOut();
@@ -27,7 +38,7 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
         console.log("Error al cerrar sesión:", error.message);
       } else {
         console.log("Sesión cerrada con éxito");
-        setEstado && setEstado(false);
+        setEstado(false); // Simplified this line
         router.push("/"); // Redirigir al inicio
       }
     };
@@ -45,7 +56,7 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
               estado ? "opacity-100" : "opacity-0"
             }`}
           >
-           <div className="flex w-full items-center justify-between text-center h-10 text-sm border-b ">
+            <div className="flex w-full items-center justify-between text-center h-10 text-sm border-b ">
               <div className="flex flex-1 justify-center px-4">Contigo Voy</div>
               <div
                 className="justify-center flex px-4 hover:bg-[#7777b8] h-full cursor-pointer items-center"
@@ -77,3 +88,5 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
     );
   }
 );
+
+Panel.displayName = "Panel"; // Add display name
