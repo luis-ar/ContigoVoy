@@ -10,7 +10,7 @@ export default function Footer() {
     {
       title: "Enlaces",
       links: [
-        { text: "Inicio", href: "#" },
+        { text: "Inicio", href: "/" },
         { text: "Sobre Nosotros", href: "/" },
         { text: "Servicios", href: "/services" },
         { text: "Contactanos", href: "/contactanos" },

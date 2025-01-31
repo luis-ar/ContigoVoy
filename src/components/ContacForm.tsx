@@ -7,7 +7,7 @@ export default function App() {
 
   return (
     <Form
-      className="w-full max-w-md bg-[#B8B8FF] rounded-2xl p-6 md:p-8"
+      className="w-full max-w-md bg-background_celeste_claro rounded-2xl p-6 md:p-8"
       validationBehavior="native"
       onReset={() => setAction("reset")}
       onSubmit={(e) => {

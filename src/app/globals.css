@@ -255,6 +255,7 @@
   :root {
     --background: 255 255 100%;
     --background-celeste:240 79% 77%;
+    --background-celeste-claro:240 99% 86%;
     --foreground: 240 5% 0%;
     --card: 240 50% 90%;
     --card-foreground: 240 5% 10%;
@@ -278,6 +279,7 @@
   .dark {
     --background: 240 50% 5%;
     --background-celeste:249 82% 13%;
+    --background-celeste-claro:252 76% 23%;
     --foreground: 240 5% 90%;
     --card: 240 50% 0%;
     --card-foreground: 240 5% 90%;

@@ -13,6 +13,7 @@ export default {
     extend: {
       colors: {
         background_celeste: "hsl(var(--background-celeste))",
+        background_celeste_claro: "hsl(var(--background-celeste-claro))",
         customBlue: {
           50: "#f0faff",
           100: "#e0f4ff",
@@ -94,4 +95,3 @@ export default {
   },
   plugins: [require("tailwindcss-animate"), nextui()],
 } satisfies Config;
-  

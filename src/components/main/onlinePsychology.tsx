@@ -1,9 +1,8 @@
 'use client'
-
 import { motion } from "framer-motion";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import Image from "next/image";
-import "../../app/globals.css"
+
 export default function OnlinePsychology() {
   const features = [
     {
