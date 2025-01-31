@@ -2,7 +2,6 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
-
 import { DataTableColumnHeader } from "./data-table-column-header";
 import { labels, priorities, namees } from "../data/data";
 import { DataTableRowActions } from "./data-table-row-actions";
@@ -40,10 +39,26 @@ export const columns: ColumnDef<Task>[] = [
       <DataTableColumnHeader column={column} title="Id" />
     ),
     cell: ({ row }) => (
-      <div className="w-[80px] truncate">{row.getValue("id")}</div>
+      <div className="w-[60px] truncate">{row.getValue("id")}</div>
     ),
     enableSorting: false,
     enableHiding: false,
+  },
+  {
+    accessorKey: "photo",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Photo" />
+    ),
+    cell: ({ row }) => {
+      return (
+        <Avatar>
+          <AvatarImage
+            src={row.getValue("photo") || "https://github.com/shadcn.png"}
+          />
+          <AvatarFallback>LA</AvatarFallback>
+        </Avatar>
+      );
+    },
   },
   {
     accessorKey: "email",
@@ -55,8 +70,7 @@ export const columns: ColumnDef<Task>[] = [
 
       return (
         <div className="flex space-x-2">
-          {/* {label && <Badge variant="outline">{label.label}</Badge>} */}
-          <span className="max-w-[500px] truncate font-medium">
+          <span className="max-w-[110px] truncate font-medium">
             {row.getValue("email")}
           </span>
         </div>
@@ -69,12 +83,7 @@ export const columns: ColumnDef<Task>[] = [
       <DataTableColumnHeader column={column} title="Name" />
     ),
     cell: ({ row }) => {
-      const label = labels.find((label) => label.value === row.original.label);
-      return (
-        <div className="flex w-[100px] items-center">
-          <span>{row.getValue("name")}</span>
-        </div>
-      );
+      return <div className="w-[80px] truncate">{row.getValue("name")}</div>;
     },
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id));
