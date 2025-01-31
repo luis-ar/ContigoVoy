@@ -30,3 +30,4 @@ export const DataUser = React.forwardRef<HTMLDivElement, PanelProps>(
     );
   }
 );
+DataUser.displayName = 'DataUser';

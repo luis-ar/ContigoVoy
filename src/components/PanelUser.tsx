@@ -36,7 +36,7 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
         console.log("Error al cerrar sesión:", error.message);
       } else {
         console.log("Sesión cerrada con éxito");
-        setEstado && setEstado(false);
+        setEstado?.(false);
         router.push("/"); // Redirigir al inicio
       }
     };
@@ -85,4 +85,4 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
       </div>
     );
   }
-);
+);Panel.displayName = 'Panel';
