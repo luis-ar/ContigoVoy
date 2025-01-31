@@ -97,7 +97,7 @@ export default function LoginPage() {
           className="absolute -left-8 -bottom-8 right-8 top-8 bg-purple-600/30 rounded-2xl backdrop-blur-sm"
         />
 
-        <Card className="w-full p-8 shadow-xl bg-white/90 backdrop-blur-sm rounded-2xl relative z-10">
+        <Card className="w-full p-8 shadow-xl bg-background/90 backdrop-blur-sm rounded-2xl relative z-10">
           <motion.div initial={false}>
             <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-[#6b4ce6] to-[#9747FF] bg-clip-text text-transparent">
               Sign In
@@ -105,7 +105,7 @@ export default function LoginPage() {
             <Form {...form}>
               <form onSubmit={form.handleSubmit(handleSignIn)}>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700 ml-1">
+                  <label className="text-sm font-medium text-foreground/70 ml-1">
                     Usuario
                   </label>
                   <FormField
@@ -126,7 +126,7 @@ export default function LoginPage() {
                               input: "text-base",
                               inputWrapper: [
                                 "h-12",
-                                "bg-gray-200",
+                                "bg-foreground-200",
                                 "hover:bg-white/60",
                                 "group-data-[focused=true]:bg-white",
                                 "!cursor-text",

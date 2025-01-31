@@ -14,6 +14,8 @@ export default {
       colors: {
         background_celeste: "hsl(var(--background-celeste))",
         background_celeste_claro: "hsl(var(--background-celeste-claro))",
+        background_rosado: "hsl(var(--background-rosado))",
+        background_rosado_claro: "hsl(var(--background-rosado-claro))",
         customBlue: {
           50: "#f0faff",
           100: "#e0f4ff",
