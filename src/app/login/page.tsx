@@ -50,6 +50,14 @@ export default function LoginPage() {
     if (emailError) {
       console.error("Error fetching users:", emailError.message);
       toast.error("Error al verificar el correo electrónico");
+      setIsVisible(false);
+      form.reset();
+      return;
+    }
+
+    if (data === false) {
+      toast.warning("El correo electrónico no está registrado");
+      setIsVisible(false);
       form.reset();
       return;
     }

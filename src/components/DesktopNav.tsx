@@ -82,14 +82,14 @@ export const DesktopNav = ({ navItems }: any) => {
                                       ? "bg-[#634AE2] text-white"
                                       : "text-[#634AE2] border-[#634AE2] hover:bg-[#634AE2] hover:text-white"
                                   }`}
-                      onMouseEnter={() => setHovered(null)} 
+                      onMouseEnter={() => setHovered(null)}
                     >
                       {navItem.name}
                     </button>
                   </Link>
                 ) : (
                   <Link
-                    onMouseEnter={() => setHovered(idx)} 
+                    onMouseEnter={() => setHovered(idx)}
                     className={`relative px-4 py-2 text-muted-foreground ${
                       pathname === navItem.link || hovered === idx
                         ? "bg-[#634AE2] rounded-full"

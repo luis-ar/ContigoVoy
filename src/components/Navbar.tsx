@@ -29,7 +29,6 @@ const navItems = [
   {
     name: "Iniciar Sesión",
     link: "/login",
-    isButton: true,
   }
 ];
 

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import ContactForm from "@/components/ContacForm";
+import FormContacto from "@/components/FormContacto";
 
 const ContactUs = () => {
   return (
@@ -22,7 +23,8 @@ const ContactUs = () => {
             </h3>
           </div>
           <div className="w-full  md:w-96 lg:w-96 flex justify-center lg:justify-start">
-            <ContactForm />
+            {/* <ContactForm /> */}
+            <FormContacto />
           </div>
         </div>
       </div>

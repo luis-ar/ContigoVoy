@@ -19,7 +19,6 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
     useEffect(() => {
       fetchUser(setUser);
     }, []);
-    
     useEffect(() => {
       if (estado) {
         setVisible(true);
@@ -36,7 +35,7 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
         console.log("Error al cerrar sesión:", error.message);
       } else {
         console.log("Sesión cerrada con éxito");
-        setEstado?.(false);
+        setEstado && setEstado(false);
         router.push("/"); // Redirigir al inicio
       }
     };
@@ -54,7 +53,7 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
               estado ? "opacity-100" : "opacity-0"
             }`}
           >
-           <div className="flex w-full items-center justify-between text-center h-10 text-sm border-b ">
+            <div className="flex w-full items-center justify-between text-center h-10 text-sm border-b ">
               <div className="flex flex-1 justify-center px-4">Contigo Voy</div>
               <div
                 className="justify-center flex px-4 hover:bg-[#7777b8] h-full cursor-pointer items-center"
@@ -85,4 +84,4 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
       </div>
     );
   }
-);Panel.displayName = 'Panel';
+);
