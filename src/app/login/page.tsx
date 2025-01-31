@@ -61,7 +61,7 @@ export default function LoginPage() {
     );
 
     console.log(dateRole);
-    const redireccion = dateRole === "admin" ? "/admin/home" : "/user/home";
+    const redireccion = dateRole === "admin" ? "/admin/create" : "/user/home";
     // Enviar el enlace de inicio de sesión
     const { error } = await supabase.auth.signInWithOtp({
       email: email_input,

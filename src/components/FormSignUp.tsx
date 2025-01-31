@@ -26,11 +26,30 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "react-toastify";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { validateStorage } from "@/utils/validationStorage";
 const FormSignUp = () => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [state, setState] = useState(false);
+  const [selectedRole, setSelectedRole] = useState("");
+  const [especialidad, setEspecialidad] = useState<any[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data, error } = await supabase.from("especialidad").select("*");
+      if (error) {
+        console.log(error);
+        return;
+      }
+      if (Array.isArray(data)) {
+        setEspecialidad(data);
+        console.log(data);
+      } else {
+        setEspecialidad([]);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const form = useForm({
     resolver: zodResolver(signUpFormSchema),
@@ -41,11 +60,25 @@ const FormSignUp = () => {
       password: "",
       role: "",
       photo: null,
+      userSpecialty: "",
+      phone: "",
+      description: "",
     },
   });
 
   const handleSignUp = async (values: z.infer<typeof signUpFormSchema>) => {
-    const { name, email, password, role, lastname, photo } = values;
+    setState(true);
+    const {
+      name,
+      email,
+      password,
+      role,
+      lastname,
+      photo,
+      userSpecialty,
+      phone,
+      description,
+    } = values;
     const { data: dataemail, error: emailError } = await supabase.rpc(
       "check_email_exists",
       {
@@ -54,10 +87,11 @@ const FormSignUp = () => {
     );
     if (dataemail === true) {
       toast.info("El email ya existe");
+      setState(false);
       return;
     }
     await validateStorage();
-    const ruta = role === "admin" ? "/admin/home" : "/user/home";
+    const ruta = role === "admin" ? "/admin/create" : "/user/home";
     const namePhoto = `avatar_${Date.now()}.png`;
     const urlPhoto = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/avatars/${namePhoto}`;
     const { data, error } = await supabase.auth.signUp({
@@ -79,13 +113,51 @@ const FormSignUp = () => {
       toast.error(`Error: ${error.message}`);
     } else {
       await supabase.storage.from("avatars").upload(namePhoto, photo);
+      function getIdByName() {
+        const item = especialidad.find(
+          (item) => item && item.nombre === userSpecialty
+        );
+        return item ? parseInt(item.idespecialidad) : null;
+      }
+
+      if (role === "psicologo") {
+        const { error } = await supabase.from("psicologo").insert([
+          {
+            idUser: data.user?.id,
+            introduccion: description,
+            idespecialidad: getIdByName(),
+            celular: phone,
+          },
+        ]);
+        if (error) {
+          console.log(`Error: ${error.message}`);
+          toast.error(`Error: ${error.message}`);
+        }
+      } else if (role === "admin") {
+        const { error } = await supabase.from("admin").insert([
+          {
+            idUser: data.user?.id,
+          },
+        ]);
+        if (error) {
+          console.log(`Error: ${error.message}`);
+          toast.error(`Error: ${error.message}`);
+        }
+      }
       toast.success("Usuario registrado con éxito. Que verifique su correo.");
       form.reset();
+    }
+    setState(false);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
     }
   };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSignUp)} className="space-y-8">
+      <form
+        onSubmit={form.handleSubmit(handleSignUp)}
+        className="w-64 space-y-8 sm:w-full pt-4"
+      >
         <FormField
           control={form.control}
           name="name"
@@ -144,32 +216,6 @@ const FormSignUp = () => {
         />
         <FormField
           control={form.control}
-          name="role"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Rol</FormLabel>
-              <FormControl>
-                {/* <Input placeholder="Insert your role" {...field} /> */}
-                <Select onValueChange={field.onChange} value={field.value}>
-                  <SelectTrigger className="">
-                    <SelectValue placeholder="Select a role" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
-                      <SelectLabel>Roles</SelectLabel>
-                      <SelectItem value="admin">Administrador</SelectItem>
-                      <SelectItem value="psicologo">Psicologo</SelectItem>
-                      <SelectItem value="marketing">Marketing</SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
           name="photo"
           render={({ field }) => (
             <FormItem>
@@ -189,7 +235,107 @@ const FormSignUp = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={state}>
+        <FormField
+          control={form.control}
+          name="role"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Rol</FormLabel>
+              <FormControl>
+                <Select
+                  onValueChange={(value) => {
+                    field.onChange(value);
+                    setSelectedRole(value);
+                    if (value === "admin") {
+                      form.setValue("userSpecialty", "aaaaa");
+                      form.setValue("description", "aaaaa");
+                      form.setValue("phone", "aaaaa");
+                    } else {
+                      form.setValue("userSpecialty", "");
+                      form.setValue("description", "");
+                      form.setValue("phone", "");
+                    }
+                  }}
+                  value={field.value}
+                >
+                  <SelectTrigger className="">
+                    <SelectValue placeholder="Select a role" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Roles</SelectLabel>
+                      <SelectItem value="admin">Administrador</SelectItem>
+                      <SelectItem value="psicologo">Psicologo</SelectItem>
+                      <SelectItem value="marketing">Marketing</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        {selectedRole === "psicologo" && (
+          <>
+            <FormField
+              control={form.control}
+              name="phone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Phone</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Insert your Phone" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="userSpecialty"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Specialty</FormLabel>
+                  <FormControl>
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <SelectTrigger className="">
+                        <SelectValue placeholder="Select a Specialty" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectGroup>
+                          <SelectLabel>Roles</SelectLabel>
+                          {especialidad.map((item) => (
+                            <SelectItem
+                              value={item.nombre}
+                              key={item.idespecialidad}
+                            >
+                              {item.nombre}
+                            </SelectItem>
+                          ))}
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Description</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Insert your Description" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </>
+        )}
+        <Button type="submit" disabled={state} className="w-full">
           Create User
         </Button>
       </form>

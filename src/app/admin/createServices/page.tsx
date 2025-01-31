@@ -67,61 +67,68 @@ const PageService = () => {
     }
   };
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSignIn)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="title"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Title</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="description"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Description</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="photo"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Photo</FormLabel>
-              <FormControl>
-                <Input
-                  type="file"
-                  accept="image/jpeg, image/png"
-                  ref={fileInputRef}
-                  onChange={(e) => {
-                    const file = e.target.files?.[0]; // Captura el archivo seleccionado
-                    field.onChange(file); // Pasa el archivo al estado del formulario
-                  }}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+    <div className="flex items-center justify-center flex-col">
+      <p className="my-4 font-bold text-2xl">Create Service</p>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(handleSignIn)}
+          className="space-y-8 w-64 sm:w-96"
+        >
+          <FormField
+            control={form.control}
+            name="title"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Title</FormLabel>
+                <FormControl>
+                  <Input placeholder="Insert your title" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="description"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Description</FormLabel>
+                <FormControl>
+                  <Input placeholder="Insert your description" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="photo"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Photo</FormLabel>
+                <FormControl>
+                  <Input
+                    type="file"
+                    accept="image/jpeg, image/png"
+                    ref={fileInputRef}
+                    onChange={(e) => {
+                      const file = e.target.files?.[0]; // Captura el archivo seleccionado
+                      field.onChange(file); // Pasa el archivo al estado del formulario
+                    }}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <Button type="submit" disabled={state}>
-          Submit
-        </Button>
-      </form>
-    </Form>
+
+<Button type="submit" disabled={state} className="w-full">
+            Create Service
+          </Button>
+        </form>
+      </Form>
+    </div>
   );
 };
 

@@ -4,19 +4,15 @@ import { NavbarGeneral } from "./DesktopNav";
 
 const navItems = [
   {
-    name: "Home",
-    link: "/admin/home",
-  },
-  {
-    name: "Create Users",
+    name: "Crear Usuarios",
     link: "/admin/create",
   },
   {
-    name: "Create Services",
+    name: "Crear Servicios",
     link: "/admin/createServices",
   },
   {
-    name: "Create Specialties",
+    name: "Crear Especialidades",
     link: "/admin/createSpecialties",
   },
 ];

@@ -19,3 +19,6 @@ export interface UserInterface {
   photo: string | null;
   iniciales: string | null;
 }
+export interface UpdateUserProps {
+  task: any;
+}

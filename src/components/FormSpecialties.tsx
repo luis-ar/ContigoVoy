@@ -64,9 +64,9 @@ const FormSpecialties = () => {
           name="specialty"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Specialty</FormLabel>
+              <FormLabel>Especialidad</FormLabel>
               <FormControl>
-                <Input placeholder="Insert your specialty" {...field} />
+                <Input placeholder="Inserta tu especialidad" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -74,7 +74,7 @@ const FormSpecialties = () => {
         />
 
         <Button type="submit" disabled={state} className="w-full">
-          Create Specialty
+          Crear Especialidad
         </Button>
       </form>
     </Form>
