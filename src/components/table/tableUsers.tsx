@@ -37,7 +37,7 @@ const TableUsers = () => {
           className="hidden dark:block"
         />
       </div>
-      <div className="hidden h-full flex-1 flex-col space-y-8 p-4 md:flex">
+      <div className="hidden h-auto flex-col space-y-8 p-4 md:flex  max-w-[600px]">
         <div className="flex items-center justify-between space-y-2">
           <div className="w-full">
             <h2 className="text-2xl font-bold tracking-tight text-center">
