@@ -1,17 +1,9 @@
 "use client";
 import { useState } from "react";
 import { Accordion, AccordionItem } from "@nextui-org/react";
+import { AccordionQuestProps } from "@/interface";
 
 // Definición de la interfaz para los elementos de FAQ
-interface FAQ {
-  Question: string;
-  Answer: string;
-}
-
-// Definición de las propiedades del componente AccordionQuest
-interface AccordionQuestProps {
-  faqs: FAQ[];
-}
 
 const AnchorIcon = () => {
   return (

@@ -22,3 +22,12 @@ export interface UserInterface {
 export interface UpdateUserProps {
   task: any;
 }
+export interface FAQ {
+  Question: string;
+  Answer: string;
+}
+
+// Definición de las propiedades del componente AccordionQuest
+export interface AccordionQuestProps {
+  faqs: FAQ[];
+}
