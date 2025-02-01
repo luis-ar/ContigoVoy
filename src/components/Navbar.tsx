@@ -29,6 +29,7 @@ const navItems = [
   {
     name: "Iniciar Sesión",
     link: "/login",
+    isButton: true,
   },
 ];
 
@@ -43,6 +44,7 @@ const Navbar = () => {
               alt="logo"
               width={150}
               height={100}
+              layout="intrinsic"
             />
           </h1>
         </Link>
