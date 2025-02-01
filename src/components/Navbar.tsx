@@ -7,8 +7,12 @@ import { DesktopNav } from "./DesktopNav";
 
 const navItems = [
   {
-    name: "Sobre Nosotros",
+    name: "Inicio",
     link: "/",
+  },
+  {
+    name: "Sobre Nosotros",
+    link: "/sobreNosotros",
   },
   {
     name: "Servicios",
@@ -50,7 +54,6 @@ const Navbar = () => {
         </Link>
         <div className="flex items-center gap-x-5">
           <DesktopNav navItems={navItems} />
-          <ThemeToggle />
         </div>
       </div>
     </nav>
