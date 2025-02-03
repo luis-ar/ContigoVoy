@@ -79,38 +79,6 @@ const Probar = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="h-[80vh] w-[100%]">
-      <Splide
-        options={{
-          type: "fade",
-          height: "100%",
-          pagination: true,
-          arrows: false,
-          autoplay: true,
-          interval: 10000,
-          pauseOnHover: false,
-          rewind: true,
-        }}
-        onMove={handleSlideChange}  
-      >
-        {sections.map((section, index) => (
-          <SplideSlide key={index} id={`slide-${index}`}>
-            <div
-              className="h-[600px] w-[100%] flex flex-col justify-center items-start text-left text-white px-4 md:px-16"
-              style={{
-                backgroundImage: `linear-gradient(#634AE27A, #634AE27A), url(${sections[currentPhrase].background})`, // Aquí cambiamos el fondo según el índice de currentPhrase
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div className="flex gap-4 p-6 flex-col md:flex-row justify-center items-center mt-[-160px]">
-                <div className="flex-1 lg:w-2/3 flex-col space-y-20 flex">
-                  <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold animated-part1">
-                  <span dangerouslySetInnerHTML={{ __html: sections[currentPhrase].phrase }} />
-                  </h1>
-                  <p className="text-sm sm:text-base md:text-lg lg:text-xl" dangerouslySetInnerHTML={{ __html: sections[currentPhrase].smallPhrase }} />
-=======
     <div className="max-h-[800px] relative">
       <div className="h-full">
         <Splide
@@ -152,7 +120,6 @@ const Probar = () => {
                       }}
                     />
                   </div>
->>>>>>> f89d6b631f5973e97cbf2e0b5ab7f85c9b8e1ab0
                 </div>
                 {section.button && (
                   <button className="bg-[#634AE2] text-white py-2 px-6 rounded-[30px] hover:bg-purple-700 mt-6 ml-5">
