@@ -18,7 +18,7 @@ export default function ChooseUs() {
       title: "Ética y confiabilidad",
     },
     {
-      icon: <Image src='/horarios.png' alt="Horarios flexibles" width={70} height={60} />,
+      icon: <Image src='/ChooseUsImages/horarios.webp' alt="Horarios flexibles" width={70} height={60} />,
       title: "Horarios flexibles",
     },
     {
@@ -61,8 +61,8 @@ export default function ChooseUs() {
         className="text-center mb-12"
       >
         <h2 className="text-4xl font-bold text-[#634AE2] mb-6">¿Por qué elegirnos?</h2>
-        <p className="text-lg text-[#634AE2] max-w-3xl mx-auto leading-relaxed ">
-          En Contigo Voy, te ofrecemos todo esto y mucho más, brindándote el apoyo necesario para afrontar tus desafíos diarios con mayor fortaleza y equilibrio emocional.
+        <p className="text-lg text-[#634AE2] mb-10 max-w-3xl mx-auto leading-relaxed ">
+        En Contigo Voy, te ofrecemos atención psicológica online que se adapta a ti, brindándote el apoyo necesario para afrontar los desafíos diarios con mayor fortaleza y equilibrio emocional.
         </p>
       </motion.div>
 
