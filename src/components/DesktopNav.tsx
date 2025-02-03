@@ -34,7 +34,7 @@ export const NavbarGeneral = ({ navItems }: any) => {
 
   return (
     <div>
-      <nav className="border-b bg-background h-[10vh] flex items-center fixed w-full z-10 top-0">
+      <nav className="bg-background h-[10vh] flex items-center fixed w-full z-10 top-0">
         <div className="w-full p-6 flex items-center justify-between">
           <Link href="/">
             <h1 className="font-bold text-3xl">
@@ -70,53 +70,33 @@ export const DesktopNav = ({ navItems }: any) => {
         )}
       >
         <div className="flex items-center gap-6">
-          <div className="hidden flex-1 flex-row items-center justify-center space-x-0 text-sm text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex gap-1">
+          <div className="hidden flex-1 flex-row items-center justify-center space-x-0 text-sm text-sm text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex gap-1">
             {navItems.map((navItem: any, idx: number) => (
-              <div key={idx}>
-                {navItem.isButton ? (
-                  <Link href={navItem.link}>
-                    <button
-                      className={`text-sm sm:text-base border-2 transition-colors duration-300 rounded-full py-1 sm:py-2 px-3 sm:px-4 
-                                  ${
-                                    pathname === navItem.link
-                                      ? "bg-[#634AE2] text-white"
-                                      : "text-[#634AE2] border-[#634AE2] hover:bg-[#634AE2] hover:text-white"
-                                  }`}
-                      onMouseEnter={() => setHovered(null)} 
-                    >
-                      {navItem.name}
-                    </button>
-                  </Link>
-                ) : (
-                  <Link
-                    onMouseEnter={() => setHovered(idx)} 
-                    className={`relative px-4 py-2 text-muted-foreground ${
-                      pathname === navItem.link || hovered === idx
-                        ? "bg-[#634AE2] rounded-full"
-                        : ""
-                    }`}
-                    key={idx}
-                    href={navItem.link}
-                  >
-                    {hovered === idx && (
-                      <motion.div
-                        layoutId="hovered"
-                        className="absolute inset-0 h-full w-full rounded-full bg-[#634AE2]"
-                      />
-                    )}
-                    <span
-                      className={cn(
-                        "relative z-20 text-white text-base",
-                        hovered === idx || pathname === navItem.link
-                          ? "text-white"
-                          : "text-[#634AE2] dark:text-primary"
-                      )}
-                    >
-                      {navItem.name}
-                    </span>
-                  </Link>
+              <Link
+                onMouseEnter={() => setHovered(idx)}
+                className={`relative px-4 py-2 text-muted-foreground text-center ${
+                  pathname === navItem.link && "bg-minsk-600 rounded-full"
+                }`}
+                key={idx}
+                href={navItem.link}
+              >
+                {hovered === idx && (
+                  <motion.div
+                    layoutId="hovered"
+                    className="absolute inset-0 h-full w-full rounded-full bg-minsk-600"
+                  />
                 )}
-              </div>
+                <span
+                  className={cn(
+                    "relative z-20 font-bold text-[12px]",
+                    hovered === idx || pathname === navItem.link
+                      ? "text-white"
+                      : "text-minsk-700 dark:text-primary"
+                  )}
+                >
+                  {navItem.name}
+                </span>
+              </Link>
             ))}
           </div>
         </div>

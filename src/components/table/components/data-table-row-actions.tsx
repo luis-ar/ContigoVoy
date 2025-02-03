@@ -74,7 +74,7 @@ export function DataTableRowActions<TData>({
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-[160px]">
-          <Dialog>
+          {/* <Dialog>
             <DialogTrigger asChild>
               <div className="relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0">
                 Edit
@@ -85,7 +85,7 @@ export function DataTableRowActions<TData>({
             </DialogTrigger>
             <UpdateUser task={task} />
           </Dialog>
-          <DropdownMenuSeparator />
+          <DropdownMenuSeparator /> */}
           <DropdownMenuItem onClick={handleDelete}>
             Delete
             <DropdownMenuShortcut>

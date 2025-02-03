@@ -8,8 +8,12 @@ import { DesktopNav } from "./DesktopNav";
 
 const navItems = [
   {
-    name: "Sobre Nosotros",
+    name: "Inicio",
     link: "/",
+  },
+  {
+    name: "Sobre Nosotros",
+    link: "/sobreNosotros",
   },
   {
     name: "Servicios",
@@ -31,24 +35,30 @@ const navItems = [
     name: "Iniciar Sesión",
     link: "/login",
     isButton: true,
+  },
+    isButton: true,
   }
 ];
 
-
 const Navbar = () => {
   return (
-    <nav className="border-b bg-background h-[10vh] flex items-center fixed w-full z-10 top-0">
-     <div className="w-full p-6 flex items-center justify-between">
+    <nav className="bg-background h-[10vh] flex items-center fixed w-full z-10 top-0">
+      <div className="w-full p-6 flex items-center justify-between">
         <Link href="/">
           <h1 className="font-normal text-3xl">
-            <Image src={"/LOGO.png"} alt="logo" width={160} height={100} layout="intrinsic" />
+            <Image
+              src={"/LOGO.png"}
+              alt="logo"
+              width={150}
+              height={100}
+              layout="intrinsic"
+            />
           </h1>
         </Link>
         <div className="flex items-center gap-x-5">
           <DesktopNav navItems={navItems} />
-          <ThemeToggle />
         </div>
-        </div>
+      </div>
     </nav>
   );
 };

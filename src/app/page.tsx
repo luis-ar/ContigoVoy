@@ -1,6 +1,5 @@
 "use client";
 
-
 import ChooseUs from "@/components/main/chooseUs";
 import TherapyServices from "@/components/main/therapyServices";
 import OnlinePsychology from "@/components/main/onlinePsychology";
@@ -10,7 +9,7 @@ export default function Home() {
   
   return (
     <div className="min-h-screen">
-       <Probar/>
+      <Probar/>
       <TherapyServices />
       <ChooseUs />
       <OnlinePsychology />

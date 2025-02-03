@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { PanelProps, UserInterface } from "@/interface";
 import { fetchUser } from "@/utils/recuperarDataUser";
+
 export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
   ({ estado, setEstado }, ref) => {
     const router = useRouter();
@@ -16,9 +17,11 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
       photo: null,
       iniciales: null,
     });
+
     useEffect(() => {
       fetchUser(setUser);
     }, []);
+
     useEffect(() => {
       if (estado) {
         setVisible(true);
@@ -35,7 +38,7 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
         console.log("Error al cerrar sesión:", error.message);
       } else {
         console.log("Sesión cerrada con éxito");
-        setEstado && setEstado(false);
+        setEstado(false); // Simplified this line
         router.push("/"); // Redirigir al inicio
       }
     };
@@ -85,3 +88,5 @@ export const Panel = React.forwardRef<HTMLDivElement, PanelProps>(
     );
   }
 );
+
+Panel.displayName = "Panel"; // Add display name

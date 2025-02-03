@@ -1,6 +1,9 @@
-"use client"; 
+"use client";
 import { useState } from "react";
 import { Accordion, AccordionItem } from "@nextui-org/react";
+import { AccordionQuestProps } from "@/interface";
+
+// Definición de la interfaz para los elementos de FAQ
 
 const AnchorIcon = () => {
   return (
@@ -18,7 +21,8 @@ const AnchorIcon = () => {
   );
 };
 
-const AccordionQuest = ({ faqs }) => {
+// Uso de las propiedades tipadas en el componente
+const AccordionQuest: React.FC<AccordionQuestProps> = ({ faqs }) => {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
 
   return (
@@ -32,7 +36,7 @@ const AccordionQuest = ({ faqs }) => {
     >
       {faqs.map(({ Question, Answer }) => (
         <AccordionItem
-          key={Question} 
+          key={Question}
           aria-label={Question}
           title={<div className="truncate text-white inline">{Question}</div>}
           className="border-[#fff] border-b-1 mb-2"
