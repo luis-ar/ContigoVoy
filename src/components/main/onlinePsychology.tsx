@@ -162,13 +162,12 @@ export default function OnlinePsychology() {
             </motion.div>
           </div>
           <div className="mitad w-full md:w-1/2 relative">
-            <div className="">
               <div className="embla" ref={emblaRef}>
                 <div className="embla__container">
                   {features.map((item, index) => (
                     <div className="embla__slide" key={index}>
                       <div
-                        className="h-[640px] bg-center rounded-full bg-cover"
+                        className="h-[640px]  bg-center rounded-full bg-cover"
                         style={{
                           backgroundImage: `url(${item.background})`,
                         }}
@@ -188,7 +187,7 @@ export default function OnlinePsychology() {
               `}
                     />
                   ))}
-                </div>
+             
               </div>
             </div>
           </div>
