@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { NavbarGeneral } from "./DesktopNav";
 import { Panel } from "./PanelUser";
 import { DataUser } from "./DataUser";
 import { ThemeToggle } from "./Themetoggle";
