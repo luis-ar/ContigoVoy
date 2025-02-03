@@ -18,7 +18,7 @@ export default function ChooseUs() {
       title: "Ética y confiabilidad",
     },
     {
-      icon: <Image src='/horarios.png' alt="Horarios flexibles" width={70} height={60} />,
+      icon: <Image src='/ChooseUsImages/horarios.webp' alt="Horarios flexibles" width={70} height={60} />,
       title: "Horarios flexibles",
     },
     {
@@ -61,8 +61,8 @@ export default function ChooseUs() {
         className="text-center mb-12"
       >
         <h2 className="text-4xl font-bold text-[#634AE2] mb-6">¿Por qué elegirnos?</h2>
-        <p className="text-lg text-[#634AE2] max-w-3xl mx-auto leading-relaxed ">
-          En Contigo Voy, te ofrecemos todo esto y mucho más, brindándote el apoyo necesario para afrontar tus desafíos diarios con mayor fortaleza y equilibrio emocional.
+        <p className="text-lg text-[#634AE2] mb-10 max-w-3xl mx-auto leading-relaxed ">
+        En Contigo Voy, te ofrecemos atención psicológica online que se adapta a ti, brindándote el apoyo necesario para afrontar los desafíos diarios con mayor fortaleza y equilibrio emocional.
         </p>
       </motion.div>
 
@@ -80,7 +80,7 @@ export default function ChooseUs() {
             whileHover={{ scale: 1.05 }}
             className="group"
           >
-            <div className="flex flex-col items-center justify-center w-40 h-40 rounded-full bg-[#634AE2] backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-lg space-y-4">
+            <div className="flex flex-col items-center justify-center w-40 h-40 rounded-full bg-[#634AE2]   backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-lg space-y-4">
               <div className="p-4 bg-[#634AE2] rounded-full group-hover:bg-[#9494F3] transition-colors duration-300">
                 {feature.icon}
               </div>
