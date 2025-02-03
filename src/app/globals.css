@@ -3,6 +3,24 @@
 @tailwind utilities;
 
 
+/*Slider main*/
+
+.embla {
+  overflow: hidden;
+
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+
+}
+
+/*   */ 
+
+
 /* Posicionar de los splide*/
 .splide__pagination {
   position: absolute;
@@ -24,6 +42,8 @@
   background-color: #634AE2; 
   transform: scale(1.2); 
 }
+
+
 
 /* Fondo Preguntras Frecuentes */
 .background_faq {
