@@ -27,7 +27,7 @@
 
 /* Fondo Preguntras Frecuentes */
 .background_faq {
-  height: 100vh;
+  height: 112vh;
   background-image: 
   linear-gradient(
       to right,
@@ -41,7 +41,6 @@
   background-size: contain;  
   background-position: 130% 100%;
   background-color: #f4f4f4;
-  height: 100vh; 
 }
 
 /*responsive*/
