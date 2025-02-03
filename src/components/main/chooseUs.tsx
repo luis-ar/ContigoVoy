@@ -72,41 +72,6 @@ export default function ChooseUs() {
       title: "Confidencialidad",
     },
   ];
-
-  const features2 = [
-    {
-      icon:"/ChooseUsImages/especialistas.webp"
-      ,
-      title: "Especialistas colegiados",
-    },
-    {
-      icon:"/ChooseUsImages/atencionvirtual.webp"
-        ,
-      title: "Atención virtual",
-    },
-    {
-      icon:"/ChooseUsImages/etica.webp",
-        
-      title: "Ética y confiabilidad",
-    },
-    {
-      icon: "/ChooseUsImages/horarios.webp"
-        ,
-      title: "Horarios flexibles",
-    },
-    {
-      icon:
-         "/ChooseUsImages/costos.webp"
-       ,
-      title: "Costos accesibles",
-    },
-    {
-      icon:"/ChooseUsImages/confidencialidad.webp",
-         
-      title: "Confidencialidad",
-    },
- 
-    ]
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
