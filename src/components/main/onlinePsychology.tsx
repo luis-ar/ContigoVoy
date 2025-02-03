@@ -66,7 +66,7 @@ const features = [
     background: "/CarruselInferiorMain/cruzado.webp",
   },
 ];
-
+//hola
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
