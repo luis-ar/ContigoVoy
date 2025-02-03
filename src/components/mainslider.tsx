@@ -86,14 +86,13 @@ export default function MainSlider() {
                         initial={{ opacity: 0 }}
                         animate={{
                           opacity: 1,
-                          transition: { duration: 0.5 },
-                          x: 0,
-                          y: -20,
+                          transition: { duration: 3 },
+                          
                         }}
                         exit={{ opacity: 0 }}
                       >
                         <div
-                          className="h-20 mb-16 font-bold text-white text-6xl"
+                          className="h-20  mb-16 font-bold text-white text-6xl"
                           dangerouslySetInnerHTML={{
                             __html: item.phrase,
                           }}
