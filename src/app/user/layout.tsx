@@ -15,7 +15,7 @@ export default function HomeLayout({
       disableTransitionOnChange
     >
       <NavbarUser />
-      <div className="min-h-[90vh] mt-[10vh]">{children}</div>
+      <div className="min-h-[89vh] mt-[11vh] ml-60">{children}</div>
     </ThemeProvider>
   );
 }
