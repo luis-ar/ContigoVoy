@@ -80,7 +80,7 @@ export default function ChooseUs() {
             whileHover={{ scale: 1.05 }}
             className="group"
           >
-            <div className="flex flex-col items-center justify-center w-40 h-40 rounded-full bg-[#634AE2] backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-lg space-y-4">
+            <div className="flex flex-col items-center justify-center w-40 h-40 rounded-full bg-[#634AE2]   backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-lg space-y-4">
               <div className="p-4 bg-[#634AE2] rounded-full group-hover:bg-[#9494F3] transition-colors duration-300">
                 {feature.icon}
               </div>
