@@ -36,8 +36,6 @@ const navItems = [
     link: "/login",
     isButton: true,
   },
-    isButton: true,
-  }
 ];
 
 const Navbar = () => {

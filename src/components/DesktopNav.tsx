@@ -70,7 +70,7 @@ export const DesktopNav = ({ navItems }: any) => {
         )}
       >
         <div className="flex items-center gap-6">
-          <div className="hidden flex-1 flex-row items-center justify-center space-x-0 text-sm text-sm text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex gap-1">
+          <div className="hidden flex-1 flex-row items-center justify-center space-x-0 text-sm text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex gap-1">
             {navItems.map((navItem: any, idx: number) => (
               <Link
                 onMouseEnter={() => setHovered(idx)}
