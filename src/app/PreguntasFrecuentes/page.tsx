@@ -23,6 +23,11 @@ export default function App() {
       Answer:
         "Nuestros especialistas están altamente capacitados en terapia cognitivo-conductual, uno de los enfoques más efectivos y respaldados científicamente en la actualidad para el tratamiento de diversas condiciones psicológicas.",
     },
+    {
+      Question: "¿Qué 2 tipos de terapia manejan los psicólogos?",
+      Answer:
+        "Nuestros especialistas están altamente capacitados en terapia cognitivo-conductual, uno de los enfoques más efectivos y respaldados científicamente en la actualidad para el tratamiento de diversas condiciones psicológicas.",
+    },
   ];
 
   return (

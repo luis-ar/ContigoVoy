@@ -295,6 +295,10 @@
   }
 }
 
+.bg-divider {
+  background-color: transparent !important;  
+}
+
 @layer base {
   * {
     @apply border-border;
