@@ -1,3 +1,4 @@
+
 "use client";
 import Link from "next/link";
 import React from "react";
@@ -29,6 +30,7 @@ const navItems = [
   {
     name: "Iniciar Sesión",
     link: "/login",
+    isButton: true,
   }
 ];
 
