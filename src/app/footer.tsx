@@ -79,10 +79,9 @@ export default function Footer() {
                             href={link.href}
                             className="text-purple-100 hover:text-white transition-colors duration-500 text-sm flex items-center group relative"
                           >
-                            <span className="w-1.5 h-1.5 bg-purple-300 rounded-full mr-2" />
                             <span className="relative group">
                               {link.text}
-                              <span className="absolute bottom-0 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full inline-block duration-500"></span>
+                            <span className="absolute bottom-0 left-0 w-0 transition-all h-0.5 bg-white group-hover:w-full inline-block duration-500"></span>
                             </span>
                           </Link>
                         </li>
