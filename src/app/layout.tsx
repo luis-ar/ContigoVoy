@@ -28,10 +28,16 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-            {getBaseRoute() !== "/user" && getBaseRoute() !== "/admin" && (
+          {getBaseRoute() !== "/user" && getBaseRoute() !== "/admin" && (
             <Navbar />
           )}
-          <div className="min-h-[90vh] mt-[10vh]">{children}</div>
+          <div
+            className={`${
+              getBaseRoute() !== "/user" ? "mt-[10vh] min-h-[90vh]" : ""
+            }`}
+          >
+            {children}
+          </div>
           {getBaseRoute() !== "/user" && getBaseRoute() !== "/admin" && (
             <Footer />
           )}

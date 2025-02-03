@@ -44,16 +44,14 @@ const Probar = () => {
     const animateText = () => {
       if (isAnimating.current) return;
       isAnimating.current = true;
-
-      // Selecciona la parte animada de la frase
+  
       const part1Wrapper = document.querySelector(".animated-part1");
       if (part1Wrapper) {
         part1Wrapper.innerHTML = sections[currentPhrase].phrase
           .split(" ")
           .map((word) => `<span class='word'>${word}</span>`)
-          .join(" "); // Dividimos la frase en palabras
-
-        // Animación con anime.js
+          .join(" ");
+  
         anime
           .timeline({ loop: false, autoplay: true })
           .add({
@@ -70,9 +68,9 @@ const Probar = () => {
           });
       }
     };
-    const timer = setTimeout(animateText, 200);
-    return () => clearTimeout(timer);
-  }, [currentPhrase]);
+  
+    animateText();
+  }, [currentPhrase]); 
 
   const handleSlideChange = (splide: any) => {
     setCurrentPhrase(splide.index);
@@ -104,28 +102,30 @@ const Probar = () => {
                   backgroundPosition: "center",
                 }}
               >
-                <div className="flex gap-4 p-6 flex-col md:flex-row justify-center items-center mt-[-160px]">
-                  <div className="flex-1 lg:w-2/3 flex-col space-y-20 flex">
-                    <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold animated-part1">
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: sections[currentPhrase].phrase,
-                        }}
-                      />
+                <div className="flex gap-4 p-6 flex-col md:flex-row justify-center items-center ">
+                  <div className="flex-1 lg:w-2/3 flex-col space-y-5 flex">
+                    <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold animated-part1">
+                    <span dangerouslySetInnerHTML={{ __html: sections[currentPhrase].phrase }} />
+
+                      
                     </h1>
                     <p
-                      className="text-sm sm:text-base md:text-lg lg:text-xl"
+                      className="text-sm sm:text-base md:text-lg pb-14 lg:text-xl"
                       dangerouslySetInnerHTML={{
                         __html: sections[currentPhrase].smallPhrase,
                       }}
+
+                      
                     />
-                  </div>
-                </div>
-                {section.button && (
-                  <button className="bg-[#634AE2] text-white py-2 px-6 rounded-[30px] hover:bg-purple-700 mt-6 ml-5">
+                      {section.button && (
+                  <button className="bg-[#634AE2] max-w-[188px] p-3 text-white  rounded-[30px] hover:bg-purple-700 ">
                     Reservar Cita
                   </button>
                 )}
+                  </div>
+                  
+                </div>
+              
               </div>
             </SplideSlide>
           ))}
