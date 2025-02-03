@@ -87,12 +87,11 @@ export default function MainSlider() {
                         animate={{
                           opacity: 1,
                           transition: { duration: 3 },
-                          
                         }}
                         exit={{ opacity: 0 }}
                       >
                         <div
-                          className="h-20  mb-16 font-bold text-white text-6xl"
+                          className="h-20 mb-24 font-bold  text-white text-[62px] leading-[77.5px] font-[Lexend]"
                           dangerouslySetInnerHTML={{
                             __html: item.phrase,
                           }}
@@ -119,7 +118,7 @@ export default function MainSlider() {
 
       {/* Dots Navigation */}
       <div className="absolute right-10 top-1/2 transform -translate-y-1/2 flex flex-col space-y-2">
-      {sections.map((_, index) => (
+        {sections.map((_, index) => (
           <button
             key={index}
             onClick={() => scrollTo(index)}
