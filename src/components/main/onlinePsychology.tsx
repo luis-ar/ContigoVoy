@@ -161,40 +161,36 @@ export default function OnlinePsychology() {
               ))}
             </motion.div>
           </div>
-
-          <div className="w-full md:w-1/2 ">
-          
-            <div className="embla" ref={emblaRef}>
-              <div className="embla__container">
-                {features.map((item, index) => (
-                  <div className="embla__slide" key={index}>
-                    <div
-                      className="h-[640px] bg-center rounded-full bg-cover"
-                      style={{
-                        backgroundImage: ` url(${item.background})`,
-                      }}
+          <div className="mitad w-full md:w-1/2 relative">
+            <div className="">
+              <div className="embla" ref={emblaRef}>
+                <div className="embla__container">
+                  {features.map((item, index) => (
+                    <div className="embla__slide" key={index}>
+                      <div
+                        className="h-[640px] bg-center rounded-full bg-cover"
+                        style={{
+                          backgroundImage: `url(${item.background})`,
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+                {/* Dots container */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                  {features.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => scrollTo(index)}
+                      className={`
+              w-3 h-3 rounded-full transition-all duration-300
+              ${selectedIndex === index ? "bg-[#634AE2]" : "bg-white"}
+              `}
                     />
-                  </div>
-                ))}
-                
+                  ))}
+                </div>
               </div>
-             
             </div>
-            <div className="absolute bottom-4 transform translate-y-1/2 -translate-x-1/2 flex space-x-2">              {features.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => scrollTo(index)}
-                    className={`
-                            w-3 h-3 rounded-full transition-all duration-300
-                            ${
-                              selectedIndex === index
-                                ? "bg-[#634AE2]"
-                                : "bg-white"
-                            }
-                        `}
-                  />
-                ))}
-              </div>
           </div>
         </div>
       </div>
