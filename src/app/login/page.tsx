@@ -105,7 +105,7 @@ export default function LoginPage() {
           className="absolute -left-8 -bottom-8 right-8 top-8 bg-purple-600/30 rounded-2xl backdrop-blur-sm"
         />
 
-        <Card className="w-full p-8 shadow-xl bg-white/90 backdrop-blur-sm rounded-2xl relative z-10">
+        <Card className="w-full p-8 shadow-xl bg-white/90 backdrop-blur-sm rounded-2xl static z-10">
           <motion.div initial={false}>
             <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-[#6b4ce6] to-[#9747FF] bg-clip-text text-transparent">
               Sign In
