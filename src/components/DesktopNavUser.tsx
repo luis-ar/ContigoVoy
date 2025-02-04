@@ -111,7 +111,7 @@ export const DesktopNavUser = ({ navItems }: any) => {
                     width: "1.2em",
                     height: "1.2em",
                     marginRight: "0.5em",
-                  }} // Añadido margen entre icono y texto
+                  }}
                 />
                 <span
                   className={cn(

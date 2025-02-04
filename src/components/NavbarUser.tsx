@@ -70,7 +70,7 @@ const NavbarUser = () => {
   }, []);
   return (
     <div className="flex flex-row">
-      {/* Navbar*/}
+      {/* Navbar */}
       <div className="w-60 h-screen fixed p-4 ">
         <div className="bg-background w-full h-full rounded-2xl pt-7 flex flex-col">
           <Link href="/">
@@ -83,13 +83,31 @@ const NavbarUser = () => {
           </div>
         </div>
       </div>
-
+      {/* Header */}
       <div className="flex-1 ml-60 fixed mt-4">
         <div>
-          <nav className="bg-red-300 px-4 h-[8vh] flex items-center fixed z-10 top-4 w-[calc(100vw-240px)]">
+          <nav className="bg-none border px-4 h-[8vh] flex items-center fixed z-10 top-4 w-[calc(100vw-240px)]">
             <div className="flex items-center justify-between w-full">
-              <div>hola mundo</div>
+              <div>
+                <div>
+                  <h1>¡Buenos dias </h1>
+                </div>
+              </div>
               <div className="flex items-center gap-x-5">
+                <span
+                  className="text-[#7b8484] hover:text-[#000] transition-colors "
+                  dangerouslySetInnerHTML={{
+                    __html: Icons.configuracion.replace(
+                      /<svg /,
+                      '<svg fill="currentColor" '
+                    ),
+                  }}
+                  style={{
+                    width: "1.2em",
+                    height: "1.2em",
+                    marginRight: "0.5em",
+                  }}
+                />
                 <DataUser ref={userRef} estado={estado} setEstado={setEstado} />
                 <ThemeToggle />
               </div>
