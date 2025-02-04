@@ -1,4 +1,4 @@
-import NavbarUser from "@/components/NavbarUser";
+import NavbarUser  from "@/components/NavbarUser";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { ReactNode } from "react";
 
@@ -14,8 +14,10 @@ export default function HomeLayout({
       enableSystem
       disableTransitionOnChange
     >
+      <div className="bg-[#eaeded] min-h-screen">
       <NavbarUser />
       <div className="min-h-[89vh] mt-[11vh] ml-60">{children}</div>
+      </div>
     </ThemeProvider>
   );
 }
