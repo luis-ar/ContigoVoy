@@ -3,17 +3,48 @@ import React, { useEffect, useRef, useState } from "react";
 import { Panel } from "./PanelUser";
 import { DataUser } from "./DataUser";
 import { ThemeToggle } from "./Themetoggle";
-import { Link } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import {DesktopNavUser} from "./DesktopNavUser";
+import { Icons } from "@/icons";
 
 const navItems = [
   {
-    name: "Home",
+    name: "Dashboard",
     link: "/user/home",
+    icono: Icons.dashboard,
   },
   {
-    name: "citas",
-    link: "/user/citas",
+    name: "Pacientes",
+    link: "/user/pacientes",
+    icono: Icons.pacientes,
   },
+  {
+    name: "Citas",
+    link: "/user/citas",
+    icono: Icons.citas,
+  },
+  {
+    name: "Historial",
+    link: "/user/historial",
+    icono: Icons.historial,
+  },
+  {
+    name: "Calendario",
+    link: "/user/calendario",
+    icono: Icons.calendario,
+  },
+  {
+    name: "Blog",
+    link: "/user/blog",
+    icono: Icons.blog,
+  },
+  {
+    name: "Politicas y Privacidad",
+    link: "/user/politicasPriva",
+    icono: Icons.politicasyPriv,
+  },
+  
 ];
 
 const NavbarUser = () => {
@@ -41,8 +72,21 @@ const NavbarUser = () => {
   return (
     <div className="flex flex-row">
       <div className="w-60 h-screen fixed p-4">
-        <div className="bg-red-500 w-full h-full rounded-2xl">
-          Hola mundo como estas
+        <div className="bg-background w-full h-full rounded-2xl">
+        <Link href="/">
+          <h1 className="items-center font-normal text-3xl">
+            <Image
+              src={"/LOGO.png"}
+              alt="logo"
+              width={150}
+              height={100}
+              layout="intrinsic"
+            />
+          </h1>
+        </Link>
+        <div className="flex items-center gap-x-5">
+          <DesktopNavUser navItems={navItems} />
+        </div>
         </div>
       </div>
       <div className="flex-1 ml-60 fixed mt-4">
