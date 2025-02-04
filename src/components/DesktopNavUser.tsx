@@ -74,10 +74,14 @@ export const DesktopNavUser = ({ navItems }: any) => {
       >
         <div className="flex flex-col items-start gap-4">
           {navItems.map((navItem: any, idx: number) => (
-            <div key={idx} className="w-full flex justify-start">
+            <div
+              key={idx}
+              className="w-full flex justify-start items-center gap-4"
+            >
+              {" "}
               <Link
                 onMouseEnter={() => setHovered(idx)}
-                className={`relative px-4 py-2 text-muted-foreground ${
+                className={`relative flex items-center px-4 py-2 text-muted-foreground ${
                   pathname === navItem.link || hovered === idx
                     ? "bg-[#534489] rounded-full"
                     : ""
@@ -92,7 +96,26 @@ export const DesktopNavUser = ({ navItems }: any) => {
                 )}
                 <span
                   className={cn(
-                    "relative z-20 text-white text-base",
+                    "relative z-20 text-base",
+                    hovered === idx || pathname === navItem.link
+                      ? "text-white"
+                      : "text-[#7b8fbd] dark:text-primary"
+                  )}
+                  dangerouslySetInnerHTML={{
+                    __html: navItem.icono.replace(
+                      /<svg /,
+                      '<svg fill="currentColor" '
+                    ),
+                  }}
+                  style={{
+                    width: "1.2em",
+                    height: "1.2em",
+                    marginRight: "0.5em",
+                  }} // Añadido margen entre icono y texto
+                />
+                <span
+                  className={cn(
+                    "relative z-20 text-base",
                     hovered === idx || pathname === navItem.link
                       ? "text-white"
                       : "text-[#7b8fbd] dark:text-primary"
