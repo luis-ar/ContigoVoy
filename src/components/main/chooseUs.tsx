@@ -101,7 +101,7 @@ export default function ChooseUs() {
         transition={{ duration: 0.6 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl font-bold text-[#634AE2] mb-2">
+        <h2 className="text-4xl font-bold text-[#634AE2] mb-5">
           ¿Por qué elegirnos?
         </h2>
         <p className=" text-[#634AE2] mb-5 w-[643px] mx-auto leading-relaxed ">
