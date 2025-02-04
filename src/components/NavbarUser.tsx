@@ -47,7 +47,7 @@ const NavbarUser = () => {
       </div>
       <div className="flex-1 ml-60 fixed mt-4">
         <div>
-          <nav className="bg-red-300 px-4 h-[8vh] flex items-center fixed z-10 top-4 w-[calc(100vw-240px)]">
+          <nav className="bg-red-300 px-4 h-[8vh] flex items-center fixed z-[100] top-4 w-[calc(100vw-240px)]">
             <div className="flex items-center justify-between w-full">
               <div>hola mundo</div>
               <div className="flex items-center gap-x-5">
