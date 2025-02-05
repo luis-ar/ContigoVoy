@@ -1,5 +1,7 @@
 import { ServicesStructureProps } from "@/interface";
-import { motion } from "framer-motion";
+import SliderPrice from "./SliderPrice";
+
+
 export default function ServicesStructure({
   services,
 }: {
@@ -16,7 +18,8 @@ export default function ServicesStructure({
           <div
             className="h-[578px] bg-cover flex items-center bg-center pl-[79px]"
             style={{
-              backgroundImage: `linear-gradient(#634AE27A, #634AE27A),url(${item.background})`,
+            
+                backgroundImage: `linear-gradient(270deg, rgba(99, 74, 226, 0.24) 28.05%, rgba(99, 74, 226, 0.7) 47.87%, #7863E3 64.18%), url(${item.background})`,
             }}
           >
             <div className="relative w-[661px] text-white text-left h-[230px] font-lexend font-bold text-[40px] leading-[54px]">
@@ -91,7 +94,15 @@ export default function ServicesStructure({
             </div>
           </div>
 
-          <div className="flex justify-center py-8">
+          <div className="flex justify-center py-32  "
+          style={{
+            
+            backgroundImage: ` url(/Services/niños/bgChilds.webp)`,
+            backgroundPosition: "right center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "auto 100%",
+        }}
+        >
             <div className="flex pt-14 flex-col items-center gap-y-20">
               {/* Primera fila - 3 iconos */}
               <div className="flex flex-col md:flex-row lg:gap-y-0  gap-y-12 md:gap-y-0 md:gap-x-[229px]">
@@ -140,19 +151,19 @@ export default function ServicesStructure({
               </div>
             </div>
           </div>
-          <div className="pt-24">
-              <div className="h-36 bg-[#DEDEFF] flex items-center justify-center px-4 sm:px-8">
-                <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[1100px] space-y-4 md:space-y-0">
-                  {/* Texto del footer */}
-                  <p className="text-center text-[#634AE2] md:text-left max-w-[652px]">
-                    {item.textfooter}
-                  </p>
-                  <button className="w-full md:w-[359px] h-[70px] bg-[#5A4AE8] rounded-[34px] text-white font-lexend font-normal text-[18px] md:text-[24px] leading-[33px] text-center">
-                    Reserva tu cita gratuita
-                  </button>
-                </div>
-              </div>
+
+          <SliderPrice />
+          <div className="h-36 bg-[#DEDEFF] flex items-center justify-center px-4 sm:px-8">
+            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[1100px] space-y-4 md:space-y-0">
+              {/* Texto del footer */}
+              <p className="text-center text-[#634AE2] md:text-left max-w-[652px]">
+                {item.textfooter}
+              </p>
+              <button className="w-full md:w-[359px] h-[70px] bg-[#5A4AE8] rounded-[34px] text-white font-lexend font-normal text-[18px] md:text-[24px] leading-[33px] text-center">
+                Reserva tu cita gratuita
+              </button>
             </div>
+          </div>
         </div>
       ))}
     </div>
