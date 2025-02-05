@@ -38,7 +38,7 @@ const navItems = [
     isButton: true,
   },
 ];
-
+//hola
 const Navbar = () => {
   return (
     <nav className="bg-background h-[10vh] flex items-center fixed w-full z-10 top-0">
