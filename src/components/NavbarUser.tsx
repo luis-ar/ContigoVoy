@@ -7,6 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { DesktopNavUser } from "./DesktopNavUser";
 import { Icons } from "@/icons";
+import { UserInterface } from "@/interface";
+import { fetchUser } from "@/utils/recuperarDataUser";
 
 const navItems = [
   {
@@ -50,8 +52,16 @@ const NavbarUser = () => {
   const [estado, setEstado] = useState<boolean>(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const userRef = useRef<HTMLDivElement>(null);
-  const [userName, setUserName] = useState<string | null>(null);
-
+  const [user, setUser] = useState<UserInterface>({
+    name: null,
+    email: null,
+    lastname: null,
+    photo: null,
+    iniciales: null,
+  });
+  useEffect(() => {
+    fetchUser(setUser);
+  }, []);
   const handleClickOutside = (event: MouseEvent) => {
     if (
       panelRef.current &&
@@ -91,10 +101,12 @@ const NavbarUser = () => {
             <div className="flex items-center justify-between w-full">
               <div>
                 <div className="text-4xl font-bold text-[#534489]">
-                  <h1>¡Buenos dias, {userName}!</h1>
+                  <h1>¡Buenos dias, {user.name} {user.lastname} !</h1>
                 </div>
                 <div className="text-0xl font-bold text-[#6A90F1]">
-                  Tienes <span className="font-bold text-[#416cd8] ">x citas</span> programadas para hoy
+                  Tienes{" "}
+                  <span className="font-bold text-[#416cd8] ">x citas</span>{" "}
+                  programadas para hoy
                 </div>
               </div>
               <div className="flex items-center gap-x-5">
