@@ -31,3 +31,25 @@ export interface FAQ {
 export interface AccordionQuestProps {
   faqs: FAQ[];
 }
+//interface Services para el componente ServicesStructure No le mueva nada caracho
+export interface ServicesStructureProps {
+  title: string;
+  edad: string;
+  motto: string;
+  background: string;
+  bgdown: string;
+  description: string;
+  tittleIcon: string;
+  iconos: {
+    id: number;
+    text: string;
+    iconImage: string;
+  }[];
+  tittlecards: string;
+  cards: {
+    id: number;
+    text: string;
+    icon: string;
+  }[];
+  textfooter: string;
+}

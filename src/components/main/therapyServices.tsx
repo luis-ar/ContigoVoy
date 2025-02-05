@@ -11,28 +11,36 @@ import {
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
+
 
 export default function TherapyServices() {
-
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const services = [
     {
+      id:"/terapia/infantes",
       icon: "/images/childTherapy.webp",
       title: "Terapia para niños",
     },
     {
+      id:"/terapia/adolescentes",
       icon: "/images/TeenTherapy.webp",
       title: "Terapia adolescente",
     },
     {
+      id:"/terapia/parejas",
       icon: "/images/adultTherapy.webp",
       title: "Terapia de parejas",
     },
     {
+      id:"/terapia/adultos",
       icon: "/images/coupleTherapy.webp",
       title: "Terapia para adultos",
     },
     {
+      id:"/terapia/familia",
       icon: "/images/familyTherapy.webp",
       title: "Terapia familiar",
     },
@@ -73,7 +81,7 @@ export default function TherapyServices() {
             </h3>
             <div className="flex flex-col items-end mt-auto mb-5">
               <button
-                onClick={() => setIsOpen(true)}
+                onClick={() => router.push(`/servicios${service.id}`)}
                 className="group flex items-center space-x-2 text-sm hover:text-purple-200 transition-colors"
               >
                  <span className="relative group ">

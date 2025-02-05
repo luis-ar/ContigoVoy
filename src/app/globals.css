@@ -3,6 +3,24 @@
 @tailwind utilities;
 
 
+/*Slider main*/
+
+.embla {
+  overflow: hidden;
+
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+
+}
+
+/*   */ 
+
+
 /* Posicionar de los splide*/
 .splide__pagination {
   position: absolute;
@@ -25,9 +43,11 @@
   transform: scale(1.2); 
 }
 
+
+
 /* Fondo Preguntras Frecuentes */
 .background_faq {
-  height: 100vh;
+  height: 110vh;
   background-image: 
   linear-gradient(
       to right,
@@ -41,7 +61,6 @@
   background-size: contain;  
   background-position: 130% 100%;
   background-color: #f4f4f4;
-  height: 100vh; 
 }
 
 /*responsive*/
@@ -109,7 +128,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
@@ -122,7 +140,6 @@
   color: #fff;
   padding: 5px 8px;
   border-radius: 5px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -293,6 +310,10 @@
     --ring: 240 89% 78.6%;
     --radius: 0.5rem;
   }
+}
+
+.bg-divider {
+  background-color: transparent !important;  
 }
 
 @layer base {

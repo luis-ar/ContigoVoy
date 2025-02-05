@@ -1,11 +1,11 @@
 "use client";
 
-import { pagination } from "@nextui-org/react";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { motion } from "framer-motion";
-import { Rewind } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+import Fade from  "embla-carousel-fade";
+import useEmblaCarousel from "embla-carousel-react";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const features = [
   {
@@ -34,7 +34,7 @@ const features = [
     title: "Elige a tu psicólogo",
     description:
       "Te asignamos un psicólogo colegiado que te guiará en cada sesión, con técnicas efectivas para tus necesidades.",
-   
+
     background: "/CarruselInferiorMain/azul.webp",
   },
   {
@@ -88,8 +88,39 @@ const itemVariants = {
   },
 };
 
-
 export default function OnlinePsychology() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    skipSnaps: true,
+    duration: 0,
+    
+    
+    
+   }, [
+    Autoplay({  
+      stopOnInteraction: false,
+      delay: 4000,
+    }),
+    Fade({
+      active: true,
+      
+  
+     })
+  ]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    if (emblaApi) {
+      emblaApi.on("select", () => {
+        const currentIndex = emblaApi.selectedScrollSnap();
+        setSelectedIndex(currentIndex);
+      });
+    }
+  }, [emblaApi]);
+
+  const scrollTo = (index: number) => {
+    if (emblaApi) emblaApi.scrollTo(index);
+  };
   const [currentPhrase, setCurrentPhrase] = useState<number>(0);
   const handleSlideChange = (splide: any) => {
     setCurrentPhrase(splide.index);
@@ -127,7 +158,7 @@ export default function OnlinePsychology() {
                   whileHover={{ scale: 1.05 }}
                   className="group flex flex-col items-center md:items-start text-center md:text-left w-fit"
                 >
-                  <div className="flex flex-col items-center justify-center w-40 h-40 rounded-full bg-[#634AE2] backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-lg space-y-4">
+                  <div className="flex flex-col items-center justify-center w-40 h-40 rounded-full bg-[#634AE2] backdrop-blur-sm transition-all duration-300 cursor-pointer space-y-4">
                     <div className="p-4 bg-[#634AE2] rounded-full group-hover:bg-[#9494F3] transition-colors duration-300">
                       {feature.icon}
                     </div>
@@ -135,43 +166,43 @@ export default function OnlinePsychology() {
                   <h3 className="text-lg font-semibold text-white mt-3">
                     <span className="block">{feature.title}</span>
                   </h3>
-                  <p className="text-base text-white max-w-[16rem] mt-3 mx-auto md:mx-0">
+                  <p className="text-base text-white max-w-[13rem] mt-3 mx-auto md:mx-0">
                     {feature.description}
                   </p>
                 </motion.div>
               ))}
             </motion.div>
           </div>
-
-          <div className="w-full md:w-1/2 ">
-            <div className="w-[750px] h-[750px] rounded-full overflow-hidden "> 
-              <Splide
-                options={{
-                  autoplay: true,
-                  interval: 3000,
-                  pauseOnHover: false,
-                  rewind: true,
-                  loop:true,
-                }}
-                onMove={handleSlideChange}
-              >
-                {features.map((feature, index) => (
-                  <SplideSlide
-                    key={`online-psychology-${index}`}
-                    id={`slide-online-psychology-${index}`}
-                  >
-                    <div
-                      className="w-[750px] h-[750px] "
-                      style={{
-                        backgroundImage: `url(${features[currentPhrase].background})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }}
-                    />   
-
-                  </SplideSlide>
-                ))}
-              </Splide>
+          <div className="mitad w-full md:w-1/2 relative">
+              <div className="embla " ref={emblaRef}>
+                <div className="embla__container ">
+                  {features.map((item, index) => (
+                    <div className="embla__slide "
+                    
+                    key={index}>
+                      <div
+                        className="h-[640px]  bg-center rounded-full bg-cover"
+                        style={{
+                          backgroundImage: `url(${item.background})`,
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+                {/* Dots container */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                  {features.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => scrollTo(index)}
+                      className={`
+              w-3 h-3 rounded-full transition-all duration-300
+              ${selectedIndex === index ? "bg-[#634AE2]" : "bg-white"}
+              `}
+                    />
+                  ))}
+             
+              </div>
             </div>
           </div>
         </div>
