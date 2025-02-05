@@ -50,6 +50,7 @@ const NavbarUser = () => {
   const [estado, setEstado] = useState<boolean>(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const userRef = useRef<HTMLDivElement>(null);
+  const [userName, setUserName] = useState<string | null>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -86,11 +87,14 @@ const NavbarUser = () => {
       {/* Header */}
       <div className="flex-1 ml-60 fixed mt-4">
         <div>
-          <nav className="bg-none border px-4 h-[8vh] flex items-center fixed z-10 top-4 w-[calc(100vw-240px)]">
+          <nav className="mt-3 bg-none px-4 h-[8vh] flex items-center fixed z-10 top-4 w-[calc(100vw-240px)]">
             <div className="flex items-center justify-between w-full">
               <div>
-                <div>
-                  <h1>¡Buenos dias </h1>
+                <div className="text-4xl font-bold text-[#534489]">
+                  <h1>¡Buenos dias, {userName}!</h1>
+                </div>
+                <div className="text-0xl font-bold text-[#6A90F1]">
+                  Tienes <span className="font-bold text-[#416cd8] ">x citas</span> programadas para hoy
                 </div>
               </div>
               <div className="flex items-center gap-x-5">
