@@ -1,6 +1,6 @@
 "use client";
 import FormSignUp from "@/components/FormSignUp";
-import TableUsers from "@/components/table/tableUsers";
+import TableUsers from "@/components/tableUser/tableUsers";
 import React from "react";
 
 const page = () => {
