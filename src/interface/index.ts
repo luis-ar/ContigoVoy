@@ -37,6 +37,7 @@ export interface ServicesStructureProps {
   edad: string;
   motto: string;
   background: string;
+  bgdown: string;
   description: string;
   tittleIcon: string;
   iconos: {

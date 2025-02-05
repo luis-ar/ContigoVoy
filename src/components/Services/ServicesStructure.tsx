@@ -97,7 +97,7 @@ export default function ServicesStructure({
           <div className="flex justify-center py-32  "
           style={{
             
-            backgroundImage: ` url(/Services/niños/bgChilds.webp)`,
+            backgroundImage: ` url(${item.bgdown})`,
             backgroundPosition: "right center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "auto 100%",

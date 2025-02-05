@@ -8,6 +8,7 @@ export const AdultoTerapias:ServicesStructureProps[] =[{
   motto:
     "¿Sientes que las preocupaciones del día a día están afectando tu bienestar emocional?",
   background: "/Services/adult/bgAdult.webp",
+  bgdown:"/Services/adult/bgdownAdult.webp",
   description:
     "Estamos aquí para ayudarte a recuperar el equilibrio. A través de la terapia para adultos, encontrarás un espacio para comprenderte mejor, gestionar las situaciones difíciles y fortalecer tu bienestar emocional.¡Es el momento de dar el primer paso hacia una vida más equilibrada y plena!",
   tittleIcon:

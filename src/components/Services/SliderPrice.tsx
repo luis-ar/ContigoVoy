@@ -3,6 +3,8 @@ import { Card } from "@nextui-org/react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
 import { CardContent } from "../ui/card";
 import Autoplay from "embla-carousel-autoplay";
+import { he } from "@faker-js/faker";
+import { Icon } from "lucide-react";
 
 const cardservices = [
     {
@@ -200,10 +202,18 @@ const cardservices = [
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="bg-none border-none " />
-                <CarouselNext className="bg-none border-none " 
+                <CarouselPrevious 
+  variant="ghost" 
+  className="text-[#634AE2] hover:bg-violet-300 bg-inherit border-none" 
+ 
+/>            <CarouselNext 
+  variant="ghost" 
+
+  className="text-[#634AE2] hover:bg-violet-300 bg-inherit border-none " 
+/>
+
                 
-                />
+         
               </Carousel>
             </div>
           </div>

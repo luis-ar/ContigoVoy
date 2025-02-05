@@ -8,6 +8,7 @@ export const TeenTerapias:ServicesStructureProps[] =[{
     motto:
       "¿Listo para dar el primer paso hacia el bienestar emocional de tu hijo?",
     background: "/Services/teen/bgTeen.webp",
+    bgdown:"/Services/teen/bgdownTeen.webp",
     description:
       "Ayuda a tu hijo a sentirse escuchado y comprendido en esta etapa tan crucial de su desarrollo con nuestra terapia integral. Apoyamos a los adolescentes a manejar sus emociones, fortalecer su autoestima y desarrollar su habilidades sociales en un espacio seguro.",
     tittleIcon:
