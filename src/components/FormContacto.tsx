@@ -17,8 +17,10 @@ import { Input } from "@/components/ui/input";
 import { contactoFormSchema } from "@/lib/auth-schema";
 import sendMail from "@/utils/envioCorreo";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 const FormContacto = () => {
+  const [estado, setEstado] = useState<boolean>(false);
   const form = useForm<z.infer<typeof contactoFormSchema>>({
     resolver: zodResolver(contactoFormSchema),
     defaultValues: {
@@ -30,6 +32,7 @@ const FormContacto = () => {
     },
   });
   const onSubmit = async (values: z.infer<typeof contactoFormSchema>) => {
+    setEstado(true);
     const { email, name, message, lastname, phone } = values;
     const result = await sendMail(
       email,
@@ -40,11 +43,13 @@ const FormContacto = () => {
       phone
     );
     if (result) {
+      //implementar logica de carga de datos al tab de contacto
       toast.success("Mensaje enviado con éxito");
     } else {
       toast.error("Error al enviar el mensaje");
     }
     form.reset();
+    setEstado(false);
   };
   return (
     <div className="flex flex-col items-end justify-end ">
@@ -58,7 +63,7 @@ const FormContacto = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Name</FormLabel>
+                {/* <FormLabel>Name</FormLabel> */}
                 <FormControl>
                   <Input
                     placeholder="Insert your name"
@@ -75,7 +80,7 @@ const FormContacto = () => {
             name="lastname"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Lastname</FormLabel>
+                {/* <FormLabel>Lastname</FormLabel> */}
                 <FormControl>
                   <Input
                     placeholder="Insert your lastname"
@@ -92,7 +97,7 @@ const FormContacto = () => {
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Phone</FormLabel>
+                {/* <FormLabel>Phone</FormLabel> */}
                 <FormControl>
                   <Input
                     placeholder="Insert your phone"
@@ -109,7 +114,7 @@ const FormContacto = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                {/* <FormLabel>Email</FormLabel> */}
                 <FormControl>
                   <Input placeholder="Insert your email" {...field} />
                 </FormControl>
@@ -123,7 +128,7 @@ const FormContacto = () => {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Message</FormLabel>
+                {/* <FormLabel>Message</FormLabel> */}
                 <FormControl>
                   <Input
                     placeholder="Insert your message"
@@ -136,7 +141,7 @@ const FormContacto = () => {
             )}
           />
 
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full" disabled={estado}>
             Submit
           </Button>
         </form>

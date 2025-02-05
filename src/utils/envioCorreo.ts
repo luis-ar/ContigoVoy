@@ -4,8 +4,8 @@ import nodemailer from "nodemailer";
 const transporter = nodemailer.createTransport({
   service: "gmail", // Usa el servicio de tu preferencia (Ejemplo: Gmail, Outlook, etc.)
   auth: {
-    user: "luisdemaryori@gmail.com", // Tu dirección de correo
-    pass: "ccxllvporrumxvut", // Tu contraseña de correo o app password
+    user: "contigovoyproject@gmail.com", // Tu dirección de correo
+    pass: "osgmdssgssdwrcnc", // Tu contraseña de correo o app password
   },
 });
 
@@ -37,7 +37,7 @@ const crearMensaje = (
 ) => {
   return {
     from: destinatario,
-    to: "luisdemaryori@gmail.com",
+    to: "contigovoyproject@gmail.com",
     subject: asunto,
     html: contenidoHTML, // Asegúrate de especificar que el contenido es HTML
   };
