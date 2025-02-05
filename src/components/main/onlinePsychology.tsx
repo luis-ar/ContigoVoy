@@ -1,7 +1,7 @@
 "use client";
 
 import Autoplay from "embla-carousel-autoplay";
-
+import Fade from  "embla-carousel-fade";
 import useEmblaCarousel from "embla-carousel-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
@@ -89,11 +89,23 @@ const itemVariants = {
 };
 
 export default function OnlinePsychology() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    skipSnaps: true,
+    duration: 0,
+    
+    
+    
+   }, [
+    Autoplay({  
       stopOnInteraction: false,
       delay: 4000,
     }),
+    Fade({
+      active: true,
+      
+  
+     })
   ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -162,10 +174,12 @@ export default function OnlinePsychology() {
             </motion.div>
           </div>
           <div className="mitad w-full md:w-1/2 relative">
-              <div className="embla" ref={emblaRef}>
-                <div className="embla__container">
+              <div className="embla " ref={emblaRef}>
+                <div className="embla__container ">
                   {features.map((item, index) => (
-                    <div className="embla__slide" key={index}>
+                    <div className="embla__slide "
+                    
+                    key={index}>
                       <div
                         className="h-[640px]  bg-center rounded-full bg-cover"
                         style={{
