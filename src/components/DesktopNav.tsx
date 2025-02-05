@@ -60,10 +60,10 @@ export const DesktopNav = ({ navItems }: any) => {
 
   const serviciosLinks = [
     { name: "Terapia para Niños", link: "/servicios/terapia/infantes" },
-    { name: "Terapia para Adolescentes", link: "/terapia-ninos" },
-    { name: "Terapia para Adultos", link: "/terapia-parejas" },
-    { name: "Terapia para Parejas", link: "/terapia-adolescentes" },
-    { name: "Terapia Familiar", link: "/terapia-familiar" },
+    { name: "Terapia para Adolescentes", link: "/servicios/terapia/adolescentes" },
+    { name: "Terapia para Adultos", link: "/servicios/terapia/adultos" },
+    { name: "Terapia para Parejas", link: "/servicios/terapia/parejas" },
+    { name: "Terapia Familiar", link: "/servicios/terapia/familia" },
   ];
 
   return (
