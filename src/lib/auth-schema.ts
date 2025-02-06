@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { date, z } from "zod";
 
 export const formSchema = z.object({
   name: z
@@ -49,6 +49,28 @@ export const formSchema = z.object({
     .max(50, {
       message: "El apellido no puede exceder los 50 caracteres",
     }),
+  lastnameMaternal: z
+    .string()
+    .nonempty({
+      message: "El apellido materno es obligatorio",
+    })
+    .min(2, {
+      message: "El apellido materno debe tener al menos 2 caracteres",
+    })
+    .max(50, {
+      message: "El apellido maternono puede exceder los 50 caracteres",
+    }),
+  lastnamePaternal: z
+    .string()
+    .nonempty({
+      message: "El apellido paterno es obligatorio",
+    })
+    .min(2, {
+      message: "El apellido paterno debe tener al menos 2 caracteres",
+    })
+    .max(50, {
+      message: "El apellido paterno no puede exceder los 50 caracteres",
+    }),
   phone: z
     .string()
     .nonempty({
@@ -83,6 +105,14 @@ export const formSchema = z.object({
     })
     .max(50, {
       message: "El rol no puede exceder los 50 caracteres",
+    }),
+  dni: z
+    .string()
+    .nonempty({
+      message: "El DNI es obligatorio.",
+    })
+    .length(8, {
+      message: "El DNI debe tener exactamente 8 caracteres.",
     }),
 
   title: z
@@ -137,6 +167,34 @@ export const formSchema = z.object({
   userSpecialty: z.string().nonempty({
     message: "La especialidad es obligatoria",
   }),
+  fechaNacimiento: z.string().nonempty({
+    message: "La fecha de nacimiento es obligatoria",
+  }),
+  genero: z.string().nonempty({
+    message: "El género es obligatorio",
+  }),
+  direccion: z
+    .string()
+    .nonempty({
+      message: "La dirección es obligatoria",
+    })
+    .min(2, {
+      message: "La dirección debe tener al menos 2 caracteres",
+    })
+    .max(50, {
+      message: "La dirección no puede exceder los 50 caracteres",
+    }),
+  antecedentes: z
+    .string()
+    .nonempty({
+      message: "Los antecedentes es obligatorio",
+    })
+    .min(2, {
+      message: "Los antecedentes debe tener al menos 2 caracteres",
+    })
+    .max(50, {
+      message: "Los antecedetes no puede exceder los 50 caracteres",
+    }),
 });
 
 export const signInFormSchema = formSchema.pick({
@@ -171,6 +229,19 @@ export const serviceFormSchema = formSchema.pick({
 
 export const specialtyFormSchema = formSchema.pick({
   specialty: true,
+});
+
+export const pacientFormSchema = formSchema.pick({
+  name: true,
+  lastnameMaternal: true,
+  lastnamePaternal: true,
+  phone: true,
+  email: true,
+  fechaNacimiento: true,
+  genero: true,
+  antecedentes: true,
+  direccion: true,
+  dni: true,
 });
 
 export const taskSchema = z.object({
