@@ -89,7 +89,7 @@ const NavbarUser = () => {
               <Image src={"/LOGO.png"} alt="logo" width={150} height={100} />
             </h1>
           </Link>
-          <div className="flex flex-col items-center gap-x-5 mt-4 pt-3">
+          <div className="flex flex-col items-center mt-4 pt-3">
             <DesktopNavUser navItems={navItems} />
           </div>
         </div>

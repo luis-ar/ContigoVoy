@@ -68,11 +68,11 @@ export const DesktopNavUser = ({ navItems }: any) => {
       <motion.div
         onMouseLeave={() => setHovered(null)}
         className={cn(
-          "relative z-[60] mx-auto hidden w-full flex-col items-start justify-left self-start rounded-full px-0 py-2 lg:flex",
+          "relative z-[60] mx-auto hidden w-full flex-col items-center self-start rounded-full py-2 lg:flex",
           "inset-x-0 h-auto"
         )}
       >
-        <div className="flex flex-col items-start gap-4">
+        <div className="flex flex-col items-start gap-4 ">
           {navItems.map((navItem: any, idx: number) => (
             <div
               key={idx}
@@ -81,7 +81,7 @@ export const DesktopNavUser = ({ navItems }: any) => {
               {" "}
               <Link
                 onMouseEnter={() => setHovered(idx)}
-                className={`w-full relative flex items-center px-4 py-2 text-muted-foreground ${
+                className={`w-full relative flex items-center px-3 py-2 text-muted-foreground ${
                   pathname === navItem.link || hovered === idx
                     ? "bg-[#534489] rounded-full"
                     : ""
