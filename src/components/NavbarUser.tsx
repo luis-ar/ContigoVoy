@@ -89,7 +89,7 @@ const NavbarUser = () => {
               <Image src={"/LOGO.png"} alt="logo" width={150} height={100} />
             </h1>
           </Link>
-          <div className="flex flex-col items-center mt-4 pt-3">
+          <div className="flex flex-col items-center gap-x-5 mt-4 pt-3">
             <DesktopNavUser navItems={navItems} />
           </div>
         </div>
@@ -97,8 +97,8 @@ const NavbarUser = () => {
       {/* Header */}
       <div className="flex-1 ml-60 fixed mt-4">
         <div>
-          <nav className="mt-3 bg-background pr-4 h-[8vh] flex items-center fixed z-10 top-1 w-[calc(100vw-240px)]">
-            <div className="flex items-center justify-between w-full">
+          <nav className="rounded-2xl mt-3 bg-background h-[12vh] flex items-center fixed z-10 top-1 w-[calc(100vw-270px)] p-1">
+            <div className="flex items-center justify-between w-full mr-1">
               <div>
                 <div className="text-4xl font-bold text-[#534489]">
                   <h1>¡Buenos dias, {user.name} {user.lastname} !</h1>
@@ -125,7 +125,7 @@ const NavbarUser = () => {
                   }}
                 />
                 <DataUser ref={userRef} estado={estado} setEstado={setEstado} />
-                <ThemeToggle />
+                <ThemeToggle/>
               </div>
             </div>
           </nav>
