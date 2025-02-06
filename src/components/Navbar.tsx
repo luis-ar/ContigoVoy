@@ -1,10 +1,10 @@
-
 "use client";
 import Link from "next/link";
 import React from "react";
 import { ThemeToggle } from "./Themetoggle";
 import Image from "next/image";
 import { DesktopNav } from "./DesktopNav";
+import { dropdown } from "@nextui-org/react";
 
 const navItems = [
   {
@@ -37,7 +37,7 @@ const navItems = [
     isButton: true,
   },
 ];
-
+//hola
 const Navbar = () => {
   return (
     <nav className="bg-background h-[10vh] flex items-center fixed w-full z-10 top-0">
@@ -55,6 +55,7 @@ const Navbar = () => {
         </Link>
         <div className="flex items-center gap-x-5">
           <DesktopNav navItems={navItems} />
+          <ThemeToggle />
         </div>
       </div>
     </nav>

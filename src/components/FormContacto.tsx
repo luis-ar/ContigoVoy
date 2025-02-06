@@ -1,24 +1,30 @@
 "use client";
-
-import { zodResolver } from "@hookform/resolvers/zod";
+import React, { useState } from "react";
+import { Button, Form, Input } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { contactoFormSchema } from "@/lib/auth-schema";
 import sendMail from "@/utils/envioCorreo";
 import { toast } from "react-toastify";
+import { insertData } from "@/services/supabase";
+import { Tables } from "@/services/core";
+
+// Definición del modelo para la tabla "contact" en Supabase
+interface Contact {
+  nombres: string;
+  apellidos: string;
+  celular: string;
+  correo: string;
+  comentario: string;
+}
 
 const FormContacto = () => {
+  const [action, setAction] = useState<string | null>(null);
+  const [estado, setEstado] = useState<boolean>(false);
+
+  // Configuración de react-hook-form con Zod
   const form = useForm<z.infer<typeof contactoFormSchema>>({
     resolver: zodResolver(contactoFormSchema),
     defaultValues: {
@@ -29,8 +35,13 @@ const FormContacto = () => {
       message: "",
     },
   });
+
+  // Lógica de envío del formulario
   const onSubmit = async (values: z.infer<typeof contactoFormSchema>) => {
+    setEstado(true);
     const { email, name, message, lastname, phone } = values;
+    
+    // Envía el correo
     const result = await sendMail(
       email,
       "Contacto Contigo Voy",
@@ -39,109 +50,95 @@ const FormContacto = () => {
       lastname,
       phone
     );
+    
     if (result) {
       toast.success("Mensaje enviado con éxito");
     } else {
       toast.error("Error al enviar el mensaje");
     }
     form.reset();
+    setEstado(false);
   };
+
   return (
-    <div className="flex flex-col items-end justify-end ">
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-8 w-80 sm:w-96"
-        >
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="Insert your name"
-                    {...field}
-                    type="text"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="lastname"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Lastname</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="Insert your lastname"
-                    {...field}
-                    type="text"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="phone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Phone</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="Insert your phone"
-                    {...field}
-                    type="text"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input placeholder="Insert your email" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Message</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder="Insert your message"
-                    {...field}
-                    type="text"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <Button type="submit" className="w-full">
-            Submit
+    <Form
+      className="w-full max-w-md bg-[#B8B8FF] rounded-2xl p-6 mr-10"
+      validationBehavior="native"
+      onSubmit={form.handleSubmit(onSubmit)}
+      onReset={() => setAction("reset")}
+    >
+      <div className="space-y-3 w-full">
+        <Input
+          isRequired
+          errorMessage={
+            form.formState.errors.name?.message?.toString() ||
+            "Por favor ingrese un nombre válido"
+          }
+          {...form.register("name")}
+          name="name"
+          placeholder="Nombres"
+          type="text"
+          className="input-placeholder"
+        />
+        <Input
+          isRequired
+          errorMessage={
+            form.formState.errors.lastname?.message?.toString() ||
+            "Por favor ingrese un apellido válido"
+          }
+          {...form.register("lastname")}
+          name="lastname"
+          placeholder="Apellidos"
+          type="text"
+          className="input-placeholder"
+        />
+        <Input
+          isRequired
+          errorMessage={
+            form.formState.errors.phone?.message?.toString() ||
+            "Por favor ingrese un número de teléfono válido"
+          }
+          {...form.register("phone")}
+          name="phone"
+          placeholder="Celular"
+          type="tel"
+          className="input-placeholder"
+        />
+        <Input
+          isRequired
+          errorMessage={
+            form.formState.errors.email?.message?.toString() ||
+            "Ingrese un correo electrónico válido"
+          }
+          {...form.register("email")}
+          name="email"
+          placeholder="Correo"
+          type="email"
+          className="input-placeholder"
+        />
+        <Input
+          isRequired
+          errorMessage={
+            form.formState.errors.message?.message?.toString() ||
+            "Ingrese un mensaje válido"
+          }
+          {...form.register("message")}
+          name="message"
+          placeholder="Comentario"
+          type="textarea"
+          className="input-placeholder"
+        />
+        <div className="w-full flex justify-center pt-4">
+          <Button
+            className="bg-[#634AE3] text-white px-8 py-2 rounded-lg hover:bg-[#5339cc] transition-colors"
+            type="submit"
+            disabled={estado}
+          >
+            Enviar
           </Button>
-        </form>
-      </Form>
-    </div>
+        </div>
+      </div>
+    </Form>
   );
 };
 
