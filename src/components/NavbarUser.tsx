@@ -129,7 +129,7 @@ const NavbarUser = () => {
               </div>
             </div>
           </nav>
-          <div className="mt-[8vh]">
+          <div className="mt-[9vh]">
             <Panel ref={panelRef} estado={estado} setEstado={setEstado} />
           </div>
         </div>
