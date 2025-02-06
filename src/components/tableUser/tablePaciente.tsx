@@ -43,7 +43,6 @@ const TableUsers = () => {
             <h2 className="text-2xl font-bold tracking-tight text-center">
               List of Users
             </h2>
-            
           </div>
         </div>
         <DataTable data={users} columns={columns} />
