@@ -1,4 +1,3 @@
-
 "use client";
 import Link from "next/link";
 import React from "react";
@@ -56,6 +55,7 @@ const Navbar = () => {
         </Link>
         <div className="flex items-center gap-x-5">
           <DesktopNav navItems={navItems} />
+          <ThemeToggle />
         </div>
       </div>
     </nav>
