@@ -114,7 +114,7 @@ export const DesktopNav = ({ navItems }: any) => {
                           ? "bg-[#634AE2] rounded-full text-white"
                           : "text-[#634AE2] hover:bg-[#634AE2] hover:text-white rounded-full"
                       }`}
-                      href="/servicios"
+                      href="#"
                     >
                       <span className="relative z-20 text-base">Servicios</span>
                     </Link>

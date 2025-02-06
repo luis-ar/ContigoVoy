@@ -22,7 +22,7 @@ export default function ServicesStructure({
                 backgroundImage: `linear-gradient(270deg, rgba(99, 74, 226, 0.24) 28.05%, rgba(99, 74, 226, 0.7) 47.87%, #7863E3 64.18%), url(${item.background})`,
             }}
           >
-            <div className="relative w-[661px] text-white text-left h-[230px] font-lexend font-bold text-[40px] leading-[54px]">
+            <div className="relative w-[661px] flex items-center justify-center text-white text-left h-[230px] font-lexend font-bold text-[40px] leading-[54px]">
               {item.motto}
             </div>
           </div>
