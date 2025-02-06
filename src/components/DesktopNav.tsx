@@ -158,7 +158,7 @@ export const DesktopNav = ({ navItems }: any) => {
                   >
                     {hovered === idx && (
                       <motion.div
-                        layoutId="hovered"
+                        //layoutId="hovered"
                         className="absolute inset-0 h-full w-full rounded-full bg-[#634AE2]"
                       />
                     )}
