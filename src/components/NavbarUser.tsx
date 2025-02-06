@@ -97,7 +97,7 @@ const NavbarUser = () => {
       {/* Header */}
       <div className="flex-1 ml-60 fixed mt-4">
         <div>
-          <nav className="mt-3 bg-none px-4 h-[8vh] flex items-center fixed z-10 top-4 w-[calc(100vw-240px)]">
+          <nav className="mt-3 bg-background pr-4 h-[8vh] flex items-center fixed z-10 top-1 w-[calc(100vw-240px)]">
             <div className="flex items-center justify-between w-full">
               <div>
                 <div className="text-4xl font-bold text-[#534489]">
