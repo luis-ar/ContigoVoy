@@ -9,6 +9,7 @@ import { DesktopNavUser } from "./DesktopNavUser";
 import { Icons } from "@/icons";
 import { UserInterface } from "@/interface";
 import { fetchUser } from "@/utils/recuperarDataUser";
+import { MobileNavbar } from "./MobileNavbarUser";
 
 const navItems = [
   {
@@ -81,8 +82,13 @@ const NavbarUser = () => {
   }, []);
   return (
     <div className="flex flex-row">
+      {/* Navbar Mobile*/}
+      <div className="lg:hidden">
+        <MobileNavbar navItems={navItems} />
+      </div>
+
       {/* Navbar */}
-      <div className="w-60 h-screen fixed p-4 ">
+      <div className="hidden lg:flex w-60 h-screen fixed p-4">
         <div className="bg-background w-full h-full rounded-2xl pt-7 flex flex-col">
           <Link href="/">
             <h1 className="font-normal text-3xl flex justify-center items-center">
@@ -94,10 +100,11 @@ const NavbarUser = () => {
           </div>
         </div>
       </div>
+
       {/* Header */}
       <div className="flex-1 ml-60 fixed mt-4">
         <div>
-          <nav className="rounded-2xl mt-3 bg-background h-[12vh] flex items-center fixed z-10 top-1 w-[calc(100vw-270px)] p-1">
+          <nav className="rounded-2xl mt-3 bg-background h-[12vh] flex items-center fixed z-10 top-1 w-[calc(100vw-270px)] p-4">
             <div className="flex items-center justify-between w-full mr-1">
               <div>
                 <div className="text-4xl font-bold text-[#534489]">

@@ -8,53 +8,7 @@ import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./Themetoggle";
 import { DataUser } from "./DataUser";
 import { Panel } from "./PanelUser";
-import { MobileNavbar } from "./MobileNavbar";
-
-export const NavbarGeneral = ({ navItems }: any) => {
-  const [estado, setEstado] = useState<boolean>(false);
-  const panelRef = useRef<HTMLDivElement>(null);
-  const userRef = useRef<HTMLDivElement>(null);
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      panelRef.current &&
-      !panelRef.current.contains(event.target as Node) &&
-      userRef.current &&
-      !userRef.current.contains(event.target as Node)
-    ) {
-      setEstado(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
-
-  return (
-    <div>
-      <nav className="bg-background h-[10vh] flex items-start fixed w-full z-10 top-0">
-        <div className="w-full p-6 flex items-left justify-between">
-          <Link href="/">
-            <h1 className="font-bold text-3xl">
-              Contigo<span className="text-primary">Voy</span>{" "}
-            </h1>
-          </Link>
-          <div className="flex flex-col items-start gap-y-5">
-            <DesktopNavUser navItems={navItems} />
-            <div className="flex items-center gap-5">
-              <DataUser ref={userRef} estado={estado} setEstado={setEstado} />
-              <ThemeToggle />
-            </div>
-          </div>
-        </div>
-      </nav>
-      <Panel ref={panelRef} estado={estado} setEstado={setEstado} />
-    </div>
-  );
-};
+import { MobileNavbar } from "./MobileNavbarUser";
 
 export const DesktopNavUser = ({ navItems }: any) => {
   const [hovered, setHovered] = useState<number | null>(null);
