@@ -3,7 +3,7 @@ name: Sync to Mirror
 on:
   push:
     branches:
-      - main # Cambia esto si usas otra rama
+      - main
 
 jobs:
   sync:
@@ -14,7 +14,7 @@ jobs:
 
       - name: Push to Mirror
         env:
-          MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
+          MIRROR_TOKEN: ${{ secrets.MIRROR }}
         run: |
           git remote add mirror https://github.com/luis-ar/ContigoVoy.git
           git push mirror main  # Cambia esto si es necesario
