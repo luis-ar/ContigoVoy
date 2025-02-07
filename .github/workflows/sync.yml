@@ -11,11 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          repository: NEONHOUSELED-SAC/ContigoVoy2
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push to Mirror
+        env:
+          MIRROR_TOKEN: ${{ secrets.MIRROR_TOKEN }}
         run: |
-          git remote add mirror https://github.com/luis-ar/ContigoVoy.git
-          git push --mirror mirror  # Cambia esto si es necesario
+          git remote add mirror https://$MIRROR_TOKEN@github.com/luis-ar/ContigoVoy.git
+          git push --mirror mirror
