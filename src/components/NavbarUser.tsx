@@ -108,7 +108,9 @@ const NavbarUser = () => {
             <div className="flex items-center justify-between w-full mr-1">
               <div>
                 <div className="text-4xl font-bold text-[#534489]">
-                  <h1>¡Buenos dias, {user.name} {user.lastname} !</h1>
+                  <h1>
+                    ¡Buenos dias, {user.name} {user.lastname} !
+                  </h1>
                 </div>
                 <div className="text-0xl font-bold text-[#6A90F1]">
                   Tienes{" "}
@@ -132,7 +134,7 @@ const NavbarUser = () => {
                   }}
                 />
                 <DataUser ref={userRef} estado={estado} setEstado={setEstado} />
-                <ThemeToggle/>
+                <ThemeToggle />
               </div>
             </div>
           </nav>

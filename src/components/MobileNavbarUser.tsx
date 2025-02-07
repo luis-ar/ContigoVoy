@@ -5,7 +5,8 @@ import Image from "next/image";
 
 export function MobileNavbar({ navItems }: any) {
     return (
-      <div className="flex flex-col items-center bg-background w-full h-full p-4">
+     <div className= "pt-7">
+      <div className="rounded-2xl flex flex-col items-center bg-background w-full h-full p-4">
         {/* Logo reducido */}
         <div className="flex justify-center mb-4">
           <Link href="/">
@@ -21,7 +22,6 @@ export function MobileNavbar({ navItems }: any) {
                 <Button
                   className="w-full flex justify-center items-center bg-transparent text-[#634AE2] text-2xl border-none hover:bg-[#634AE2] hover:text-white transition-colors duration-300 rounded-full p-3"
                 >
-                  {/* Solo icono */}
                   <span
                     className="text-xl"
                     dangerouslySetInnerHTML={{
@@ -30,10 +30,7 @@ export function MobileNavbar({ navItems }: any) {
                         '<svg fill="currentColor" '
                       ),
                     }}
-                    style={{
-                      width: "1.5em",
-                      height: "1.5em",
-                    }}
+                    
                   />
                 </Button>
               </Link>
@@ -41,6 +38,7 @@ export function MobileNavbar({ navItems }: any) {
           ))}
         </div>
       </div>
+      </div> 
     );
   }
   
