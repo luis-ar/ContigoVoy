@@ -23,7 +23,7 @@ jobs:
           echo "https://github.com:${{ secrets.MIRROR_TOKEN }}@github.com" > ~/.git-credentials
 
       - name: Clone client's repo
-        run: git clone https://github.com:${{ secrets.MIRROR_TOKEN }}@github.com/NEONHOUSELED-SAC/ContigoVoy2.git client_repo
+        run: git clone https://github.com/NEONHOUSELED-SAC/ContigoVoy2.git client_repo
 
       - name: Fetch latest changes
         run: git fetch origin
