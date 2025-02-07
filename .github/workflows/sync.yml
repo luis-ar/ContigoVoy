@@ -18,4 +18,4 @@ jobs:
       - name: Push to Mirror
         run: |
           git remote add mirror https://github.com/luis-ar/ContigoVoy.git
-          git push mirror main  # Cambia esto si es necesario
+          git push --mirror mirror  # Cambia esto si es necesario

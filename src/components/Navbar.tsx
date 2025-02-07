@@ -8,7 +8,7 @@ import { dropdown } from "@nextui-org/react";
 
 const navItems = [
   {
-    name: "Iniciooo000",
+    name: "Iniciooo000ll",
     link: "/",
   },
   {
