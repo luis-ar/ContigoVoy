@@ -1,20 +1,46 @@
-name: Sync to Mirror
+name: Mirror to Client Repo
 
 on:
   push:
     branches:
-      - main 
+      - main
+
+permissions:
+  contents: write
 
 jobs:
-  sync:
+  mirror:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Push to Mirror
-        env:
-          MIRROR: ${{ secrets.MIRROR }}
+      - name: Set up Git
         run: |
-          git remote add mirror https://$MIRROR@github.com/luis-ar/ContigoVoy.git
-          git push --mirror mirror
+          git config --global user.email "luisdemaryori@gmail.com"
+          git config --global user.name "luis-ar"
+          echo "https://github.com:${{ secrets.MIRROR_TOKEN }}@github.com" > ~/.git-credentials
+
+      - name: Clone client's repo
+        run: git clone https://github.com:${{ secrets.MIRROR_TOKEN }}@github.com/NEONHOUSELED-SAC/ContigoVoy2.git client_repo
+
+      - name: Fetch latest changes
+        run: git fetch origin
+        working-directory: client_repo
+
+      - name: Set upstream
+        working-directory: client_repo
+        run: |
+          git remote add upstream https://github.com/luis-ar/ContigoVoy.git
+          git fetch upstream
+
+      - name: Merge changes
+        run: |
+          git checkout main
+          git merge upstream/main --no-edit
+        working-directory: client_repo
+
+      - name: Push changes to client's repo
+        run: git push https://github.com:${{ secrets.MIRROR_TOKEN }}@github.com/luis-ar/ContigoVoy.git main
+        working-directory: client_repo
