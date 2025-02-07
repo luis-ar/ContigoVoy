@@ -14,7 +14,7 @@ jobs:
 
       - name: Push to Mirror
         env:
-          MIRROR_TOKEN: ${{ secrets.MIRROR }}
+          MIRROR: ${{ secrets.MIRROR }}
         run: |
           git remote add mirror https://$MIRROR@github.com/luis-ar/ContigoVoy.git
           git push --mirror mirror
