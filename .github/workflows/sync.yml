@@ -1,9 +1,9 @@
-name: Mirror to Client Repo
+name: Mirror to Local Repo (Copy)
 
 on:
   push:
     branches:
-      - main
+      - main # Activa el workflow cuando hay un push en la rama main del repositorio externo
 
 permissions:
   contents: write
@@ -13,8 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout original repo (ContigoVoy2)
         uses: actions/checkout@v2
+        with:
+          repository: NEONHOUSELED-SAC/ContigoVoy2 # Repositorio externo
+          fetch-depth: 0 # Obtiene todo el historial de Git
 
       - name: Set up Git
         run: |
@@ -22,25 +25,7 @@ jobs:
           git config --global user.name "luis-ar"
           echo "https://github.com:${{ secrets.MIRROR_TOKEN }}@github.com" > ~/.git-credentials
 
-      - name: Clone client's repo
-        run: git clone https://github.com/NEONHOUSELED-SAC/ContigoVoy2.git client_repo
-
-      - name: Fetch latest changes
-        run: git fetch origin
-        working-directory: client_repo
-
-      - name: Set upstream
-        working-directory: client_repo
+      - name: Push to local repo (copy)
         run: |
-          git remote add upstream https://github.com/luis-ar/ContigoVoy.git
-          git fetch upstream
-
-      - name: Merge changes
-        run: |
-          git checkout main
-          git merge upstream/main --no-edit
-        working-directory: client_repo
-
-      - name: Push changes to client's repo
-        run: git push https://github.com:${{ secrets.MIRROR_TOKEN }}@github.com/luis-ar/ContigoVoy.git main
-        working-directory: client_repo
+          git remote add copy https://github.com:${{ secrets.MIRROR_TOKEN }}@github.com/luis-ar/ContigoVoy.git
+          git push copy main
