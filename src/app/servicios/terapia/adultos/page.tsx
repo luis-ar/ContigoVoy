@@ -1,7 +1,7 @@
 import ServicesStructure from "@/components/Services/ServicesStructure"
 import { ServicesStructureProps } from "@/interface"
 
-export const AdultoTerapias:ServicesStructureProps[] =[{
+ const AdultoTerapias:ServicesStructureProps[] =[{
 
   title: "Terapia para adultos",
   edad: "de 19 años a más",

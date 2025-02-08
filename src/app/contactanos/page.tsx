@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import ContactForm from "@/components/ContacForm";
 import FormContacto from "@/components/FormContacto";
 
 

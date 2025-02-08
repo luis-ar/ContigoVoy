@@ -114,7 +114,7 @@ export const DesktopNav = ({ navItems }: any) => {
                           ? "bg-[#634AE2] rounded-full text-white"
                           : "text-[#634AE2] hover:bg-[#634AE2] hover:text-white rounded-full"
                       }`}
-                      href="/#"
+                      href="#"
                     >
                       <span className="relative z-20 text-base">Servicios</span>
                     </Link>
@@ -156,6 +156,12 @@ export const DesktopNav = ({ navItems }: any) => {
                     key={idx}
                     href={navItem.link}
                   >
+                    {hovered === idx && (
+                      <motion.div
+                        //layoutId="hovered"
+                        className="absolute inset-0 h-full w-full rounded-full bg-[#634AE2]"
+                      />
+                    )}
                     <span className="relative z-20 text-base">
                       {navItem.name}
                     </span>
