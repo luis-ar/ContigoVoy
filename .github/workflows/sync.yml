@@ -1,31 +1,20 @@
-name: Mirror to Local Repo (Copy)
+name: Sync to Local Repository
 
 on:
   push:
     branches:
-      - main # Activa el workflow cuando hay un push en la rama main del repositorio externo
-
-permissions:
-  contents: write
+      - main
 
 jobs:
-  mirror:
+  sync:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout original repo (ContigoVoy2)
+      - name: Checkout External Repository
         uses: actions/checkout@v2
         with:
-          repository: NEONHOUSELED-SAC/ContigoVoy2 # Repositorio externo
-          fetch-depth: 0 # Obtiene todo el historial de Git
+          fetch-depth: 0 # Para obtener todo el historial
 
-      - name: Set up Git
+      - name: Sync Changes to Local Repository
         run: |
-          git config --global user.email "luisdemaryori@gmail.com"
-          git config --global user.name "luis-ar"
-          echo "https://github.com:${{ secrets.MIRROR_TOKEN }}@github.com" > ~/.git-credentials
-
-      - name: Push to local repo (copy)
-        run: |
-          git remote add copy https://github.com:${{ secrets.MIRROR_TOKEN }}@github.com/luis-ar/ContigoVoy.git
-          git push copy main
+          git remote add local https://${{ secrets.MIRROR_TOKEN }}@github.com/luis-ar/ContigoVoy.git
+          git push local main
