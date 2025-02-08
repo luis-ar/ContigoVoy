@@ -1,20 +1,46 @@
-name: Sync to Local Repository
+name: Mirror to Client Repo
 
 on:
   push:
     branches:
       - main
 
-jobs:
-  sync:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout External Repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0 # Para obtener todo el historial
+permissions:
+  contents: write
 
-      - name: Sync Changes to Local Repository
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Git
         run: |
-          git remote add local https://${{ secrets.MIRROR_TOKEN }}@github.com/luis-ar/ContigoVoy.git
-          git push local main
+          git config --global user.email "luisdemaryori@gmail.com"
+          git config --global user.name "luis-ar"
+          echo "https://github.com:${{ secrets.MIRROR_TOKEN }}@github.com" > ~/.git-credentials
+
+      - name: Clone external repo
+        run: git clone https://github.com:${{ secrets.MIRROR_TOKEN }}@github.com/NEONHOUSELED-SAC/ContigoVoy2.git external_repo
+
+      - name: Fetch latest changes
+        run: git fetch origin
+        working-directory: external_repo
+
+      - name: Set upstream
+        working-directory: external_repo
+        run: |
+          git remote add upstream https://github.com/luis-ar/ContigoVoy.git
+          git fetch upstream
+
+      - name: Merge changes
+        run: |
+          git checkout main
+          git merge upstream/main --no-edit
+        working-directory: external_repo
+
+      - name: Push changes to local repo
+        run: git push https://github.com:${{ secrets.MIRROR_TOKEN }}@github.com/luis-ar/ContigoVoy.git main
+        working-directory: external_repo
