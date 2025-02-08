@@ -16,9 +16,6 @@ export const DesktopNavUser = ({ navItems }: any) => {
 
   return (
     <>
-      <div className="lg:hidden">
-        <MobileNavbar navItems={navItems} />
-      </div>
       <motion.div
         onMouseLeave={() => setHovered(null)}
         className={cn(

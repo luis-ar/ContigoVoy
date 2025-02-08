@@ -102,7 +102,7 @@ const NavbarUser = () => {
       </div>
 
       {/* Header */}
-      <div className="flex-1 ml-60 fixed mt-4">
+      <div className="hidden lg:flex flex-1 ml-60 fixed mt-4">
         <div>
           <nav className="rounded-2xl mt-3 bg-background h-[12vh] flex items-center fixed z-10 top-1 w-[calc(100vw-270px)] p-4">
             <div className="flex items-center justify-between w-full mr-1">
@@ -138,7 +138,7 @@ const NavbarUser = () => {
               </div>
             </div>
           </nav>
-          <div className="mt-[9vh]">
+          <div className="mt-[12vh] relative z-30">
             <Panel ref={panelRef} estado={estado} setEstado={setEstado} />
           </div>
         </div>
