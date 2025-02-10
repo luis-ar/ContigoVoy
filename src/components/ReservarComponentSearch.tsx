@@ -1,52 +1,114 @@
-import { Button, Divider, Spacer } from "@nextui-org/react";
+import { Button, CheckboxGroup, Divider, Spacer } from "@nextui-org/react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Command, CommandInput } from "@/components/ui/command";
 
-const categorias = [
-  { nombre: "Estrés" },
-  { nombre: "Trastorno Obsesivo Compulsivo (TOC)" },
-  { nombre: "Repulsión Sexual" },
-  { nombre: "Ansiedad" },
-  { nombre: "Depresión" },
-  { nombre: "Fobias" },
-  { nombre: "Trastorno de la Conducta Alimentaria" },
-  { nombre: "Trastorno de Estrés Postraumático (TEPT)" },
-  { nombre: "Trastornos del Sueño" },
-  { nombre: "Trastorno de Ansiedad Generalizada" },
-  { nombre: "Trastorno de Pánico" },
-  { nombre: "Trastorno Bipolar" },
-  { nombre: "Adicciones" },
-  { nombre: "Trastorno de la Personalidad" },
-  { nombre: "Trastorno de la Conducta" },
+const pais = [
+  { nombre: "México" },
+  { nombre: "Colombia" },
+  { nombre: "Argentina" },
+  { nombre: "Perú" },
+  { nombre: "Chile" },
 ];
-const autors = [
-  { nombre: "Jhon Angelo Sánchez Garcia" },
-  
-  { nombre: "Jhon Angelo Sánchez Garcia" },
+const genero = [{ nombre: "Femenino" }, { nombre: "Masculino" }];
+const idioma = [{ nombre: "Español" }, { nombre: "Ingles" }];
+const Enfoque = [
+  { nombre: "Niños" },
+  { nombre: "Adolecentes" },
+  { nombre: "Familiar" },
+  { nombre: "Pareja" },
+  { nombre: "Adulto" },
 ];
+
 export default function ReservarComponentSearch() {
   return (
-    <div className="w-[400px] p-4">
-        <Divider orientation="vertical" />
-      <p className="text-xl font-semibold text-[#634AE2]">Categorías</p>
-      
-      {categorias.map((item, index) => (
-        <Button
-          radius="full"
-          className="bg-[#EAEAFF] m-2 text-base text-[#634AE2] hover:bg-[#C7B9FF] transition-all"
-          key={index}
-        >
-          {item.nombre}
-        </Button>
-      ))}
-      <p className="text-base font-normal pt-7 m-4 text-[#634AE2]">Por autor</p>
-      {autors.map((item, index) => (
-         <Button
-         radius="full"
-         className="bg-[#EAEAFF] m-2 text-base text-[#634AE2] hover:bg-[#C7B9FF] transition-all"
-         key={index}
-       >
-         {item.nombre}
-       </Button>
-    ))}      
+    <div className="w-[250px] p-4">
+      <Divider orientation="vertical" />
+      <Command className="rounded-full border-[#9494F3]">
+        <CommandInput  
+        placeholder="Nombre"/>
+      </Command>
+      <div className="pt-5"></div>
+      <div className="border-t-1 border-[#9494F3]">
+        <p className="pt-4 text-xl font-semibold text-[#634AE2]">
+          País de tu psicólogo
+        </p>
+        {pais.map((item, index) => (
+          <div key={index} className="flex items-center space-x-3 pt-2 ml-5">
+            <Checkbox
+              id={`pais-${index}`}
+              className="text-xl rounded-2xl bg-white"
+            />
+            <div className="grid ">
+              <label
+                htmlFor={`pais-${index}`}
+                className="text-sm font-light text-[#634AE2]"
+              >
+                {item.nombre}
+              </label>
+            </div>
+          </div>
+        ))}
       </div>
+
+      <div className="border-t-1 border-[#9494F3] mt-4">
+        <p className="pt-4 text-xl font-semibold text-[#634AE2]">Género</p>
+        {genero.map((item, index) => (
+          <div key={index} className="flex items-center space-x-3 pt-2 ml-5">
+            <Checkbox
+              id={`pais-${index}`}
+              className="text-xl rounded-2xl bg-white"
+            />
+            <div className="grid ">
+              <label
+                htmlFor={`pais-${index}`}
+                className="text-sm font-light text-[#634AE2]"
+              >
+                {item.nombre}
+              </label>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="border-t-1 border-[#9494F3] mt-4">
+        <p className="pt-4 text-xl font-semibold text-[#634AE2]">Idioma</p>
+        {idioma.map((item, index) => (
+          <div key={index} className="flex items-center space-x-3 pt-2 ml-5">
+            <Checkbox
+              id={`pais-${index}`}
+              className="text-xl rounded-2xl bg-white"
+            />
+            <div className="grid ">
+              <label
+                htmlFor={`pais-${index}`}
+                className="text-sm font-light text-[#634AE2]"
+              >
+                {item.nombre}
+              </label>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="border-t-1 border-[#9494F3] mt-4">
+        <p className="pt-4 text-xl font-semibold text-[#634AE2]">Enfoque</p>
+        {Enfoque.map((item, index) => (
+          <div key={index} className="flex items-center space-x-3 pt-2 ml-5">
+            <Checkbox
+              id={`pais-${index}`}
+              className="text-xl rounded-2xl bg-white"
+            />
+            <div className="grid ">
+              <label
+                htmlFor={`pais-${index}`}
+                className="text-sm font-light text-[#634AE2]"
+              >
+                {item.nombre}
+              </label>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

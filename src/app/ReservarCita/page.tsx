@@ -1,11 +1,11 @@
 "use client";
 
-import ReservarComponentSearch from "@/components/ReservarComponentSearch"
+import ReservarComponents from "@/components/ReservarComponents"
 
 export default function BlogPage() {
   return (
     <>
-    <ReservarComponentSearch/>
+    <ReservarComponents/>
     </>
   );
 }

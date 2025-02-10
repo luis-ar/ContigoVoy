@@ -1,8 +1,8 @@
 import { Divider } from "@nextui-org/react";
-import BlogAside from "./blogaside";
+import ReservarComponentSearch from "./ReservarComponentSearch";
 
 import { ScrollShadow } from "@nextui-org/react";
-import BlogPreview from "./blogpreview";
+import ReservarPsiPreview  from "./ReservarPsiPreview";
 
 export default function ReservarComponents() {
   return (
@@ -19,22 +19,14 @@ export default function ReservarComponents() {
 
             <div className="col-span-1">
               <Divider orientation="vertical">
-                <BlogAside />
+                <ReservarComponentSearch/>
               </Divider>
             </div>
 
             <div className="col-span-2">
-              <ScrollShadow hideScrollBar className=" h-[870px]">
-                <BlogPreview />
-                <BlogPreview />
-                <BlogPreview />
-                <BlogPreview />
-                <BlogPreview />
-                <BlogPreview />
-                <BlogPreview />
-              </ScrollShadow>
+                <ReservarPsiPreview />
             </div>
-            
+
           </div>
         </div>
       </div>
