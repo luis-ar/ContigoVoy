@@ -26,7 +26,8 @@ export default function BlogPageComponent() {
 
             <div className="col-span-1">
       
-              <div className="border-l border-gray-300 h-full mx-4">
+              <div className="my-2 md:my-4 border-l-[0.5px] border-[#634AE2]" >
+              
               <BlogAside />
               </div>
 
