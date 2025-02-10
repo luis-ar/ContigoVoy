@@ -1,4 +1,5 @@
-import { Button, Divider, Spacer } from "@nextui-org/react";
+import { Avatar, Button, Divider, Spacer } from "@nextui-org/react";
+
 
 const categorias = [
   { nombre: "Estrés" },
@@ -18,9 +19,14 @@ const categorias = [
   { nombre: "Trastorno de la Conducta" },
 ];
 const autors = [
-  { nombre: "Jhon Angelo Sánchez Garcia" },
+  {  
+     imagen:"logonombreblog.webp" ,
+     nombre: "Jhon Angelo Sánchez Garcia" 
+    },
   
-  { nombre: "Jhon Angelo Sánchez Garcia" },
+  {      imagen:"logonombreblog.webp" ,
+
+    nombre: "Jhon Angelo Sánchez Garcia" },
 ];
 export default function BlogAside() {
   return (
@@ -40,10 +46,12 @@ export default function BlogAside() {
       <p className="text-base font-normal pt-7 m-4 text-[#634AE2]">Por autor</p>
       {autors.map((item, index) => (
          <Button
+
          radius="full"
-         className="bg-[#EAEAFF] m-2 text-base text-[#634AE2] hover:bg-[#C7B9FF] transition-all"
+         className="bg-[#EAEAFF] pl-0.5 text-base text-[#634AE2] hover:bg-[#C7B9FF] transition-all"
          key={index}
        >
+       <Avatar className="" src={item.imagen}/>
          {item.nombre}
        </Button>
     ))}      
