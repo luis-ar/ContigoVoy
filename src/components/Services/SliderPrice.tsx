@@ -152,7 +152,7 @@ const cardservices = [
                     >
                       <div className="p-1   ">
                       <Card className="h-[479px] w-[322px] mx-auto border-0 shadow-none bg-white rounded-3xl">
-                          <CardContent className="aspect-square py-6  pl-0">
+                          <CardContent className=" py-6  pl-0">
                             <div className="h-16 w-60 rounded-r-[34px] bg-[#634AE2]">
                               <h1 className="text-white w-32 ml-14 pt-1 text-lg">
                                 {item.title}

@@ -17,7 +17,7 @@ const navItems = [
   },
   {
     name: "Servicios",
-    link: "/showcase",
+    link: "/#",
   },
   {
     name: "Contáctanos",

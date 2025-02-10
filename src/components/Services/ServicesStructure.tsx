@@ -54,7 +54,7 @@ export default function ServicesStructure({
                         />
                       </div>
                       <div className="flex-grow flex items-center justify-center px-4">
-                        <p className="text-center text-[14px] md:text-[16px] text-white font-lexend font-semibold leading-[20px] md:leading-[24px] w-full">
+                        <p className="text-center text-[14px] md:text-[16px] text-white font-normal leading-[20px] md:leading-[24px] w-full">
                           {card.text}
                         </p>
                       </div>
@@ -77,7 +77,7 @@ export default function ServicesStructure({
                         />
                       </div>
                       <div className="flex-grow flex items-center justify-center px-4">
-                        <p className="text-center text-[14px] md:text-[16px] text-[white] font-lexend font-semibold leading-[20px] md:leading-[24px] w-full">
+                        <p className="text-center text-[14px] md:text-[16px] text-[white] font-normal leading-[20px] md:leading-[24px] w-full">
                           {card.text}
                         </p>
                       </div>
@@ -89,12 +89,12 @@ export default function ServicesStructure({
           </div>
 
           <div className="pt-24 flex justify-center">
-            <div className="w-[937px] text-[#634AE2] h-[74px] font-lexend font-bold text-[24px] leading-[33px] text-center">
+            <div className="w-[937px] text-[#634AE2] h-[74px] font-semi bold text-[24px] leading-[33px] text-center">
               {item.tittleIcon}
             </div>
           </div>
 
-          <div className="flex justify-center py-32  "
+          <div className="flex justify-center pb-32 pt-8  "
           style={{
             
             backgroundImage: ` url(${item.bgdown})`,
@@ -153,10 +153,10 @@ export default function ServicesStructure({
           </div>
 
           <SliderPrice />
-          <div className="h-36 bg-[#DEDEFF] flex items-center justify-center px-4 sm:px-8">
-            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[1100px] space-y-4 md:space-y-0">
+          <div className="h-56 md:h-40 bg-[#DEDEFF] flex items-center justify-center px-4 sm:px-8">
+            <div className="flex flex-col  md:flex-row justify-between w-full max-w-[1100px] space-y-4 md:space-y-0">
               {/* Texto del footer */}
-              <p className="text-center text-[#634AE2] md:text-left max-w-[652px]">
+              <p className="text-[24px] leading-[38px] font-medium text-[#634AE2] md:text-start max-w-[652px]">
                 {item.textfooter}
               </p>
               <button className="w-full md:w-[359px] h-[70px] bg-[#5A4AE8] rounded-[34px] text-white font-lexend font-normal text-[18px] md:text-[24px] leading-[33px] text-center">
