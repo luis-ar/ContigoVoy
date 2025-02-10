@@ -16,7 +16,8 @@ export default function HomeLayout({
     >
       <div className="bg-[#eaeded] min-h-screen">
         <NavbarUser />
-        <div className="min-h-[89vh] mt-[15vh] ml-60">{children}</div>
+        <div className="lg:hidden block min-h-[80vh] mt-[5vh] ml-24"> {children} </div>
+        <div className="lg:block hidden min-h-[89vh] mt-[15vh] ml-60"> {children} </div>
       </div>
     </ThemeProvider>
   );
