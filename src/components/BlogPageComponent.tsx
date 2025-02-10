@@ -10,7 +10,7 @@ export default function BlogPageComponent() {
       <div className="w-full max-w-7xl px-4"> {/* Adds max-width and padding */}
         <h1 className="text-start py-5 text-3xl leading-10 font-bold">Blog</h1>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center pb-20">
           <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="col-span-2">
             <ScrollShadow hideScrollBar className=" h-[870px]">
@@ -25,9 +25,12 @@ export default function BlogPageComponent() {
             </div>
 
             <div className="col-span-1">
-              <Divider orientation="vertical">
-                <BlogAside />
-              </Divider>
+      
+              <div className="border-l border-gray-300 h-full mx-4">
+              <BlogAside />
+              </div>
+
+     
             </div>
           </div>
         </div>

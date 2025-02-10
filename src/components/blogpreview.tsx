@@ -37,7 +37,7 @@ export default function BlogPreview() {
         </div>
         <div className="col-span-1 md:col-span-3">
         <p className="text-sm md:text-lg">Publicado el 17/07/2024</p>
-          <Divider className="my-2 md:my-4" />
+        <hr className="my-6 md:my-9 border-t border-gray-300" />
         </div>
         
       </div>
