@@ -135,10 +135,10 @@ export default function OnlinePsychology() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-[32px] leading-[40px] font-bold text-white mb-6">
             ¿Qué es la psicología online?
           </h2>
-          <p className="text-lg text-white max-w-3xl mx-auto leading-relaxed">
+          <p className="text-[16px] text-white max-w-3xl mx-auto leading-[20px]">
             Es una forma accesible y eficaz de cuidar tu salud mental
           </p>
         </motion.div>
@@ -163,10 +163,10 @@ export default function OnlinePsychology() {
                       {feature.icon}
                     </div>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mt-3">
+                  <h3 className="text-[18px] pt-5 leading-[22.5px] font-bold text-white   tracking-normal pb-3">
                     <span className="block">{feature.title}</span>
                   </h3>
-                  <p className="text-base text-white max-w-[13rem] mt-3 mx-auto md:mx-0">
+                  <p className="text-[16px] leading-[20px] text-white max-w-[13rem] tracking-normal font-normal mx-auto md:mx-0">
                     {feature.description}
                   </p>
                 </motion.div>
