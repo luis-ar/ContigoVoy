@@ -138,7 +138,7 @@ export default function OnlinePsychology() {
           <h2 className="text-[32px] leading-[40px] font-bold text-white mb-6">
             ¿Qué es la psicología online?
           </h2>
-          <p className="text-[16px] text-white max-w-3xl mx-auto leading-[20px]">
+          <p className="text-[16px] text-white max-w-3xl mx-auto font-normal leading-[20px]">
             Es una forma accesible y eficaz de cuidar tu salud mental
           </p>
         </motion.div>
