@@ -29,7 +29,7 @@ const navItems = [
   },
   {
     name: "Blog",
-    link: "/Blog",
+    link: "/blog",
   },
   {
     name: "Iniciar Sesión",

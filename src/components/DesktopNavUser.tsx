@@ -8,53 +8,7 @@ import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./Themetoggle";
 import { DataUser } from "./DataUser";
 import { Panel } from "./PanelUser";
-import { MobileNavbar } from "./MobileNavbar";
-
-export const NavbarGeneral = ({ navItems }: any) => {
-  const [estado, setEstado] = useState<boolean>(false);
-  const panelRef = useRef<HTMLDivElement>(null);
-  const userRef = useRef<HTMLDivElement>(null);
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      panelRef.current &&
-      !panelRef.current.contains(event.target as Node) &&
-      userRef.current &&
-      !userRef.current.contains(event.target as Node)
-    ) {
-      setEstado(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
-
-  return (
-    <div>
-      <nav className="bg-background h-[10vh] flex items-start fixed w-full z-10 top-0">
-        <div className="w-full p-6 flex items-left justify-between">
-          <Link href="/">
-            <h1 className="font-bold text-3xl">
-              Contigo<span className="text-primary">Voy</span>{" "}
-            </h1>
-          </Link>
-          <div className="flex flex-col items-start gap-y-5">
-            <DesktopNavUser navItems={navItems} />
-            <div className="flex items-center gap-5">
-              <DataUser ref={userRef} estado={estado} setEstado={setEstado} />
-              <ThemeToggle />
-            </div>
-          </div>
-        </div>
-      </nav>
-      <Panel ref={panelRef} estado={estado} setEstado={setEstado} />
-    </div>
-  );
-};
+import { MobileNavbar } from "./MobileNavbarUser";
 
 export const DesktopNavUser = ({ navItems }: any) => {
   const [hovered, setHovered] = useState<number | null>(null);
@@ -62,17 +16,14 @@ export const DesktopNavUser = ({ navItems }: any) => {
 
   return (
     <>
-      <div className="lg:hidden">
-        <MobileNavbar navItems={navItems} />
-      </div>
       <motion.div
         onMouseLeave={() => setHovered(null)}
         className={cn(
-          "relative z-[60] mx-auto hidden w-full flex-col items-start justify-left self-start rounded-full px-4 py-2 lg:flex",
+          "relative z-[60] mx-auto hidden w-full flex-col items-center self-start rounded-full py-2 lg:flex",
           "inset-x-0 h-auto"
         )}
       >
-        <div className="flex flex-col items-start gap-4">
+        <div className="flex flex-col items-start gap-4 ">
           {navItems.map((navItem: any, idx: number) => (
             <div
               key={idx}
@@ -81,22 +32,16 @@ export const DesktopNavUser = ({ navItems }: any) => {
               {" "}
               <Link
                 onMouseEnter={() => setHovered(idx)}
-                className={`relative flex items-center px-4 py-2 text-muted-foreground ${
+                className={`w-full relative flex items-center px-3 py-2 text-muted-foreground ${
                   pathname === navItem.link || hovered === idx
                     ? "bg-[#534489] rounded-full"
                     : ""
                 }`}
                 href={navItem.link}
               >
-                {hovered === idx && (
-                  <motion.div
-                    layoutId="hovered"
-                    className="absolute inset-0 h-full rounded-full bg-[#534489]"
-                  />
-                )}
                 <span
                   className={cn(
-                    "relative z-20 text-base",
+                    "relative z-20 text-sm",
                     hovered === idx || pathname === navItem.link
                       ? "text-white"
                       : "text-[#7b8fbd] dark:text-primary"
@@ -115,7 +60,7 @@ export const DesktopNavUser = ({ navItems }: any) => {
                 />
                 <span
                   className={cn(
-                    "relative z-20 text-base",
+                    "relative z-20 text-sm",
                     hovered === idx || pathname === navItem.link
                       ? "text-white"
                       : "text-[#7b8fbd] dark:text-primary"

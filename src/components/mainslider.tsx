@@ -16,7 +16,7 @@ interface SliderSection {
 
 const sections: SliderSection[] = [
   {
-    phrase: "Estamos contigo <br> y para ti",
+    phrase: "Estamos contigo <br> y para ti  y ya ",
     smallPhrase:
       "Con nuestras terapias virtuales, transformamos <br> tu vida y te acompañamos en cada paso de tu <br> camino hacia la sanación.",
     button: true,
