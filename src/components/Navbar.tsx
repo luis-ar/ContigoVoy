@@ -32,6 +32,10 @@ const navItems = [
     link: "/blog",
   },
   {
+    name: "Reservar Cita",
+    link: "/ReservarCita",
+  },
+  {
     name: "Iniciar Sesión",
     link: "/login",
     isButton: true,
