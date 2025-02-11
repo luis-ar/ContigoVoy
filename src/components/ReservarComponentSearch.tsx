@@ -21,7 +21,7 @@ const Enfoque = [
 
 export default function ReservarComponentSearch() {
   return (
-    <div className="w-[250px] p-4">
+    <div className="w-[250px] p-4 border-r-1 pb-20 border-[#9494F3]">
       <Divider orientation="vertical" />
       <Command className="rounded-full border-[#9494F3]">
         <CommandInput  

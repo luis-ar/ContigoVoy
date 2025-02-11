@@ -1,46 +1,41 @@
-'use client';
-import { Divider, Image, User } from "@nextui-org/react";
+"use client";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button"
 
 export default function BlogPreview() {
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        <div className="md:col-span-2">
-          <User
-            avatarProps={{
-              src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
-            }}
-            name={
-              <span className="text-sm md:text-base leading-tight">
-                Jhon Angelo Sánchez Garcia
-              </span>
-            }
-          />
-          <p className="text-xl md:text-2xl pt-2 md:pt-3 pb-1 md:pb-2 font-semibold">
-            Estrategias Efectivas para Mejorar la Autoestima
-          </p>
-          <p className="text-base md:text-xl leading-relaxed md:leading-7 line-clamp-3 md:h-20">
-            La adolescencia es una etapa de grandes cambios y desafíos. Durante este periodo, se experimenta...
-          </p>
-          
+      <Card className="w-[355px] h-[252] bg-background p-5">
+        <div >
+          <div className="w-2 grid grid-cols-1 md:grid-cols-3">
+            <Avatar className="w-20 h-20">
+              <AvatarImage src={"https://github.com/shadcn.png"} />
+            </Avatar>
+            <div className="ml-24 col-span-1 text-[#634AE2]">
+              <CardHeader className="space-y-0 pb-2">
+              <CardDescription className="text-[#634AE2]">Psicólogo</CardDescription>
+                <CardTitle className="text-[#634AE2] text-2xl" >Nombre</CardTitle>
+                <CardTitle className="text-[#634AE2] text-2xl" >Apellido</CardTitle>
+              </CardHeader>
+            </div>
+          </div>
         </div>
-        <div className="md:col-span-1 flex items-center justify-center">
-          <Image
-            src="/CarruselInferiorMain/abuela.webp"
-            isZoomed
-            alt="Profile"
-            className="w-full md:w-auto"
-            width={178}
-            height={153}
-            radius="none"
-          />
-        </div>
-        <div className="col-span-1 md:col-span-3">
-        <p className="text-sm md:text-lg">Publicado el 17/07/2024</p>
-          <Divider className="my-2 md:my-4" />
-        </div>
-        
-      </div>
+        <CardContent className="border-t-2 border-[#9494F3]">
+          <p className="text-[#634AE2] pt-3">Epecialidad / Maestría / Doctorado + 00 Años de experiencia</p>
+        </CardContent>
+        <CardFooter className="flex justify-center space-x-12 pt-3">
+        <Button className="rounded-3xl bg-[#E7E7FF] px-6 py-3 text-[#634AE2] font-light">Agendar</Button>
+        <Button className="rounded-3xl bg-[#fff] px-6 py-3 border-color[#634AE2] font-light border-1 text-[#634AE2]">Ver Perfil</Button>
+        </CardFooter>
+      </Card>
     </>
   );
 }
