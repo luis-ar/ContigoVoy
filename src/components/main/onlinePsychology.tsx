@@ -20,7 +20,7 @@ const features = [
     title: "Recibe terapia en casa",
     description:
       "Accede a sesiones por videollamada o llamada disfrutando de la comodidad de tu hogar.",
-    background: "/CarruselInferiorMain/abuela.webp",
+    background: "/corte.webp",
   },
   {
     icon: (
@@ -97,10 +97,7 @@ export default function OnlinePsychology() {
     
     
    }, [
-    Autoplay({  
-      stopOnInteraction: false,
-      delay: 4000,
-    }),
+   
     Fade({
       active: true,
       
@@ -128,7 +125,7 @@ export default function OnlinePsychology() {
 
   return (
     <div className="w-full max-w-full flex flex-col items-center justify-center px-4 py-16 bg-[#9494f3] relative overflow-hidden">
-      <div className="relative w-full max-w-7xl">
+      <div className="relative w-full max-w-full">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -143,7 +140,7 @@ export default function OnlinePsychology() {
           </p>
         </motion.div>
 
-        <div className="flex flex-col items-center xl:flex-row">
+        <div className="flex flex-col  xl:flex-row">
           <div className="w-full md:w-1/2 pl-8">
             <motion.div
               variants={containerVariants}
@@ -166,22 +163,22 @@ export default function OnlinePsychology() {
                   <h3 className="text-[18px] pt-5 leading-[22.5px] font-bold text-white   tracking-normal pb-3">
                     <span className="block">{feature.title}</span>
                   </h3>
-                  <p className="text-[16px] leading-[20px] text-white max-w-[13rem] tracking-normal font-normal mx-auto md:mx-0">
+                  <p className="text-[16px] leading-[20px] text-white max-w-[13rem] tracking-normal font-light mx-auto md:mx-0">
                     {feature.description}
                   </p>
                 </motion.div>
               ))}
             </motion.div>
           </div>
-          <div className="mitad w-full md:w-1/2 relative">
-              <div className="embla " ref={emblaRef}>
-                <div className="embla__container ">
+          <div className="mitad w-[500px]  md:w-1/2 flex justify-end relative">
+              <div className="transform translate-x-1/2 w-[970px] " ref={emblaRef}>
+                <div className="embla__container w-[500px] ">
                   {features.map((item, index) => (
                     <div className="embla__slide "
                     
                     key={index}>
                       <div
-                        className="h-[640px]  bg-center rounded-full bg-cover"
+                        className="h-[800px] w-[500px]  bg-full rounded-l-full"
                         style={{
                           backgroundImage: `url(${item.background})`,
                         }}
@@ -210,3 +207,7 @@ export default function OnlinePsychology() {
     </div>
   );
 }
+/* Autoplay({  
+      stopOnInteraction: false,
+      delay: 4000,
+    }),*/

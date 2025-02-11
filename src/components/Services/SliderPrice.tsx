@@ -151,7 +151,7 @@ const cardservices = [
 
                     >
                       <div className="p-1   ">
-                      <Card className="h-[479px] w-[322px] mx-auto border-0 shadow-none bg-white rounded-3xl">
+                      <Card className="h-[429px] w-[322px] mx-auto border-0 shadow-none bg-white rounded-3xl">
                           <CardContent className=" py-6  pl-0">
                             <div className="h-16 w-60 rounded-r-[34px] bg-[#634AE2]">
                               <h1 className="text-white w-32 ml-14 pt-1 text-lg">
@@ -164,11 +164,11 @@ const cardservices = [
                             <p className="text-center text-xs font-bold text-[#634AE2]">
                               {item.regularprice}
                             </p>
-                            <div className="ml-8 mt-5 h-40">
-                              <ul className="list-none text-[14px] text-[#634AE2]">
+                            <div className="ml-4 mt-5 h-40">
+                              <ul className="list-none font-light text-[14px] text-[#634AE2]">
                                 
                                 {item.list.map((item, index) => (
-                                <li className="flex items-center"
+                                <li className="flex items-center mt-1"
                                 key={index}>
                                   <svg
                                   
@@ -191,7 +191,7 @@ const cardservices = [
                               </ul>
                             </div>
 
-                            <div className="items-center flex justify-center mt-10">
+                            <div className="items-center flex justify-center ">
                               <button className="w-48 border-0 shadow-none bg-[#634AE2] items-center justify-center text-white rounded-[34px] h-10 font-semibold text-center">
                                 Obtener una Cita
                               </button>

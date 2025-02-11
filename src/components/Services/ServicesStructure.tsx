@@ -98,9 +98,9 @@ export default function ServicesStructure({
           style={{
             
             backgroundImage: ` url(${item.bgdown})`,
-            backgroundPosition: "right center",
+            backgroundPosition: "right center ",
             backgroundRepeat: "no-repeat",
-            backgroundSize: "auto 100%",
+            backgroundSize: "60% auto",
         }}
         >
             <div className="flex pt-14 flex-col items-center gap-y-20">
@@ -153,13 +153,12 @@ export default function ServicesStructure({
           </div>
 
           <SliderPrice />
-          <div className="h-56 md:h-40 bg-[#DEDEFF] flex items-center justify-center px-4 sm:px-8">
-            <div className="flex flex-col  md:flex-row justify-between w-full max-w-[1100px] space-y-4 md:space-y-0">
-              {/* Texto del footer */}
-              <p className="text-[24px] leading-[38px] font-medium text-[#634AE2] md:text-start max-w-[652px]">
+          <div className="h-46 md:h-20   bg-[#DEDEFF] flex items-center">
+          <div className="flex flex-col items-center ml-80 md:flex-row justify-between w-full max-w-[1100px] space-x-10 ">
+              <p className="text-[18px] w-full   font-normal text-[#634AE2] md:text-start ">
                 {item.textfooter}
               </p>
-              <button className="w-full md:w-[359px] h-[70px] bg-[#5A4AE8] rounded-[34px] text-white font-lexend font-normal text-[18px] md:text-[24px] leading-[33px] text-center">
+              <button className="max-w-full min-w-[129px] md:w-[229px] h-[30px] bg-[#5A4AE8] rounded-[34px] text-white font-lexend font-normal text-[18px] md:text-[24px] leading-[33px] text-center">
                 Reserva tu cita gratuita
               </button>
             </div>
