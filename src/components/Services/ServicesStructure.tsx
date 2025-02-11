@@ -1,7 +1,6 @@
 import { ServicesStructureProps } from "@/interface";
 import SliderPrice from "./SliderPrice";
 
-
 export default function ServicesStructure({
   services,
 }: {
@@ -11,29 +10,28 @@ export default function ServicesStructure({
     <div>
       {services.map((item, index) => (
         <div className="embla__slide" key={index}>
-          <div className="flex justify-between mx-6  pt-6 text-[#634AE2] pb-8 font-lexend items-center ">
+          <div className="flex justify-between mx-6  pt-6 text-[#634AE2] pb-8 items-center ">
             <p className="text-xl font-semibold pl-[71px]">{item.title}</p>
             <div className="pr-[80px]">{item.edad}</div>
           </div>
           <div
             className="h-[578px] bg-cover flex items-center bg-center pl-[79px]"
             style={{
-            
-                backgroundImage: `linear-gradient(270deg, rgba(99, 74, 226, 0.24) 28.05%, rgba(99, 74, 226, 0.7) 47.87%, #7863E3 64.18%), url(${item.background})`,
+              backgroundImage: `linear-gradient(270deg, rgba(99, 74, 226, 0.24) 28.05%, rgba(99, 74, 226, 0.7) 47.87%, #7863E3 64.18%), url(${item.background})`,
             }}
           >
-            <div className="relative w-[661px] flex items-center justify-center text-white text-left h-[230px] font-lexend font-bold text-[40px] leading-[54px]">
+            <div className="relative w-[661px] flex items-center justify-center text-white text-left h-[230px] font-bold text-[40px] leading-[54px]">
               {item.motto}
             </div>
           </div>
           <div className="pt-12 flex justify-center">
-            <div className="max-w-[829px] text-[#634AE2] h-[89px] font-lexend font-normal text-[16px] leading-[28px] text-center">
+            <div className="max-w-[829px] text-[#634AE2] h-[89px]  font-normal text-[16px] leading-[28px] text-center">
               {item.description}
             </div>
           </div>
 
           <div className="pt-24 flex justify-center px-4 md:px-0">
-            <div className="w-full text-[#634AE2] md:w-[937px] h-auto md:h-[74px] font-lexend font-semibold text-[20px] md:text-[24px] leading-[28px] md:leading-[33px] text-center">
+            <div className="w-full text-[#634AE2] md:w-[937px] h-auto md:h-[74px]  font-semibold text-[20px] md:text-[24px] leading-[28px] md:leading-[33px] text-center">
               {item.tittlecards}
             </div>
           </div>
@@ -94,15 +92,16 @@ export default function ServicesStructure({
             </div>
           </div>
 
-          <div className="flex justify-center pb-32 pt-8  "
-          style={{
-            
-            backgroundImage: ` url(${item.bgdown})`,
-            backgroundPosition: "right center ",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "60% auto",
-        }}
-        >
+          <div
+            className="flex justify-center pb-32 pt-8 w-full h-auto"
+            style={{
+              backgroundImage: `url(${item.bgdown})`,
+              backgroundPosition: "right center",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+             
+            }}
+          >
             <div className="flex pt-14 flex-col items-center gap-y-20">
               {/* Primera fila - 3 iconos */}
               <div className="flex flex-col md:flex-row lg:gap-y-0  gap-y-12 md:gap-y-0 md:gap-x-[229px]">
@@ -120,7 +119,7 @@ export default function ServicesStructure({
                         />
                       </div>
                     </div>
-                    <p className="text-center pt-3 text-[16px] text-[#634AE2] font-lexend font-semibold leading-[20px] max-w-[200px]">
+                    <p className="text-center pt-3 text-[16px] text-[#634AE2]  font-semibold leading-[20px] max-w-[200px]">
                       {icono.text}
                     </p>
                   </div>
@@ -143,7 +142,7 @@ export default function ServicesStructure({
                       </div>
                     </div>
 
-                    <p className="text-center pt-3 text-[16px] text-[#634AE2] font-lexend font-semibold leading-[20px] max-w-[120px]">
+                    <p className="text-center pt-3 text-[16px] text-[#634AE2] font-semibold leading-[20px] max-w-[120px]">
                       {icono.text}
                     </p>
                   </div>
@@ -153,12 +152,12 @@ export default function ServicesStructure({
           </div>
 
           <SliderPrice />
-          <div className="h-46 md:h-20   bg-[#DEDEFF] flex items-center">
-          <div className="flex flex-col items-center ml-80 md:flex-row justify-between w-full max-w-[1100px] space-x-10 ">
-              <p className="text-[18px] w-full   font-normal text-[#634AE2] md:text-start ">
+          <div className="h-46 md:h-20 fixed bottom-0 left-0 w-full bg-[#DEDEFF] flex justify-center items-center z-[9999]">
+            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[1100px] px-6 space-x-0 md:space-x-10">
+              <p className="text-[18px] w-full font-normal text-[#634AE2] md:text-start">
                 {item.textfooter}
               </p>
-              <button className="max-w-full min-w-[129px] md:w-[229px] h-[30px] bg-[#5A4AE8] rounded-[34px] text-white font-lexend font-normal text-[18px] md:text-[24px] leading-[33px] text-center">
+              <button className="w-full md:w-[529px] h-[40px] bg-[#5A4AE8] rounded-[34px] text-white font-normal text-[18px] md:text-[24px] leading-[33px] text-center">
                 Reserva tu cita gratuita
               </button>
             </div>
