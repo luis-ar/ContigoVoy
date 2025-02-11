@@ -150,7 +150,7 @@ export default function SliderPrice() {
                 key={index}
                 className="md:basis-1/2 lg:basis-1/3 flex justify-center"
               >
-           </Card>
+  
                 <div className="p-1   ">
                   <Card className="h-[480px] w-[322px] mx-auto border-0 shadow-none bg-white rounded-3xl">
                     <CardContent className=" py-6  h-full pl-0">
@@ -203,6 +203,7 @@ export default function SliderPrice() {
                   </Card>
                 </div>
               </CarouselItem>
+            
             ))}
           </CarouselContent>
           <CarouselPrevious
