@@ -13,13 +13,13 @@ export default function ReservarComponents() {
           Agenda tu sesión con un psicólogo en línea, fácil, seguro y privado
         </h5>
         <div className="flex justify-start pt-5">
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2">
-            <div className="col-span-1 flex justify-start ml-20 w-3/4">
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-2">
+            <div className="col-span-1 flex justify-start ml-20">
               <Divider orientation="vertical" className="h-full">
                 <ReservarComponentSearch />
               </Divider>
             </div>
-            <div className="grid grid-cols-2 pt-3 justify-start ml-auto w-1/4">
+            <div className="grid grid-cols-2 pt-3 justify-start ml-auto w-full">
               <ReservarPsiPreview />
               <ReservarPsiPreview />
               <ReservarPsiPreview />
