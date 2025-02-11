@@ -6,9 +6,11 @@ import FormContacto from "@/components/FormContacto";
 const ContactUs = () => {
   return (
     <div
-      className="min-h-screen  max-h-[2000px] w-full bg-cover bg-center "
+      className="min-h-screen max-h-[2000px] w-full bg-cover bg-center "
       style={{
-        backgroundImage: `linear-gradient(#634AE27A, #634AE27A), url('/SB.webp'), backgroundAttachment: cover, backgroundSize: '150%'`,
+          backgroundImage: `linear-gradient(#634AE27A, #634AE27A), url('/SB.webp')`,
+          backgroundSize: '130%',
+          backgroundPosition: '50% 80%', 
       }}
     >
       <div className="container mx-auto px-0 md:px-0 lg:px-0 py-20 ">
