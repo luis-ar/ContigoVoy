@@ -19,7 +19,7 @@ export default function ReservarComponents() {
                 <ReservarComponentSearch />
               </Divider>
             </div>
-            <div className="col-span-2.5 pt-12 pr-0 grid grid-cols-2 gap-1">
+            <div className="col-span-2.5 pt-12 lg:grid-cols-2  grid p- grid-cols-1 gap-1">
   <ReservarPsiPreview />
   <ReservarPsiPreview />
   <ReservarPsiPreview />

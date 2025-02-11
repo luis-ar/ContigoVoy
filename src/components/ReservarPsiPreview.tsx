@@ -28,7 +28,7 @@ export default function BlogPreview() {
             </div>
           </div>
         </div>
-        <CardContent className="border-t-2 border-[#9494F3]">
+        <CardContent className="border-t-[0.5px] border-[#9494F3]">
           <p className="text-[#634AE2] pt-3">Epecialidad / Maestría / Doctorado + 00 Años de experiencia</p>
         </CardContent>
         <CardFooter className="flex justify-center space-x-12 pt-3">
