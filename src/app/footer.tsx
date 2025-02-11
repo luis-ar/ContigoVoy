@@ -55,6 +55,7 @@ export default function Footer() {
               alt="Contigo Voy Logo"
               width={150}
               height={60}
+              style={{ width: "auto", height: "auto" }} 
             />
           </motion.div>
 

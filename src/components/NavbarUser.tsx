@@ -92,7 +92,7 @@ const NavbarUser = () => {
         <div className="bg-background w-full h-full rounded-2xl pt-7 flex flex-col">
           <Link href="/">
             <h1 className="font-normal text-3xl flex justify-center items-center">
-              <Image src={"/LOGO.png"} alt="logo" width={150} height={100} />
+              <Image src={"/LOGO.webp"} width={150} height={100} alt="logo"/>
             </h1>
           </Link>
           <div className="flex flex-col items-center gap-x-5 mt-4 pt-3">
