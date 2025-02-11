@@ -159,7 +159,7 @@ export default function ServicesStructure({
           <p className="text-[18px] w-full font-normal text-[#634AE2] md:text-start">
             {item.textfooter}
           </p>
-          <button className="w-full md:w-[529px] h-[50px] bg-[#5A4AE8] rounded-[34px] text-white font-normal text-[18px] md:text-[20px] leading-[33px] text-center">
+          <button className="w-full md:w-[529px] h-[50px] bg-[#5A4AE8] rounded-[34px] text-white font-normal text-[18px] md:text-[18px] leading-[33px] text-center">
             Reserva tu cita gratuita
           </button>
 
