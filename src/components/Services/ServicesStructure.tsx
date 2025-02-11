@@ -7,7 +7,8 @@ export default function ServicesStructure({
   services: ServicesStructureProps[];
 }) {
   return (
-    <div>
+    <div className="relative"> {/* Agregamos 'relative' aquí */}
+
       {services.map((item, index) => (
         <div className="embla__slide" key={index}>
           <div className="flex justify-between mx-6  pt-6 text-[#634AE2] pb-8 items-center ">
@@ -152,17 +153,17 @@ export default function ServicesStructure({
           </div>
 
           <SliderPrice />
-          <div className="h-46 md:h-20 fixed bottom-0 left-0 w-full bg-[#DEDEFF] flex justify-center items-center z-[9999]">
-            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[1100px] px-6 space-x-0 md:space-x-10">
-              <p className="text-[18px] w-full font-normal text-[#634AE2] md:text-start">
-                {item.textfooter}
-              </p>
-              <button className="w-full md:w-[529px] h-[40px] bg-[#5A4AE8] rounded-[34px] text-white font-normal text-[18px] md:text-[24px] leading-[33px] text-center">
-                Reserva tu cita gratuita
-              </button>
-            </div>
-          </div>
+          <div className="sticky bottom-0 left-0 w-full bg-[#DEDEFF] flex justify-center items-center z-[50] h-20">
+        <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[1100px] px-6 space-x-0 md:space-x-10">
+          <p className="text-[18px] w-full font-normal text-[#634AE2] md:text-start">
+            {item.textfooter}
+          </p>
+          <button className="w-full md:w-[529px] h-[50px] bg-[#5A4AE8] rounded-[34px] text-white font-normal text-[18px] md:text-[20px] leading-[33px] text-center">
+            Reserva tu cita gratuita
+          </button>
         </div>
+      </div>
+    </div>
       ))}
     </div>
   );
