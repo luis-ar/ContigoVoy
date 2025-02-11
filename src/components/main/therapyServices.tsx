@@ -57,7 +57,7 @@ export default function TherapyServices() {
         Servicios
       </motion.h2>
 
-      <div className="flex gap-[0.4px] md:flex-row flex-col">
+      <div className="flex gap-[3px] md:flex-row flex-col">
         {services.map((service, index) => (
           <motion.div
             key={service.title}
@@ -95,68 +95,7 @@ export default function TherapyServices() {
         ))}
       </div>
 
-      <Modal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        size="2xl"
-        scrollBehavior="inside"
-        backdrop="blur"
-      >
-        <ModalContent>
-          <div className="bg-gradient-to-br from-purple-600 to-purple-800 text-white p-6 rounded-lg">
-            <ModalHeader>
-              <h3 className="text-2xl font-bold">Terapia para niños</h3>
-            </ModalHeader>
-            <ModalBody>
-              <div className="space-y-6">
-              <p className="text-lg font-medium">
-                  Dirigido a niños de 3 a 12 años.
-                </p>
-                
-                <div>
-                <h4 className="text-xl font-semibold mb-2">
-                    Terapia para niños
-                  </h4>
-                  <p className="text-purple-100">
-                  Potencia el bienestar emocional de tu hijo. Empleamos una
-                    intervención dinámica, basada en el juego, para potenciar el
-                    bienestar integral del niño. La terapia contempla el entorno
-                    familiar y el ámbito escolar.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                  {[
-                    "Resolución de conflictos",
-                    "Habilidades sociales",
-                    "Traumas por separación de padres",
-                    "Inteligencia emocional",
-                    "Duelos y miedos",
-                    "Autoestima",
-                  ].map((item, index) => (
-                    <motion.div
-                      key={item}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="flex items-center space-x-2"
-                    >
-                      <span>{item}</span>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <Button
-                  className="w-full bg-white text-purple-600 hover:bg-purple-100 transition-colors font-semibold py-2 rounded-lg mt-6"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Reservar cita
-                </Button>
-              </div>
-            </ModalBody>
-          </div>
-        </ModalContent>
-      </Modal>
+     
     </div>
   );
 }

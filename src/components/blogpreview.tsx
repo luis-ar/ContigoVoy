@@ -1,5 +1,6 @@
 'use client';
 import { Divider, Image, User } from "@nextui-org/react";
+import Link from "next/link";
 
 export default function BlogPreview() {
   return (
@@ -17,7 +18,7 @@ export default function BlogPreview() {
             }
           />
           <p className="text-xl md:text-2xl pt-2 md:pt-3 pb-1 md:pb-2 font-semibold">
-            Estrategias Efectivas para Mejorar la Autoestima
+           <Link href={"blog/revista"} > Estrategias Efectivas para Mejorar la Autoestima</Link>
           </p>
           <p className="text-base md:text-xl leading-relaxed md:leading-7 line-clamp-3 md:h-20">
             La adolescencia es una etapa de grandes cambios y desafíos. Durante este periodo, se experimenta...
@@ -37,7 +38,7 @@ export default function BlogPreview() {
         </div>
         <div className="col-span-1 md:col-span-3">
         <p className="text-sm md:text-lg">Publicado el 17/07/2024</p>
-          <Divider className="my-2 md:my-4" />
+        <hr className="my-6 md:my-9 border-t-[0.5px] max-w-[785px] border-[#9494F3]" />
         </div>
         
       </div>

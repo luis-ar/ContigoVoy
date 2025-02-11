@@ -6,12 +6,14 @@ import FormContacto from "@/components/FormContacto";
 const ContactUs = () => {
   return (
     <div
-      className="min-h-screen w-full bg-cover bg-center "
+      className="min-h-screen max-h-[2000px] w-full bg-cover bg-center "
       style={{
-        backgroundImage: `linear-gradient(#634AE27A, #634AE27A), url('/SB.webp')`,
+          backgroundImage: `linear-gradient(#634AE27A, #634AE27A), url('/SB.webp')`,
+          backgroundSize: '130%',
+          backgroundPosition: '50% 80%', 
       }}
     >
-      <div className="container mx-auto px-4 md:px-12 lg:px-36 py-12 ">
+      <div className="container mx-auto px-0 md:px-0 lg:px-0 py-20 ">
         <div className="grid lg:grid-row-2 gap-8 items-center">
           <div className="text-white space-y-6">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">
