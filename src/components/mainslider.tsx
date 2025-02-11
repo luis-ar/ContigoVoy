@@ -20,7 +20,7 @@ const sections: SliderSection[] = [
     smallPhrase:
       "Con nuestras terapias virtuales, transformamos <br> tu vida y te acompañamos en cada paso de tu <br> camino hacia la sanación.",
     button: true,
-    background: "/carruselImages/chico.webp",
+    background: "/carruselImages/chicofix.webp",
   },
   {
     phrase: "Apoyo a un <br> click de distancia",
