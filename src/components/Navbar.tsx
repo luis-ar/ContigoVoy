@@ -49,7 +49,7 @@ const Navbar = () => {
   alt="logo" 
   width={150} 
   height={100} 
-  style={{ width: "auto", height: "auto" }} 
+  
 />
 
           </h1>
