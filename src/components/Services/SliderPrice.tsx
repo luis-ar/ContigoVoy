@@ -164,11 +164,11 @@ const cardservices = [
                             <p className="text-center text-xs font-bold text-[#634AE2]">
                               {item.regularprice}
                             </p>
-                            <div className="ml-8 mt-5 h-40">
-                              <ul className="list-none text-[14px] text-[#634AE2]">
+                            <div className="ml-5 mt-5 h-40">
+                              <ul className="list-none max-w-72  text-[14px] text-[#634AE2]">
                                 
                                 {item.list.map((item, index) => (
-                                <li className="flex items-center"
+                                <li className="flex items-center text-[14px] my-2 font-light leading-[17.5px]"
                                 key={index}>
                                   <svg
                                   
@@ -186,7 +186,7 @@ const cardservices = [
                                       strokeLinejoin="round"
                                     />
                                   </svg>
-                                 {item.text}
+                                {item.text}
                                 </li> ))}
                               </ul>
                             </div>

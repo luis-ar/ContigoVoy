@@ -1,4 +1,4 @@
-import {heroui} from '@heroui/theme';
+
 import { nextui } from "@nextui-org/react";
 import type { Config } from "tailwindcss";
 
@@ -93,5 +93,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"),nextui(),heroui()],
+  plugins: [require("tailwindcss-animate"),nextui()],
 } satisfies Config;
