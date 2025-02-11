@@ -130,7 +130,7 @@ export default function OnlinePsychology() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center "
         >
           <h2 className="text-[32px] leading-[40px] font-bold text-white mb-6">
             ¿Qué es la psicología online?
@@ -140,20 +140,20 @@ export default function OnlinePsychology() {
           </p>
         </motion.div>
 
-        <div className="flex flex-col  xl:flex-row">
-          <div className="w-full md:w-1/2 pl-8">
+        <div className="flex flex-col items-center xl:items-end xl:flex-row">
+          <div className="w-full md:w-2/3  justify-center flex">
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-20 w-fit max-w-2xl mx-auto md:mx-0"
+              className="grid grid-cols-1 md:grid-cols-2 gap-x-60 gap-y-20 w-fit max-w-2xl mx-auto md:mx-0"
             >
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.title}
                   variants={itemVariants}
                   whileHover={{ scale: 1.05 }}
-                  className="group flex flex-col items-center md:items-start text-center md:text-left w-fit"
+                  className="group flex flex-col items-center mt-14 xl:items-start xl:ml-10  text-center md:text-left w-full"
                 >
                   <div className="flex flex-col items-center justify-center w-40 h-40 rounded-full bg-[#634AE2] backdrop-blur-sm transition-all duration-300 cursor-pointer space-y-4">
                     <div className="p-4 bg-[#634AE2] rounded-full group-hover:bg-[#9494F3] transition-colors duration-300">
@@ -163,16 +163,16 @@ export default function OnlinePsychology() {
                   <h3 className="text-[18px] pt-5 leading-[22.5px] font-bold text-white   tracking-normal pb-3">
                     <span className="block">{feature.title}</span>
                   </h3>
-                  <p className="text-[16px] leading-[20px] text-white max-w-[13rem] tracking-normal font-light mx-auto md:mx-0">
+                  <p className="text-[16px] leading-[20px] text-white justify-center  tracking-normal font-light md:mx-0">
                     {feature.description}
                   </p>
                 </motion.div>
               ))}
             </motion.div>
           </div>
-          <div className="mitad w-[500px]  md:w-1/2 flex justify-end relative">
-              <div className="transform translate-x-1/2 w-[970px] " ref={emblaRef}>
-                <div className="embla__container w-[500px] ">
+          <div className="mitad w-[500px] hidden xl:block md:w-1/3">
+          <div className="transform translate-x-1/4 " ref={emblaRef}>
+                <div className="embla__container  ">
                   {features.map((item, index) => (
                     <div className="embla__slide "
                     
@@ -186,20 +186,7 @@ export default function OnlinePsychology() {
                     </div>
                   ))}
                 </div>
-                {/* Dots container */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                  {features.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => scrollTo(index)}
-                      className={`
-              w-3 h-3 rounded-full transition-all duration-300
-              ${selectedIndex === index ? "bg-[#634AE2]" : "bg-white"}
-              `}
-                    />
-                  ))}
-             
-              </div>
+               
             </div>
           </div>
         </div>
