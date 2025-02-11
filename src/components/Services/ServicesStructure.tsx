@@ -153,13 +153,13 @@ export default function ServicesStructure({
           </div>
 
           <SliderPrice />
-          <div className="h-56 md:h-40 bg-[#DEDEFF] flex items-center justify-center px-4 sm:px-8">
-            <div className="flex flex-col  md:flex-row justify-between w-full max-w-[1100px] space-y-4 md:space-y-0">
+          <div className="h-30 md:h-32 bg-[#DEDEFF] flex items-center justify-center px-4 sm:px-8">
+            <div className="flex flex-col  md:flex-row justify-between items-center   w-full max-w-[1100px] space-y-4 md:space-y-0">
               {/* Texto del footer */}
-              <p className="text-[24px] leading-[38px] font-medium text-[#634AE2] md:text-start max-w-[652px]">
+              <p className="text-[24px] leading-[38px] font-medium text-[#634AE2] md:text-start max-w-[802px]">
                 {item.textfooter}
               </p>
-              <button className="w-full md:w-[359px] h-[70px] bg-[#5A4AE8] rounded-[34px] text-white font-lexend font-normal text-[18px] md:text-[24px] leading-[33px] text-center">
+              <button className="w-full md:w-[319px] h-[56px] bg-[#5A4AE8] rounded-[34px] text-white  font-normal text-[18px] lg:text-[24px] leading-[33px] text-center">
                 Reserva tu cita gratuita
               </button>
             </div>
