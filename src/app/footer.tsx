@@ -12,10 +12,10 @@ export default function Footer() {
       links: [
         { text: "Inicio", href: "#" },
         { text: "Sobre Nosotros", href: "#" },
-        { text: "Servicios", href: "#" },
-        { text: "Contactanos", href: "#" },
-        { text: "Preguntas Frecuentes", href: "#" },
-        { text: "Blog", href: "#" },
+        { text: "Servicios", href: "servicios/terapia/infantes" },
+        { text: "Contactanos", href: "contactanos" },
+        { text: "Preguntas Frecuentes", href: "PreguntasFrecuentes" },
+        { text: "Blog", href: "blog" },
       ],
     },
   ];

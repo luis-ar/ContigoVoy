@@ -5,27 +5,27 @@ const redes = [
   {
     nombre: "tiktok",
     icono: Icons.tiktok,
-    link: "https://www.tiktok.com/@luisdemaryori",
+    link: " https://www.tiktok.com/@contigovoy.pe",
   },
   {
     nombre: "threads",
     icono: Icons.threads,
-    link: "https://twitter.com/luisdemaryori",
+    link: "https://www.threads.net/@centropsicologico_contigovoy?xmt=AQGzhgUl3zE052rR0Uo6GYSGAMvTqFrOObja-kBjKoMA7A",
   },
   {
     nombre: "instagram",
     icono: Icons.instagram,
-    link: "https://www.instagram.com/luisdemaryori/",
+    link: "https://www.instagram.com/centropsicologico_contigovoy?igsh=MjZjNDk5bXh6czcz",
   },
   {
     nombre: "facebook",
     icono: Icons.facebook,
-    link: "https://www.facebook.com/luis.demaryo.rios",
+    link: "https://www.facebook.com/contigovoy.pe",
   },
   {
     nombre: "youtube",
     icono: Icons.youtube,
-    link: "https://wa.me/919951020025",
+    link: " https://youtube.com/@contigovoype?si=r47RqVuOdhpMDXoA",
   },
   
 ];

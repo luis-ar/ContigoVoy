@@ -1,5 +1,6 @@
 import { ServicesStructureProps } from "@/interface";
 import SliderPrice from "./SliderPrice";
+import Link from "next/link";
 
 export default function ServicesStructure({
   services,
@@ -156,14 +157,15 @@ export default function ServicesStructure({
           <SliderPrice />
 
           <div className="sticky bottom-0 left-0 w-full bg-[#DEDEFF] flex justify-center items-center z-[50] h-20">
-        <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[1100px] px-6 space-x-0 md:space-x-10">
-          <p className="text-[18px] w-full font-normal text-[#634AE2] md:text-start">
+        <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-[1230px] px-6 space-x-0 ">
+          <p className="text-[18px] w-full md:w-[500px] font-medium text-[#634AE2] md:text-start">
             {item.textfooter}
           </p>
-          <button className="w-full md:w-[529px] h-[50px] bg-[#5A4AE8] rounded-[34px] text-white font-normal text-[18px] md:text-[18px] leading-[33px] text-center">
+          <Link href="/ReservarCita">
+          <button   className="w-full md:w-[329px]  h-[50px] bg-[#5A4AE8] rounded-[34px] text-white font-normal text-[18px] md:text-[18px] leading-[33px] text-center">
             Reserva tu cita gratuita
           </button>
-
+                </Link>
         </div>
       </div>
     </div>
