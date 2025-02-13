@@ -87,21 +87,22 @@ export default function ServicesStructure({
             </div>
           </div>
 
-          <div className="pt-24 flex justify-center">
-            <div className="w-[937px] text-[#634AE2] h-[74px] font-semi bold text-[24px] leading-[33px] text-center">
+          <div style={{
+              backgroundImage: `url(${item.bgdown})`,
+              backgroundPosition: "right bottom",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "auto",
+             
+            }}>
+          <div className="pt-24 flex justify-start pl-96">
+            <div className="w-[837px] text-[#634AE2] h-[74px] font-semibold text-[24px] leading-[33px] text-center">
               {item.tittleIcon}
             </div>
           </div>
 
           <div
-            className="flex justify-center pb-32 pt-8 w-full h-auto"
-            style={{
-              backgroundImage: `url(${item.bgdown})`,
-              backgroundPosition: "right center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-             
-            }}
+            className="flex justify-start pl-64 pb-32 pt-8 w-full h-auto"
+            
           >
             <div className="flex pt-14 flex-col items-center gap-y-20">
               {/* Primera fila - 3 iconos */}
@@ -151,7 +152,7 @@ export default function ServicesStructure({
               </div>
             </div>
           </div>
-
+          </div>
           <SliderPrice />
 
           <div className="sticky bottom-0 left-0 w-full bg-[#DEDEFF] flex justify-center items-center z-[50] h-20">

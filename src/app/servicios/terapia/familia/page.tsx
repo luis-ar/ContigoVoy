@@ -6,7 +6,7 @@ import { ServicesStructureProps } from "@/interface"
   motto:
     "¿Sientes que los conflictos familiares están afectando el bienestar de tu hogar?",
   background: "/Services/family/bgfamily.webp",
-  bgdown:"/Services/family/bgdownfamily.webp",
+  bgdown:"/Services/family/bgdownfamilia.webp",
   description:
     "Estamos aquí para ayudarte a sanar y fortalecer los lazos entre ustedes. En la terapia familiar,encontrarás un espacio para comunicarse, comprenderse mejor y resolver las dificultades que afectan a tu familia. Juntos podemos restaurar el equilibrio y la armonía.",
   tittleIcon:
