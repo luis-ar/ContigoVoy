@@ -5,10 +5,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { ThemeToggle } from "./Themetoggle";
-import { DataUser } from "./DataUser";
-import { Panel } from "./PanelUser";
-import { MobileNavbar } from "./MobileNavbarUser";
 
 export const DesktopNavUser = ({ navItems }: any) => {
   const [hovered, setHovered] = useState<number | null>(null);
@@ -19,22 +15,22 @@ export const DesktopNavUser = ({ navItems }: any) => {
       <motion.div
         onMouseLeave={() => setHovered(null)}
         className={cn(
-          "relative z-[60] mx-auto hidden w-full flex-col items-center self-start rounded-full py-2 lg:flex",
-          "inset-x-0 h-auto"
+          "relative z-[60] mx-auto hidden w-full flex-col items-center self-start rounded-full py-4 lg:flex",
+          "inset-x-2 h-auto"
         )}
       >
-        <div className="flex flex-col items-start gap-4 ">
+        <div className="flex flex-col items-start gap-3 ">
           {navItems.map((navItem: any, idx: number) => (
             <div
               key={idx}
-              className="w-full flex justify-start items-center gap-4"
+              className="w-full flex justify-start gap-8"
             >
               {" "}
               <Link
                 onMouseEnter={() => setHovered(idx)}
-                className={`w-full relative flex items-center px-3 py-2 text-muted-foreground ${
+                className={`w-full relative flex px-3 py-3 text-muted-foreground ${
                   pathname === navItem.link || hovered === idx
-                    ? "bg-[#9494F3] rounded-full"
+                    ? "bg-[#9494F3] rounded-xl"
                     : ""
                 }`}
                 href={navItem.link}

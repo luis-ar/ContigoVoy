@@ -98,14 +98,14 @@ const NavbarUser = () => {
       </div>
 
       {/* Navbar */}
-      <div className="hidden lg:flex w-60 h-screen fixed p-4">
+      <div className="hidden lg:flex w-64 h-screen fixed p-4">
         <div className="bg-background w-full h-full rounded-2xl pt-7 flex flex-col">
           <Link href="/">
             <h1 className="font-normal text-3xl flex justify-center items-center">
-              <Image src={"/LOGO.webp"} width={150} height={100} alt="logo"/>
+              <Image src={"/LOGO.webp"} width={140} height={90} alt="logo"/>
             </h1>
           </Link>
-          <div className="flex flex-col items-center gap-x-5 mt-4 pt-3">
+          <div className="flex flex-col items-center mt-8 pt-3">
             <DesktopNavUser navItems={navItems} />
           </div>
         </div>
@@ -129,20 +129,6 @@ const NavbarUser = () => {
                 </div>
               </div>
               <div className="flex items-center gap-x-5">
-                <span
-                  className="text-[#7b8484] hover:text-[#000] transition-colors "
-                  dangerouslySetInnerHTML={{
-                    __html: Icons.configuracion.replace(
-                      /<svg /,
-                      '<svg fill="currentColor" '
-                    ),
-                  }}
-                  style={{
-                    width: "1.2em",
-                    height: "1.2em",
-                    marginRight: "0.5em",
-                  }}
-                />
                 <DataUser ref={userRef} estado={estado} setEstado={setEstado} />
                 <ThemeToggle />
               </div>
