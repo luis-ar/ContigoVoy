@@ -98,14 +98,14 @@ const NavbarUser = () => {
       </div>
 
       {/* Navbar */}
-      <div className="hidden lg:flex w-64 h-screen fixed p-4">
-        <div className="bg-background w-full h-full rounded-2xl pt-7 flex flex-col">
+      <div className="hidden lg:flex w-72 h-screen fixed">
+        <div className="bg-background w-full h-full rounded-tr-3xl pt-7 flex flex-col">
           <Link href="/">
             <h1 className="font-normal text-3xl flex justify-center items-center">
-              <Image src={"/LOGO.webp"} width={140} height={90} alt="logo"/>
+              <Image src={"/LOGO.webp"} width={200} height={150} alt="logo"/>
             </h1>
           </Link>
-          <div className="flex flex-col items-center mt-8 pt-3">
+          <div className="flex flex-col items-center mt-8 pt-7 mr-7">
             <DesktopNavUser navItems={navItems} />
           </div>
         </div>
@@ -127,10 +127,10 @@ const NavbarUser = () => {
                   <span className="font-bold text-[#416cd8] ">x citas</span>{" "}
                   programadas para hoy
                 </div>
+                <ThemeToggle />
               </div>
               <div className="flex items-center gap-x-5">
                 <DataUser ref={userRef} estado={estado} setEstado={setEstado} />
-                <ThemeToggle />
               </div>
             </div>
           </nav>

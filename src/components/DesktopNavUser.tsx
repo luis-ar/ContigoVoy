@@ -15,15 +15,15 @@ export const DesktopNavUser = ({ navItems }: any) => {
       <motion.div
         onMouseLeave={() => setHovered(null)}
         className={cn(
-          "relative z-[60] mx-auto hidden w-full flex-col items-center self-start rounded-full py-4 lg:flex",
-          "inset-x-2 h-auto"
+          "relative z-[60] hidden w-full flex-col items-center justify-center self-center py-4 lg:flex",
+          "inset-x-5 h-auto"
         )}
       >
-        <div className="flex flex-col items-start gap-3 ">
+        <div className="ml-5 flex flex-col items-center gap-3 mr-7">
           {navItems.map((navItem: any, idx: number) => (
             <div
               key={idx}
-              className="w-full flex justify-start gap-8"
+              className="w-full flex justify-center gap-6"
             >
               {" "}
               <Link
@@ -37,7 +37,7 @@ export const DesktopNavUser = ({ navItems }: any) => {
               >
                 <span
                   className={cn(
-                    "relative z-20 text-sm",
+                    " z-20 text-lg",
                     hovered === idx || pathname === navItem.link
                       ? "text-white"
                       : "text-[#7b8fbd] dark:text-primary"
@@ -51,15 +51,15 @@ export const DesktopNavUser = ({ navItems }: any) => {
                   style={{
                     width: "1.2em",
                     height: "1.2em",
-                    marginRight: "0.5em",
+                    marginRight: "2em",
                   }}
                 />
                 <span
                   className={cn(
-                    "relative z-20 text-sm",
+                    "relative z-20 text-sm font-bold pt-1",
                     hovered === idx || pathname === navItem.link
                       ? "text-white"
-                      : "text-[#7b8fbd] dark:text-primary"
+                      : "text-[#634AE2] dark:text-primary"
                   )}
                 >
                   {navItem.name}
