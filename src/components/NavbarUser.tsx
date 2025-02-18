@@ -102,7 +102,7 @@ const NavbarUser = () => {
         <div className="bg-background w-full h-full rounded-tr-3xl pt-7 flex flex-col">
           <Link href="/">
             <h1 className="font-normal text-3xl flex justify-center items-center">
-              <Image src={"/LOGO.webp"} width={200} height={150} alt="logo"/>
+              <Image src={"/LOGO.webp"} width={200} height={150} alt="logo" />
             </h1>
           </Link>
           <div className="flex flex-col items-center mt-8 pt-7 mr-7">
@@ -112,23 +112,28 @@ const NavbarUser = () => {
       </div>
 
       {/* Header */}
-      <div className="hidden lg:flex flex-1 ml-80 fixed mt-4 ">
+      <div className="hidden lg:flex flex-1 ml-80 fixed">
         <div>
-          <nav className="rounded-2xl mt-3 bg-[#eaeded] h-[12vh] flex items-center fixed z-10 top-1 w-[calc(95vw-270px)] p-4">
-            <div className="flex items-center justify-between w-full">
+          <nav className="rounded-2xl mt-3 bg-[#eaeded] h-[12vh] flex items-center fixed z-10 top-6 w-[calc(95vw-270px)] p-4">
+            <div className="flex items-start justify-between w-full">
               <div>
-                <div className="text-4xl font-bold text-[#534489]">
+                <div className="text-4xl font-bold text-[#634AE2]">
                   <h1>
-                    ¡Buenos dias, {user.name} {user.lastname} !
+                    ¡Buenos dias, {user.name} {user.lastname}!
                   </h1>
                 </div>
-                <div className="text-0xl font-bold text-[#6A90F1]">
-                  Tienes{" "}
-                  <span className="font-bold text-[#416cd8] ">x citas</span>{" "}
-                  programadas para hoy
+                <div className="text-0xl font-normal text-[#634AE2] pt-1">
+                  Preparate para un gran dia.
+                </div>
+                <div className="text-0xl font-bold text-[#634AE2]">
+                  Tienes x citas programadas para hoy
+                </div>
+                <div className="text-0xl font-normal text-[#634AE2]">
+                  Aprovecha para planificar tus próximos objetivos.
                 </div>
               </div>
-              <div className="flex items-center gap-x-5">
+              {/* Contenedor de ThemeToggle y DataUser */}
+              <div className="flex gap-x-5 mt-2">
                 <ThemeToggle />
                 <DataUser ref={userRef} estado={estado} setEstado={setEstado} />
               </div>

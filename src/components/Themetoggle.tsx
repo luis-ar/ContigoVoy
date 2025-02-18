@@ -19,24 +19,24 @@ export function ThemeToggle() {
           onChange={toggleTheme}
         />
         <span
-          className={`absolute cursor-pointer top-0 left-0 right-0 bottom-0 transition-all duration-400 rounded-full ${
+          className={`absolute h-[33px] cursor-pointer top-0 left-0 right-0 bottom-0 transition-all duration-1500 rounded-full ${
             theme === "light"  ? "bg-[#9494F3]" : "bg-[#9494F3]"
           }`}
         >
           <span
-            className={`absolute h-8 w-8 bg-[#634AE2] rounded-full transition-all duration-400 ${
+            className={`absolute h-[33px] w-[33px] bg-[#634AE2] rounded-full transition-all duration-1500  ${
               theme === "light"  ? "translate-x-8" : "translate-x-0"
             }`}
           ></span>
         </span>
 
         <span
-          className="sun absolute top-1/2 right-1 z-10 w-6 h-6 transition-all duration-400 transform -translate-y-1/2"
+          className="sun absolute top-1/2 right-[2px] z-10 w-6 h-6 transition-all duration-1500  transform -translate-y-1/2"
           dangerouslySetInnerHTML={{ __html: Icons.sun }}
         ></span>
 
         <span
-          className="moon absolute top-1/2 left-1 z-10 w-6 h-6 transition-all duration-400 transform -translate-y-1/2"
+          className="moon absolute top-1/2 left-2 z-10 w-6 h-6 transition-all duration-1500 transform -translate-y-1/2"
           dangerouslySetInnerHTML={{ __html: Icons.moon }}
         ></span>
       </label>
