@@ -5,8 +5,6 @@ import { Icons } from "@/icons";
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme();
-
-  // Función para alternar el tema entre "light" y "dark"
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
@@ -17,36 +15,31 @@ export function ThemeToggle() {
         <input
           type="checkbox"
           className="opacity-0 w-0 h-0"
-          checked={theme === "dark"}
+          checked={theme === "light" }
           onChange={toggleTheme}
         />
         <span
           className={`absolute cursor-pointer top-0 left-0 right-0 bottom-0 transition-all duration-400 rounded-full ${
-            theme === "dark" ? "bg-[#183153]" : "bg-blue-300"
+            theme === "light"  ? "bg-[#9494F3]" : "bg-[#9494F3]"
           }`}
         >
           <span
-            className={`absolute h-7 w-7 bg-gray-200 rounded-full transition-all duration-400 ${
-              theme === "dark" ? "translate-x-8" : "left-1"
+            className={`absolute h-8 w-8 bg-[#634AE2] rounded-full transition-all duration-400 ${
+              theme === "light"  ? "translate-x-8" : "translate-x-0"
             }`}
           ></span>
         </span>
+
         <span
-          className={`sun absolute top-1.5 z-10 w-6 h-6 transition-all duration-400 ${
-            theme === "dark" ? "opacity-0" : "opacity-100 left-9"
-          }`}
+          className="sun absolute top-1/2 right-1 z-10 w-6 h-6 transition-all duration-400 transform -translate-y-1/2"
           dangerouslySetInnerHTML={{ __html: Icons.sun }}
-        >
-        </span>
+        ></span>
+
         <span
-          className={`moon absolute top-1 z-10 w-6 h-6 transition-all duration-400 ${
-            theme === "dark" ? "opacity-100 left-1" : "opacity-0"
-          }`}
+          className="moon absolute top-1/2 left-1 z-10 w-6 h-6 transition-all duration-400 transform -translate-y-1/2"
           dangerouslySetInnerHTML={{ __html: Icons.moon }}
-        >
-        </span>
+        ></span>
       </label>
     </div>
-
   );
 }

@@ -112,10 +112,10 @@ const NavbarUser = () => {
       </div>
 
       {/* Header */}
-      <div className="hidden lg:flex flex-1 ml-60 fixed mt-4">
+      <div className="hidden lg:flex flex-1 ml-80 fixed mt-4 ">
         <div>
-          <nav className="rounded-2xl mt-3 bg-background h-[12vh] flex items-center fixed z-10 top-1 w-[calc(100vw-270px)] p-4">
-            <div className="flex items-center justify-between w-full mr-1">
+          <nav className="rounded-2xl mt-3 bg-[#eaeded] h-[12vh] flex items-center fixed z-10 top-1 w-[calc(95vw-270px)] p-4">
+            <div className="flex items-center justify-between w-full">
               <div>
                 <div className="text-4xl font-bold text-[#534489]">
                   <h1>
@@ -127,9 +127,9 @@ const NavbarUser = () => {
                   <span className="font-bold text-[#416cd8] ">x citas</span>{" "}
                   programadas para hoy
                 </div>
-                <ThemeToggle />
               </div>
               <div className="flex items-center gap-x-5">
+                <ThemeToggle />
                 <DataUser ref={userRef} estado={estado} setEstado={setEstado} />
               </div>
             </div>
