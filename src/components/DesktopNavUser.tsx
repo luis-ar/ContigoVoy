@@ -5,10 +5,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { ThemeToggle } from "./Themetoggle";
-import { DataUser } from "./DataUser";
-import { Panel } from "./PanelUser";
-import { MobileNavbar } from "./MobileNavbarUser";
 
 export const DesktopNavUser = ({ navItems }: any) => {
   const [hovered, setHovered] = useState<number | null>(null);
@@ -19,29 +15,29 @@ export const DesktopNavUser = ({ navItems }: any) => {
       <motion.div
         onMouseLeave={() => setHovered(null)}
         className={cn(
-          "relative z-[60] mx-auto hidden w-full flex-col items-center self-start rounded-full py-2 lg:flex",
-          "inset-x-0 h-auto"
+          "relative z-[60] hidden w-full flex-col items-center justify-center self-center py-4 lg:flex",
+          "inset-x-5 h-auto"
         )}
       >
-        <div className="flex flex-col items-start gap-4 ">
+        <div className="ml-5 flex flex-col items-center gap-3 mr-7">
           {navItems.map((navItem: any, idx: number) => (
             <div
               key={idx}
-              className="w-full flex justify-start items-center gap-4"
+              className="w-full flex justify-center gap-6"
             >
               {" "}
               <Link
                 onMouseEnter={() => setHovered(idx)}
-                className={`w-full relative flex items-center px-3 py-2 text-muted-foreground ${
+                className={`w-full relative flex px-3 py-3 text-muted-foreground ${
                   pathname === navItem.link || hovered === idx
-                    ? "bg-[#534489] rounded-full"
+                    ? "bg-[#9494F3] rounded-xl"
                     : ""
                 }`}
                 href={navItem.link}
               >
                 <span
                   className={cn(
-                    "relative z-20 text-sm",
+                    " z-20 text-lg",
                     hovered === idx || pathname === navItem.link
                       ? "text-white"
                       : "text-[#7b8fbd] dark:text-primary"
@@ -55,15 +51,15 @@ export const DesktopNavUser = ({ navItems }: any) => {
                   style={{
                     width: "1.2em",
                     height: "1.2em",
-                    marginRight: "0.5em",
+                    marginRight: "2em",
                   }}
                 />
                 <span
                   className={cn(
-                    "relative z-20 text-sm",
+                    "relative z-20 text-sm font-bold pt-1",
                     hovered === idx || pathname === navItem.link
                       ? "text-white"
-                      : "text-[#7b8fbd] dark:text-primary"
+                      : "text-[#634AE2] dark:text-primary"
                   )}
                 >
                   {navItem.name}

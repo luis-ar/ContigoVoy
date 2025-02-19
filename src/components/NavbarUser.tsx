@@ -38,9 +38,19 @@ const navItems = [
     icono: Icons.calendario,
   },
   {
+    name: "Estadisticas",
+    link: "/user/estadisticas",
+    icono: Icons.estadisticas,
+  },
+  {
     name: "Blog",
     link: "/user/blog",
     icono: Icons.blog,
+  },
+  {
+    name: "Marketing",
+    link: "/user/marketing",
+    icono: Icons.marketing,
   },
   {
     name: "Politicas y Privacidad",
@@ -88,53 +98,44 @@ const NavbarUser = () => {
       </div>
 
       {/* Navbar */}
-      <div className="hidden lg:flex w-60 h-screen fixed p-4">
-        <div className="bg-background w-full h-full rounded-2xl pt-7 flex flex-col">
+      <div className="hidden lg:flex w-72 h-screen fixed">
+        <div className="bg-background w-full h-full rounded-tr-3xl pt-7 flex flex-col">
           <Link href="/">
             <h1 className="font-normal text-3xl flex justify-center items-center">
-              <Image src={"/LOGO.webp"} width={150} height={100} alt="logo"/>
+              <Image src={"/LOGO.webp"} width={200} height={150} alt="logo" />
             </h1>
           </Link>
-          <div className="flex flex-col items-center gap-x-5 mt-4 pt-3">
+          <div className="flex flex-col items-center mt-8 pt-7 mr-7">
             <DesktopNavUser navItems={navItems} />
           </div>
         </div>
       </div>
 
       {/* Header */}
-      <div className="hidden lg:flex flex-1 ml-60 fixed mt-4">
+      <div className="hidden lg:flex flex-1 ml-80 fixed">
         <div>
-          <nav className="rounded-2xl mt-3 bg-background h-[12vh] flex items-center fixed z-10 top-1 w-[calc(100vw-270px)] p-4">
-            <div className="flex items-center justify-between w-full mr-1">
+          <nav className="rounded-2xl mt-3 bg-[#eaeded] h-[12vh] flex items-center fixed z-10 top-6 w-[calc(95vw-270px)] p-4">
+            <div className="flex items-start justify-between w-full">
               <div>
-                <div className="text-4xl font-bold text-[#534489]">
+                <div className="text-4xl font-bold text-[#634AE2]">
                   <h1>
-                    ¡Buenos dias, {user.name} {user.lastname} !
+                    ¡Buenos dias, {user.name} {user.lastname}!
                   </h1>
                 </div>
-                <div className="text-0xl font-bold text-[#6A90F1]">
-                  Tienes{" "}
-                  <span className="font-bold text-[#416cd8] ">x citas</span>{" "}
-                  programadas para hoy
+                <div className="text-0xl font-normal text-[#634AE2] pt-1">
+                  Preparate para un gran dia.
+                </div>
+                <div className="text-0xl font-bold text-[#634AE2]">
+                  Tienes x citas programadas para hoy
+                </div>
+                <div className="text-0xl font-normal text-[#634AE2]">
+                  Aprovecha para planificar tus próximos objetivos.
                 </div>
               </div>
-              <div className="flex items-center gap-x-5">
-                <span
-                  className="text-[#7b8484] hover:text-[#000] transition-colors "
-                  dangerouslySetInnerHTML={{
-                    __html: Icons.configuracion.replace(
-                      /<svg /,
-                      '<svg fill="currentColor" '
-                    ),
-                  }}
-                  style={{
-                    width: "1.2em",
-                    height: "1.2em",
-                    marginRight: "0.5em",
-                  }}
-                />
-                <DataUser ref={userRef} estado={estado} setEstado={setEstado} />
+              {/* Contenedor de ThemeToggle y DataUser */}
+              <div className="flex gap-x-5 mt-2">
                 <ThemeToggle />
+                <DataUser ref={userRef} estado={estado} setEstado={setEstado} />
               </div>
             </div>
           </nav>
